@@ -1,0 +1,24 @@
+img {
+    width: 75px;
+}
+
+.navbar {
+    height: 75px;
+    background: #845EC2;
+}
+
+.btn-login {
+    background: #845EC2;
+}
+
+.btn-login:hover {
+    background: #845EC2;
+}
+
+.btn-register {
+    color: #845EC2;
+}
+
+.btn-register:hover {
+    color: #845EC2;
+}
