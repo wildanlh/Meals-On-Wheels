@@ -1,9 +1,12 @@
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { fbbutton, googlebutton } from "../../assets";
 
 import './Form.css';
 
 const FormLogin = () => {
+    const url = "https://google.com";
+
     return (
 
         <div className="container col-10 col-sm-8 col-lg-6 d-flex justify-content-center">
@@ -28,12 +31,21 @@ const FormLogin = () => {
                         <span className="or-text">OR</span>
                     </div>
                     <div className="social-login mx-3">
-                        <a href="">
+                        <a href={url}>
                             <img src={fbbutton} alt="" className="w-100 mb-3" />
                         </a>
-                        <a href="">
+                        <a href={url}>
                             <img src={googlebutton} alt="" className="w-100" />
                         </a>
+                    </div>
+                    <div className="text-center mt-3 p-3">
+                        <span>Don't have an account?</span>
+                        <Link
+                            to="/register"
+                            className="ms-2 text-white"
+                        >
+                            Register
+                        </Link>
                     </div>
                 </Form>
             </div>
