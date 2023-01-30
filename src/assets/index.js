@@ -1,4 +1,6 @@
 import logo from './img/logo.svg';
+import fbbutton from './img/fb-button.svg';
+import googlebutton from './img/google-button.svg';
 import banner1 from './img/banner1.jpg';
 import banner2 from './img/banner2.jpg';
 import herobg1 from './img/hero-bg1.jpg';
@@ -14,6 +16,8 @@ import yt from './img/icon-yt.svg';
 
 export {
     logo,
+    fbbutton,
+    googlebutton,
     banner1,
     banner2,
     herobg1,
