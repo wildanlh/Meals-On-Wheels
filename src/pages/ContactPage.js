@@ -48,7 +48,7 @@ const ContactPage = () => {
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade" />
                     </div>
-                    <div className="bot-maps text-center">
+                    <div className="bot-maps text-center mb-5">
                         <h1 className="fw-bold py-3 text-white">Blank</h1>
                     </div>
                 </div>
