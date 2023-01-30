@@ -35,7 +35,7 @@ const NavBar = () => {
                         <NavLink
                             activeclassname="active"
                             className="nav-link fw-bold text-light"
-                            to="/contact"
+                            to="/about"
                         >
                             About Us
                         </NavLink>
