@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import DonatePage from './pages/DonatePage';
 import PartnershipPage from './pages/PartnershipPage';
 import LoginPage from './pages/LoginPage';
+import TermsAndCondition from './pages/TermsAndConditionPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/partnership" element={<PartnershipPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/terms" element={<TermsAndCondition />} />
     </Routes>
   );
 }
