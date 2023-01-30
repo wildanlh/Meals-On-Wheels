@@ -69,7 +69,7 @@ const FormDonate = () => {
                         />
                     </FloatingLabel>
                     <div className="text-center mb-2">
-                        <Button className="button fw-bold">Donate Now</Button>
+                        <Button className="button fw-bold" size="lg">Donate Now</Button>
                     </div>
                 </Form>
             </div>
