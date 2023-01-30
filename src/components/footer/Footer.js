@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import { fb, ig, tw, yt } from '../../assets';
 import './Footer.css';
 
@@ -7,7 +8,7 @@ const Footer = () => {
 
     return (
         <div>
-            <div className="social-media d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+            <div className="social-media d-flex flex-wrap justify-content-between align-items-center py-3 mb-4">
                 <div className="col-md-4 d-flex align-items-center mx-3">
                     <h3 className='mx-3 text-white'>Get connected with us on social networks:</h3>
                 </div>
@@ -47,10 +48,10 @@ const Footer = () => {
                         <div className="col mb-3" bis_skin_checked="1">
                             <h5>Navigation</h5>
                             <ul className="nav flex-column">
-                                <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-white">Privacy Policy</a></li>
-                                <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-white">About us</a></li>
-                                <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-white">Donate</a></li>
-                                <li className="nav-item mb-2"><a href={link} className="nav-link p-0 text-white">Partnership</a></li>
+                                <Link to="/terms"><li className="nav-item mb-2 nav-link p-0 text-white">Privacy Policy</li></Link>
+                                <Link to="/about"><li className="nav-item mb-2 nav-link p-0 text-white">About Us</li></Link>
+                                <Link to="/donate"><li className="nav-item mb-2 nav-link p-0 text-white">Donate</li></Link>
+                                <Link to="/partnership"><li className="nav-item mb-2 nav-link p-0 text-white">Partnership</li></Link>
                             </ul>
                         </div>
 
@@ -66,8 +67,8 @@ const Footer = () => {
                         </div>
                     </footer>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
 
     );
 }
