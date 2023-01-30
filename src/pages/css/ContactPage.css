@@ -1,0 +1,11 @@
+.top-maps {
+    border: 5px solid #845EC2;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 0;
+}
+
+.bot-maps {
+    border: 5px solid #845EC2;
+    border-radius: 0 0 10px 10px;
+    border-top: 0;
+}
