@@ -32,7 +32,7 @@ const AboutPage = () => {
                 <h1 className="fw-bold">Our <span className="yellow">Vision</span></h1>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis pariatur laborum qui cupiditate consequatur illum, est in distinctio possimus animi iure voluptates? Cupiditate, dolorum voluptate facilis et assumenda sunt sit.</p>
             </div>
-            <div className="staff">
+            <div className="staff mb-5">
                 <div className="container text-center py-5">
                     <h1 className="fw-bold">Our <span className="yellow">Staff</span></h1>
                     <Row>
