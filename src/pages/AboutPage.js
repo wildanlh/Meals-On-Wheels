@@ -20,7 +20,6 @@ const AboutPage = () => {
                         <p>Lorem ipsum dolor sit amet tincidunt turpis per. Augue convallis sem taciti penatibus semper etiam magnis pulvinar malesuada. Si vivamus integer elit tempor nulla lorem magna erat porta ipsum. Ligula interdum scelerisque mi pulvinar gravida. Integer conubia proin tortor montes felis aliquam letius purus. Massa gravida taciti pharetra ante curae bibendum. Pretium metus sed dignissim viverra consequat diam. Praesent hac est curabitur eu non justo porta tincidunt.
                             <br /> <br />
                             Aliquet curabitur tempor volutpat suscipit gravida laoreet viverra nisi ex. Arcu nisl molestie magnis fringilla feugiat scelerisque id rhoncus dis. Accumsan a nisl lorem ligula cursus etiam. Consequat enim tempor leo libero fringilla sagittis cursus magnis sapien massa.
-
                         </p>
                     </div>
                 </div>

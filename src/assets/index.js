@@ -1,7 +1,8 @@
 import logo from './img/logo.svg';
 import banner1 from './img/banner1.jpg';
 import banner2 from './img/banner2.jpg';
-import herobg1 from './img/hero-bg.jpg';
+import herobg1 from './img/hero-bg1.jpg';
+import herobg2 from './img/hero-bg2.jpg';
 import aboutbanner from './img/about-banner.jpg';
 import person from './img/person1.jpg';
 import topwave from './img/top-wave.svg';
@@ -16,6 +17,7 @@ export {
     banner1,
     banner2,
     herobg1,
+    herobg2,
     aboutbanner,
     topwave,
     botwave,
