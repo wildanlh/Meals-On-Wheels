@@ -9,6 +9,8 @@ import PartnershipPage from './pages/PartnershipPage';
 import LoginPage from './pages/LoginPage';
 import TermsAndCondition from './pages/TermsAndConditionPage';
 import MemberHomePage from './pages/MemberHomePage';
+import MemberMealPackageDetailPage from './pages/MemberMealPackageDetailPage';
+import MemberFeedbackPage from './pages/MemberFeedbackPage';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/terms" element={<TermsAndCondition />} />
       <Route path="/home" element={<MemberHomePage />} />
+      <Route path="/feedback" element={<MemberFeedbackPage />} />
+      <Route path="/meals-package-detail" element={<MemberMealPackageDetailPage />} />
     </Routes>
   );
 }

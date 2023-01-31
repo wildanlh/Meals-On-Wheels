@@ -2,7 +2,7 @@ import { Col, FloatingLabel, Form, Row, Button } from "react-bootstrap";
 
 const FormDonate = () => {
     return (
-        <div className="container col-10 col-sm-8 col-lg-6 d-flex justify-content-center">
+        <div className="container col-12 col-sm-8 col-lg-6 d-flex justify-content-center">
             <div className="card m-5 card-donate ">
                 <Form className="p-3">
                     <h3 className="contact-title py-3 mx-3 text-white">Donate</h3>

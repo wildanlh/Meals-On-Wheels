@@ -72,7 +72,7 @@ const NavBar = () => {
                 <nav className="py-2">
                     <div className="d-flex justify-content-center">
                         <ul className="nav">
-                            <Link to="/daily-meals"><li className="text-white px-3 btn-member fw-bold text-decoration-none">View Daily Meals</li></Link>
+                            <Link to="/home"><li className="text-white px-3 btn-member fw-bold text-decoration-none">View Daily Meals</li></Link>
                             <Link to="/feedback"><li className="text-white px-3 btn-member fw-bold text-decoration-none">Feedbcak/Evaluate</li></Link>
                         </ul>
                     </div>

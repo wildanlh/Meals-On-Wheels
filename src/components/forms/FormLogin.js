@@ -9,7 +9,7 @@ const FormLogin = () => {
 
     return (
 
-        <div className="container col-10 col-sm-8 col-lg-6 d-flex justify-content-center">
+        <div className="container col-12 col-sm-8 col-lg-6 d-flex justify-content-center">
             <div className="card m-5 card-donate ">
                 <Form className="p-3 text-white text-center">
                     <div className="text-center py-3">
