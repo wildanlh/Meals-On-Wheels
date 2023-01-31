@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Carousel, Col, Container, Form, Modal, Row, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { carousel1, carousel2, carousel3, greencircle, redcircle, yellowcircle } from "../assets";
 import Layout from "../components/layout/Layout";
 
@@ -154,14 +153,6 @@ const CaregiverHomePage = () => {
                                     </tr>
                                 </tbody>
                             </Table>
-
-                            <div className="text-center fw-bold py-3">
-                                <Link to="/"
-                                    className="text-white text-decoration-none"
-                                >
-                                    + Add Meal Package
-                                </Link>
-                            </div>
                         </div>
                     </Col>
                 </Row>
