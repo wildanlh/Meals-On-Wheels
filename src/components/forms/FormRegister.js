@@ -16,15 +16,15 @@ const FormRegister = () => {
                     </div>
                     <Form.Group className="mb-3 mx-3" controlId="fullname">
                         <Form.Label>Full Name</Form.Label>
-                        <Form.Control type="text" placeholder="" id="fullname" required/>
+                        <Form.Control type="text" placeholder="" required/>
                     </Form.Group>
                     <Form.Group className="mb-3 mx-3" controlId="address">
                         <Form.Label>Address</Form.Label>
-                        <Form.Control type="text" placeholder="" id="address" required/>
+                        <Form.Control type="text" placeholder="" required/>
                     </Form.Group>
                     <Form.Group className="mb-3 mx-3 text" controlId="gender">
                         <Form.Label>Gender</Form.Label>
-                        <Form.Select aria-label="Default select example" id="gender" required>
+                        <Form.Select aria-label="Default select example" required>
                             <option selected="selected" disabled>Choose a gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
@@ -32,7 +32,7 @@ const FormRegister = () => {
                     </Form.Group>
                     <Form.Group className="mb-3 mx-3" controlId="role">
                         <Form.Label>Role</Form.Label>
-                        <Form.Select aria-label="Default select example" id="role" required>
+                        <Form.Select aria-label="Default select example" required>
                             <option selected="selected" disabled>Choose a role</option>
                             <option value="member">Member</option>
                             <option value="driver">Driver</option>
@@ -41,15 +41,15 @@ const FormRegister = () => {
                     </Form.Group>
                     <Form.Group className="mb-3 mx-3" controlId="email">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="" id="email" required/>
+                        <Form.Control type="email" placeholder="" required/>
                     </Form.Group>
                     <Form.Group className="mb-3 mx-3" controlId="password">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="" id="password" required/>
+                        <Form.Control type="password" placeholder="" required/>
                     </Form.Group>
                     <Form.Group className="mb-3 mx-3" controlId="file">
                         <Form.Label>File Upload</Form.Label>
-                        <Form.Control type="file" placeholder="" id="file" required/>
+                        <Form.Control type="file" placeholder="" required/>
                     </Form.Group>
                     <div className="text-center mb-2 d-grid mx-3 pt-3">
                         <Button type="submit" className="button fw-bold" size="lg">Register</Button>
