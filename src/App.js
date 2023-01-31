@@ -13,6 +13,7 @@ import MemberMealPackageDetailPage from './pages/MemberMealPackageDetailPage';
 import MemberFeedbackPage from './pages/MemberFeedbackPage';
 import DriverHomePage from './pages/DriverHomePage';
 import CaregiverHomePage from './pages/CaregiverHomePage';
+import AdminHomePage from './pages/AdminHomePage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/meals-package-detail" element={<MemberMealPackageDetailPage />} />
       <Route path="/driver" element={<DriverHomePage />} />
       <Route path="/caregiver" element={<CaregiverHomePage />} />
+      <Route path="/admin" element={<AdminHomePage />} />
     </Routes>
   );
 }

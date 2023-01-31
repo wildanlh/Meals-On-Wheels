@@ -1,0 +1,11 @@
+.mini-card {
+    background: linear-gradient(90deg, #845EC2 32.75%, #6F97FF 80.82%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+img.icon-user {
+    width: 24px;
+    margin: 0;
+    padding: 0;
+}

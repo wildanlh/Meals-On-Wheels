@@ -17,6 +17,7 @@ import aboutbanner from './img/about-banner.jpg';
 import person from './img/person1.jpg';
 import topwave from './img/top-wave.svg';
 import botwave from './img/bot-wave.svg';
+import usericon from './img/icon-user.svg';
 import fb from './img/icon-fb.svg';
 import ig from './img/icon-ig.svg';
 import tw from './img/icon-tw.svg';
@@ -42,6 +43,7 @@ export {
     topwave,
     botwave,
     person,
+    usericon,
     fb,
     ig,
     tw,
