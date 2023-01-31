@@ -17,6 +17,7 @@ import CaregiverHomePage from './pages/CaregiverHomePage';
 import AdminHomePage from './pages/AdminHomePage';
 import AdminDonationHistoryPage from './pages/AdminDonationHistoryPage';
 import AdminManagePartnershipPage from './pages/AdminManagePartnershipPage';
+import AdminManageUsersPage from './pages/AdminManageUsersPage';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
       <Route path="/admin" element={<AdminHomePage />} />
       <Route path="/admin/donation-history" element={<AdminDonationHistoryPage />} />
       <Route path="/admin/manage-partner" element={<AdminManagePartnershipPage />} />
+      <Route path="/admin/manage-users" element={<AdminManageUsersPage />} />
     </Routes>
   );
 }
