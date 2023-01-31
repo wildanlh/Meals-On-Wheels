@@ -94,6 +94,7 @@ const CaregiverHomePage = () => {
                         </div>
                     </Col>
                 </Row>
+
                 <Row className="mb-5">
                     <Col sm={8}>
                         <h4 className="fw-bold title-caregiver">Order Notification</h4>
@@ -138,7 +139,7 @@ const CaregiverHomePage = () => {
                             <Table striped className="text-white text-center driver mb-3">
                                 <thead className="driver-table">
                                     <tr>
-                                        <th>Meal</th>
+                                        <th>Name</th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-white">
