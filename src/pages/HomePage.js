@@ -1,5 +1,6 @@
 import { Button, Col, Row } from "react-bootstrap";
 import { banner1, banner2, botwave, logo, person, topwave } from "../assets";
+import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 
 import './css/HomePage.css';
@@ -80,11 +81,13 @@ const HomePage = () => {
                     <div className="text-center">
                         <h1 className="text-white">Keep Up With Service News and Events</h1>
                         <h3>Keep in touch with us!</h3>
-                        <Button
-                            variant="light"
-                            className="me-0 me-md-3 mb-md-0 mb-5 bg-light fw-bold btn-register mt-3">
-                            Register
-                        </Button>
+                        <Link to="/register">
+                            <Button
+                                variant="light"
+                                className="me-0 me-md-3 mb-md-0 mb-5 bg-light fw-bold btn-register mt-3">
+                                Register
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>
