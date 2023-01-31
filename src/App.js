@@ -14,6 +14,7 @@ import MemberFeedbackPage from './pages/MemberFeedbackPage';
 import DriverHomePage from './pages/DriverHomePage';
 import CaregiverHomePage from './pages/CaregiverHomePage';
 import AdminHomePage from './pages/AdminHomePage';
+import AdminDonationHistoryPage from './pages/AdminDonationHistoryPage';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Route path="/driver" element={<DriverHomePage />} />
       <Route path="/caregiver" element={<CaregiverHomePage />} />
       <Route path="/admin" element={<AdminHomePage />} />
+      <Route path="/admin/donation-history" element={<AdminDonationHistoryPage />} />
     </Routes>
   );
 }
