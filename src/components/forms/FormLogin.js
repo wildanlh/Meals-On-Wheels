@@ -16,11 +16,11 @@ const FormLogin = () => {
                         <h3 className="contact-title mx-3 text-white">LOGIN</h3>
                         <hr className="text-white" />
                     </div>
-                    <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+                    <Form.Group className="mb-3 mx-3" controlId="email">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" placeholder="" />
                     </Form.Group>
-                    <Form.Group className="mb-3 mx-3" controlId="exampleForm.ControlInput1">
+                    <Form.Group className="mb-3 mx-3" controlId="password">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="" />
                     </Form.Group>
