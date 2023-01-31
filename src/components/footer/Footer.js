@@ -48,10 +48,10 @@ const Footer = () => {
                         <div className="col mb-3" bis_skin_checked="1">
                             <h5>Navigation</h5>
                             <ul className="nav flex-column">
-                                <Link to="/terms"><li className="nav-item mb-2 nav-link p-0 text-white">Privacy Policy</li></Link>
-                                <Link to="/about"><li className="nav-item mb-2 nav-link p-0 text-white">About Us</li></Link>
-                                <Link to="/donate"><li className="nav-item mb-2 nav-link p-0 text-white">Donate</li></Link>
-                                <Link to="/partnership"><li className="nav-item mb-2 nav-link p-0 text-white">Partnership</li></Link>
+                                <Link to="/terms" className='text-decoration-none'><li className="nav-item mb-2 nav-link p-0 text-white">Privacy Policy</li></Link>
+                                <Link to="/about" className='text-decoration-none'><li className="nav-item mb-2 nav-link p-0 text-white">About Us</li></Link>
+                                <Link to="/donate" className='text-decoration-none'><li className="nav-item mb-2 nav-link p-0 text-white">Donate</li></Link>
+                                <Link to="/partnership" className='text-decoration-none'><li className="nav-item mb-2 nav-link p-0 text-white">Partnership</li></Link>
                             </ul>
                         </div>
 
