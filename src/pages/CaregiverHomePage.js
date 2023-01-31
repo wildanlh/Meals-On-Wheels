@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Carousel, Col, Container, Row, Table } from "react-bootstrap";
+import { Button, Carousel, Col, Container, Form, Modal, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { carousel1, carousel2, carousel3, greencircle, redcircle, yellowcircle } from "../assets";
 import Layout from "../components/layout/Layout";
@@ -12,6 +12,11 @@ const CaregiverHomePage = () => {
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <Layout>
@@ -83,11 +88,9 @@ const CaregiverHomePage = () => {
                             </Table>
 
                             <div className="text-center fw-bold py-3">
-                                <Link to="/"
-                                    className="text-white text-decoration-none"
-                                >
+                                <Button variant="primary" onClick={handleShow} className="button">
                                     + Add Meal Package
-                                </Link>
+                                </Button>
                             </div>
                         </div>
                     </Col>
@@ -219,7 +222,65 @@ const CaregiverHomePage = () => {
                     </div>
                 </div>
             </Container>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton className="modal-popup">
+                    <div className="text-center">
+                        <Modal.Title className="text-white fw-bold">Add Package</Modal.Title>
+                    </div>
+                </Modal.Header>
+                <Modal.Body className="modal-popup">
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Main Course</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Roasted Duck/ Spicy Thai Chicken/ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Salad</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: garden salad/Greek salad/chopped Thai salad"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Soup</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Pumpkin soup/Tuscan/ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Dessert</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Pudding/ fruit tarts/ lemon creme/ ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Drink</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <div className="text-center modal-popup p-3">
+                    <Button onClick={handleClose} className="button fw-bold w-50">
+                        Submit
+                    </Button>
+                </div>
+
+            </Modal>
         </Layout>
+
     );
 }
 
