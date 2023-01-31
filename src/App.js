@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage';
 import DonatePage from './pages/DonatePage';
 import PartnershipPage from './pages/PartnershipPage';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import TermsAndCondition from './pages/TermsAndConditionPage';
 import MemberHomePage from './pages/MemberHomePage';
 import MemberMealPackageDetailPage from './pages/MemberMealPackageDetailPage';
@@ -22,6 +23,7 @@ function App() {
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/partnership" element={<PartnershipPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/terms" element={<TermsAndCondition />} />
       <Route path="/home" element={<MemberHomePage />} />
       <Route path="/feedback" element={<MemberFeedbackPage />} />
