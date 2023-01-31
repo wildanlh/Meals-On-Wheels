@@ -8,6 +8,7 @@ import DonatePage from './pages/DonatePage';
 import PartnershipPage from './pages/PartnershipPage';
 import LoginPage from './pages/LoginPage';
 import TermsAndCondition from './pages/TermsAndConditionPage';
+import MemberHomePage from './pages/MemberHomePage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/partnership" element={<PartnershipPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/terms" element={<TermsAndCondition />} />
+      <Route path="/home" element={<MemberHomePage />} />
     </Routes>
   );
 }
