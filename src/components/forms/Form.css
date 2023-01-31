@@ -20,6 +20,6 @@
 img.img-register {
     width: 100%;
     height: 650px;
-    object-fit: none;
+    object-fit: fill;
     filter: brightness(50%);
 }
