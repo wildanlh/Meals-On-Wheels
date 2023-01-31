@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Form, Modal, Row, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { greencircle, redcircle, usericon, yellowcircle } from "../assets";
 import Layout from "../components/layout/Layout";
 
@@ -114,9 +115,11 @@ const AdminHomePage = () => {
                                 </tbody>
                             </Table>
                             <div className="text-center fw-bold py-3">
-                                <Button variant="light" onClick={handleShow} className="button text-white fw-bold">
-                                    History
-                                </Button>
+                                <Link to="/admin/donation-history">
+                                    <Button variant="light" className="bg-light fw-bold btn-register fw-bold">
+                                        History
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
 
@@ -231,6 +234,63 @@ const AdminHomePage = () => {
                     </div>
                 </div>
             </Container>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton className="modal-popup">
+                    <div className="text-center">
+                        <Modal.Title className="text-white fw-bold">Add Package</Modal.Title>
+                    </div>
+                </Modal.Header>
+                <Modal.Body className="modal-popup">
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Main Course</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Roasted Duck/ Spicy Thai Chicken/ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Salad</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: garden salad/Greek salad/chopped Thai salad"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Soup</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Pumpkin soup/Tuscan/ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Dessert</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Pudding/ fruit tarts/ lemon creme/ ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label className="text-white fw-bold">Drink</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect"
+                                autoFocus
+                            />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <div className="text-center modal-popup p-3">
+                    <Button onClick={handleClose} className="button fw-bold w-50">
+                        Submit
+                    </Button>
+                </div>
+
+            </Modal>
         </Layout>
     );
 }
