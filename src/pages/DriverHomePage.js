@@ -131,7 +131,6 @@ const DriverHomePage = () => {
                             </tbody>
                         </Table>
                     </div>
-
                 </div>
             </Container>
         </Layout>
