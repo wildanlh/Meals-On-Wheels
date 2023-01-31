@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Carousel, Col, Container, Row, Table } from "react-bootstrap";
+import { Carousel, Col, Container, Dropdown, DropdownButton, Row, Table } from "react-bootstrap";
 import { car, carousel1, carousel2, carousel3, greencircle, person, redcircle, yellowcircle } from "../assets";
 import Layout from "../components/layout/Layout";
 
@@ -125,8 +125,67 @@ const DriverHomePage = () => {
                                     <td className="text-white">1</td>
                                     <td className="text-white">5001 Lem Road, Charter Street, Paul’s Garage</td>
                                     <td className="text-white">339 Tetrick Road, Fort Myers, No. 18</td>
+                                    <td className="text-white">
+                                        <div className="status text-white d-flex justify-content-center">
+                                            <img src={greencircle} alt="" className="status-icon" />
+                                            <span className="ms-3">Completed</span>
+                                        </div>
+                                    </td>
+                                    <td className="text-white">
+                                        <DropdownButton
+                                            id="dropdown-basic-button"
+                                            title="Status"
+                                            variant="light"
+                                        >
+                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                        </DropdownButton>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td className="text-white">1</td>
-                                    <td className="text-white">well DOne</td>
+                                    <td className="text-white">5001 Lem Road, Charter Street, Paul’s Garage</td>
+                                    <td className="text-white">339 Tetrick Road, Fort Myers, No. 18</td>
+                                    <td className="text-white">
+                                        <div className="status text-white d-flex justify-content-center">
+                                            <img src={greencircle} alt="" className="status-icon" />
+                                            <span className="ms-3">Completed</span>
+                                        </div>
+                                    </td>
+                                    <td className="text-white">
+                                        <DropdownButton
+                                            id="dropdown-basic-button"
+                                            title="Status"
+                                            variant="light"
+                                        >
+                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                        </DropdownButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="text-white">1</td>
+                                    <td className="text-white">5001 Lem Road, Charter Street, Paul’s Garage</td>
+                                    <td className="text-white">339 Tetrick Road, Fort Myers, No. 18</td>
+                                    <td className="text-white">
+                                        <div className="status text-white d-flex justify-content-center">
+                                            <img src={greencircle} alt="" className="status-icon" />
+                                            <span className="ms-3">Completed</span>
+                                        </div>
+                                    </td>
+                                    <td className="text-white">
+                                        <DropdownButton
+                                            id="dropdown-basic-button"
+                                            title="Status"
+                                            variant="light"
+                                        >
+                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                        </DropdownButton>
+                                    </td>
                                 </tr>
                             </tbody>
                         </Table>
