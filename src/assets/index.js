@@ -1,6 +1,10 @@
 import logo from './img/logo.svg';
 import fbbutton from './img/fb-button.svg';
 import googlebutton from './img/google-button.svg';
+import car from './img/icon-car.svg';
+import greencircle from './img/green-circle.svg';
+import yellowcircle from './img/yellow-circle.svg';
+import redcircle from './img/red-circle.svg';
 import carousel1 from './img/carousel1.jpg';
 import carousel2 from './img/carousel2.jpg';
 import carousel3 from './img/carousel3.jpg';
@@ -22,6 +26,10 @@ export {
     logo,
     fbbutton,
     googlebutton,
+    car,
+    greencircle,
+    yellowcircle,
+    redcircle,
     carousel1,
     carousel2,
     carousel3,

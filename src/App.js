@@ -11,6 +11,7 @@ import TermsAndCondition from './pages/TermsAndConditionPage';
 import MemberHomePage from './pages/MemberHomePage';
 import MemberMealPackageDetailPage from './pages/MemberMealPackageDetailPage';
 import MemberFeedbackPage from './pages/MemberFeedbackPage';
+import DriverHomePage from './pages/DriverHomePage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/home" element={<MemberHomePage />} />
       <Route path="/feedback" element={<MemberFeedbackPage />} />
       <Route path="/meals-package-detail" element={<MemberMealPackageDetailPage />} />
+      <Route path="/driver" element={<DriverHomePage />} />
     </Routes>
   );
 }
