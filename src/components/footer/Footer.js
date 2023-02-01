@@ -7,6 +7,7 @@ const Footer = () => {
     const link = 'test';
 
     return (
+        <footer className="">
         <div>
             <div className="social-media d-flex flex-wrap justify-content-between align-items-center py-3 mb-4">
                 <div className="col-md-4 d-flex align-items-center mx-3">
@@ -69,7 +70,7 @@ const Footer = () => {
                 </div>
             </div >
         </div >
-
+        </footer>
     );
 }
 
