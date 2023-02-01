@@ -1,6 +1,8 @@
 import Footer from "../footer/Footer";
 import NavBar from "../navbar/NavBar";
 
+import "./Layout.css";
+
 const Layout = (props) => {
     return (
         <div className="layout">
