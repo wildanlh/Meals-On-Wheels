@@ -19,6 +19,15 @@ img.banner {
     border-radius: 999px;
 }
 
+.hr-yellow {
+    background-color: #FFC75F;
+    padding: 3px 5px 5px 5px;
+    width: 25%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 999px;
+}
+
 .botwave {
     width: 100%;
 }

@@ -26,6 +26,7 @@ const HomePage = () => {
                         <div className="col-lg-6" bis_skin_checked="1">
                             <h1 className="display-5 fw-bold lh-1 mb-3">Who We Are</h1>
                             <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A vivamus natoque auctor aliquet porta nibh taciti. Sapien euismod risus efficitur torquent consequat finibus. Habitant nibh platea porttitor vulputate amet pulvinar. </p>
+                            <div className="hr-yellow"></div>
                             <h3 className="fw-bold lh-1 mb-3 purple-text">Our Vision </h3>
                             <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus</p>
                             <h3 className="fw-bold lh-1 mb-3 purple-text">Our Mission </h3>
@@ -45,8 +46,9 @@ const HomePage = () => {
                             <img src={banner4} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
                         </div>
                         <div className="col-lg-6" bis_skin_checked="1">
+                            <div className="hr-yellow"></div>
                             <h1 className="display-5 fw-bold lh-1 mb-3">Meals on Wheels Commitment</h1>
-                            <hr />
+
                             <ol>
                                 <li>Lorem ipsum dolor sit amet.</li>
                                 <li>Lorem ipsum dolor sit amet.</li>
@@ -68,8 +70,9 @@ const HomePage = () => {
                             </Row>
                         </div>
                         <div className="col-lg-6" bis_skin_checked="1">
+                            <div className="hr-yellow"></div>
                             <h1 className="display-5 fw-bold lh-1 mb-3">Our Partner</h1>
-                            <hr />
+
                             <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A vivamus natoque auctor aliquet porta nibh taciti. Sapien euismod risus efficitur torquent consequat finibus. Habitant nibh platea porttitor vulputate amet pulvinar. </p>
                         </div>
                     </div>
