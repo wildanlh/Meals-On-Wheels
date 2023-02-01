@@ -10,18 +10,18 @@ const HomePage = () => {
         <Layout>
             <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
                 <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
-                    <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
+                    <div className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig" bis_skin_checked="1">
                         <img src={banner1} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
                     </div>
-                    <div className="col-lg-6" bis_skin_checked="1">
-                        <h1 className="display-5 fw-bold lh-1 mb-3">Meals and Transportation Services. Together We Can Deliver</h1>
+                    <div className="col-lg-6 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
+                        <h1 className="display-5 fw-bold lh-1 mb-3 ">Meals and Transportation Services. Together We Can Deliver</h1>
                         <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A vivamus natoque auctor aliquet porta nibh taciti. Sapien euismod risus efficitur torquent consequat finibus. Habitant nibh platea porttitor vulputate amet pulvinar. </p>
                     </div>
                 </div>
             </div>
             <div className="home-content">
                 <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
-                    <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
+                    <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInDown" bis_skin_checked="1">
                         <div className="col-lg-6" bis_skin_checked="1">
                             <h1 className="display-5 fw-bold lh-1 mb-3">Who We Are</h1>
                             <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A vivamus natoque auctor aliquet porta nibh taciti. Sapien euismod risus efficitur torquent consequat finibus. Habitant nibh platea porttitor vulputate amet pulvinar. </p>
@@ -39,7 +39,7 @@ const HomePage = () => {
             <img src={topwave} alt="wave" className="topwave" />
             <div className="wave-content text-white">
                 <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
-                    <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
+                    <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
                             <img src={banner1} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
                         </div>
@@ -58,7 +58,7 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
-                    <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
+                    <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInRightBig" bis_skin_checked="1">
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
                             <Row>
                                 <Col><img src={person} alt="" /></Col>
@@ -76,7 +76,7 @@ const HomePage = () => {
             </div>
             <img src={botwave} alt="wave" className="botwave" />
             <div className="container">
-                <div className="card pb-5 mb-5 text-white">
+                <div className="card pb-5 mb-5 text-white animate__animated animate__slideInUp">
                     <img src={logo} alt="logo" className="py-5" />
                     <div className="text-center">
                         <h1 className="text-white">Keep Up With Service News and Events</h1>

@@ -11,6 +11,7 @@ import carousel3 from './img/carousel3.jpg';
 import mealdetail from './img/mealdetail.jpg';
 import banner1 from './img/banner1.jpg';
 import banner2 from './img/banner2.jpg';
+import banner3 from './img/banner3.jpg';
 import herobg1 from './img/hero-bg1.jpg';
 import herobg2 from './img/hero-bg2.jpg';
 import aboutbanner from './img/about-banner.jpg';
@@ -37,6 +38,7 @@ export {
     mealdetail,
     banner1,
     banner2,
+    banner3,
     herobg1,
     herobg2,
     aboutbanner,

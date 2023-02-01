@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import 'animate.css';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
@@ -16,6 +17,8 @@ import DriverHomePage from './pages/DriverHomePage';
 import CaregiverHomePage from './pages/CaregiverHomePage';
 import AdminHomePage from './pages/AdminHomePage';
 import AdminDonationHistoryPage from './pages/AdminDonationHistoryPage';
+import AdminManagePartnershipPage from './pages/AdminManagePartnershipPage';
+import AdminManageUsersPage from './pages/AdminManageUsersPage';
 
 function App() {
   return (
@@ -35,6 +38,8 @@ function App() {
       <Route path="/caregiver" element={<CaregiverHomePage />} />
       <Route path="/admin" element={<AdminHomePage />} />
       <Route path="/admin/donation-history" element={<AdminDonationHistoryPage />} />
+      <Route path="/admin/manage-partner" element={<AdminManagePartnershipPage />} />
+      <Route path="/admin/manage-users" element={<AdminManageUsersPage />} />
     </Routes>
   );
 }
