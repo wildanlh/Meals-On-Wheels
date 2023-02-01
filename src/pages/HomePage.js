@@ -79,19 +79,21 @@ const HomePage = () => {
                 </div>
             </div>
             <img src={botwave} alt="wave" className="botwave" />
-            <div className="container">
-                <div className="card pb-5 mb-5 text-white animate__animated animate__slideInUp">
-                    <img src={logo} alt="logo" className="py-5" />
-                    <div className="text-center">
-                        <h1 className="text-white">Keep Up With Service News and Events</h1>
-                        <h3>Keep in touch with us!</h3>
-                        <Link to="/register">
-                            <Button
-                                variant="light"
-                                className="me-0 me-md-3 mb-md-0 mb-5 bg-light fw-bold btn-register mt-3">
-                                Register
-                            </Button>
-                        </Link>
+            <div className="bottom-home">
+                <div className="container">
+                    <div className="card pb-5 mb-5 text-white animate__animated animate__slideInUp">
+                        <img src={logo} alt="logo" className="py-5" />
+                        <div className="text-center">
+                            <h1 className="text-white">Keep Up With Service News and Events</h1>
+                            <h3>Keep in touch with us!</h3>
+                            <Link to="/register">
+                                <Button
+                                    variant="light"
+                                    className="me-0 me-md-3 mb-md-0 mb-5 bg-light fw-bold btn-register mt-3">
+                                    Register
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
