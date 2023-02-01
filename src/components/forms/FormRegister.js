@@ -1,5 +1,6 @@
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import TestFileUpload from "../../components/testFileUpload"
 
 import './Form.css';
 
@@ -9,6 +10,7 @@ const FormRegister = () => {
 
         <div className="container col-12 col-sm-8 col-lg-6 d-flex justify-content-center">
             <div className="card m-5 card-donate ">
+                <TestFileUpload/>
                 <Form className="p-3 text-white text-center">
                     <div className="text-center py-3">
                         <h3 className="contact-title mx-3 text-white">REGISTER</h3>
