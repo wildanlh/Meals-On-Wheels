@@ -2,6 +2,7 @@ import { Button, Col, Row } from "react-bootstrap";
 import { banner1, banner2, banner4, botwave, logo, topwave, un, unicef, who } from "../assets";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
+import { motion } from "framer-motion";
 
 import './css/HomePage.css';
 
@@ -11,13 +12,15 @@ const HomePage = () => {
             <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
                 <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
                     <div className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig" bis_skin_checked="1">
-                        <img src={banner1} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
+                        <motion.img src={banner1} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }} />
                     </div>
-                    <div className="col-lg-6 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
+                    <motiondiv className="col-lg-6 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
                         <h1 className="display-5 fw-bold lh-1 mb-3 ">Meals and Transportation Services. Together We Can Deliver</h1>
                         <div className="hr-purple"></div>
                         <p>Our aspirations and guiding principles are determined by the community we serve, and we are driven by a strong commitment to our volunteers, donors, partners, and community.</p>
-                    </div>
+                    </motiondiv>
                 </div>
             </div>
             <div className="home-content">
@@ -33,7 +36,9 @@ const HomePage = () => {
                             <p>Fostering community wellness one person at a time.</p>
                         </div>
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
-                            <img src={banner2} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
+                            <motion.img src={banner2} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }} />
                         </div>
                     </div>
                 </div>
@@ -43,7 +48,9 @@ const HomePage = () => {
                 <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
                     <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
-                            <img src={banner4} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
+                            <motion.img src={banner4} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }} />
                         </div>
                         <div className="col-lg-6" bis_skin_checked="1">
                             <div className="hr-yellow"></div>
@@ -63,9 +70,15 @@ const HomePage = () => {
                     <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInRightBig" bis_skin_checked="1">
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
                             <Row>
-                                <Col><img src={unicef} alt="" className="partner my-3" /></Col>
-                                <Col><img src={who} alt="" className="partner my-3" /></Col>
-                                <Col><img src={un} alt="" className="partner my-3" /></Col>
+                                <Col><motion.img src={unicef} alt="" className="partner my-3"
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 10 }} /></Col>
+                                <Col><motion.img src={who} alt="" className="partner my-3"
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 10 }} /></Col>
+                                <Col><motion.img src={un} alt="" className="partner my-3"
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 10 }} /></Col>
                             </Row>
                         </div>
                         <div className="col-lg-6" bis_skin_checked="1">

@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { bannerportairt2 } from "../../assets";
+import { motion } from "framer-motion";
 
 import './Form.css';
 
@@ -12,7 +13,10 @@ const FormPartnership = () => {
                     <h3 className="contact-title mx-3 text-white text-center">Partnership Request</h3>
                     <hr className="text-white" />
                     <div className="col-10 col-sm-8 col-lg-6 img-center" bis_skin_checked="1">
-                        <img src={bannerportairt2} className="rounded img-partner mb-3 pe-3" alt="Bootstrap Themes" loading="lazy" />
+                        <motion.img
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            src={bannerportairt2} className="rounded img-partner mb-3 pe-3" alt="Bootstrap Themes" />
                     </div>
                     <div className="col-lg-6 text-center" bis_skin_checked="1">
                         <Form className="px-3 text-white text-center">

@@ -1,6 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { bannerportairt1 } from "../../assets";
+import { motion } from "framer-motion";
 
 import './Form.css';
 
@@ -14,7 +15,10 @@ const FormRegister = () => {
                     <h3 className="contact-title mx-3 text-white text-center">REGISTER</h3>
                     <hr className="text-white" />
                     <div className="col-10 col-sm-8 col-lg-6 img-center" bis_skin_checked="1">
-                        <img src={bannerportairt1} className="rounded img-register mb-3 pe-3" alt="Bootstrap Themes" loading="lazy" />
+                        <motion.img
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            src={bannerportairt1} className="rounded img-register mb-3 pe-3" alt="Bootstrap Themes" loading="lazy" />
                     </div>
                     <div className="col-lg-6 text-center" bis_skin_checked="1">
                         <Form className="px-3 text-white text-center">
