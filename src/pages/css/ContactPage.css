@@ -13,3 +13,10 @@
 img.contact-icon {
     width: 38px;
 }
+
+.prevent-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}

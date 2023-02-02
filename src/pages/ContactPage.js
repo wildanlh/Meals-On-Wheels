@@ -60,7 +60,7 @@ const ContactPage = () => {
                             referrerpolicy="no-referrer-when-downgrade" />
                     </div>
                     <div className="bot-maps text-center mb-5">
-                        <h1 className="fw-bold py-3 text-white">Blank</h1>
+                        <h1 className="fw-bold py-3 text-white prevent-select">Blank</h1>
                     </div>
                 </div>
             </div>
