@@ -21,6 +21,9 @@ import staff1 from './img/staff1.jpg';
 import staff2 from './img/staff2.jpg';
 import staff3 from './img/staff3.jpg';
 import staff4 from './img/staff4.jpg';
+import unicef from './img/unicef.png';
+import who from './img/who.png';
+import un from './img/un.png';
 import topwave from './img/top-wave.svg';
 import botwave from './img/bot-wave.svg';
 import usericon from './img/icon-user.svg';
@@ -62,6 +65,9 @@ export {
     callicon,
     emailicon,
     pinicon,
+    unicef,
+    who,
+    un,
     fb,
     ig,
     tw,
