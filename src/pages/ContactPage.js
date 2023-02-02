@@ -21,7 +21,7 @@ const ContactPage = () => {
                         <h1 className="display-5 fw-bold lh-1 mb-3">Get In Touch</h1>
                         <div className="hr-yellow"></div>
                         <ul className="py-3">
-                            <li className="d-flex">
+                            <li className="d-flex py-3">
                                 <img src={callicon} alt="" className="contact-icon" />
                                 <div className="mx-3 contact-detail">
                                     <h5 className="fw-bold">CALL</h5>
@@ -35,7 +35,7 @@ const ContactPage = () => {
                                     <span>contact@mow.com</span>
                                 </div>
                             </li>
-                            <li className="d-flex">
+                            <li className="d-flex py-3">
                                 <img src={pinicon} alt="" className="contact-icon" />
                                 <div className="mx-3 contact-detail">
                                     <h5 className="fw-bold">ADDRESS</h5>
