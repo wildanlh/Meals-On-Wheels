@@ -68,7 +68,7 @@ const NavBar = () => {
                     </Navbar.Collapse >
                 </Container >
             </Navbar >
-            <div className="nav-member">
+            {/* <div className="nav-member">
                 <nav className="py-2">
                     <div className="d-flex justify-content-center">
                         <ul className="nav">
@@ -77,7 +77,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                 </nav>
-            </div>
+            </div> */}
         </div>
     );
 }
