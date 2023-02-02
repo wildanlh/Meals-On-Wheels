@@ -17,6 +17,10 @@ import herobg1 from './img/hero-bg1.jpg';
 import herobg2 from './img/hero-bg2.jpg';
 import aboutbanner from './img/about-banner.jpg';
 import person from './img/person1.jpg';
+import staff1 from './img/staff1.jpg';
+import staff2 from './img/staff2.jpg';
+import staff3 from './img/staff3.jpg';
+import staff4 from './img/staff4.jpg';
 import topwave from './img/top-wave.svg';
 import botwave from './img/bot-wave.svg';
 import usericon from './img/icon-user.svg';
@@ -50,6 +54,10 @@ export {
     topwave,
     botwave,
     person,
+    staff1,
+    staff2,
+    staff3,
+    staff4,
     usericon,
     callicon,
     emailicon,
