@@ -5,13 +5,13 @@ import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './forms/Form.css';
 
-const UPLOAD_ENDPOINT = "http://localhost:8080/uploadFile";
+const UPLOAD_ENDPOINT = "http://localhost:8080/api/auth/signup";
 
 function TestFileUpload() {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
-    const [gender, setGender] = useState("");
-    const [role, setRole] = useState("");
+    const [gender, setGender] = useState('MALE');
+    const [role, setRole] = useState('ROLE_MEMBER');
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [file, setFile] = useState(null);
@@ -21,8 +21,17 @@ function TestFileUpload() {
     setStatus(""); // Reset status
     event.preventDefault();
     const formData = new FormData();
+    
     formData.append("name", name);
+    formData.append("address", address);
+    formData.append("gender", gender);
+    formData.append("role", role);
+    formData.append("email", email);
+    formData.append("password", password);
     formData.append("file", file);
+    for (var pair of formData.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]); 
+    }
     const resp = await axios.post(UPLOAD_ENDPOINT, formData, {
       headers: {
         "content-type": "multipart/form-data",
@@ -49,18 +58,19 @@ function TestFileUpload() {
         <Form.Group className="mb-3 mx-3 text" controlId="gender">
             <Form.Label>Gender</Form.Label>
             <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)} value={gender} required>
-                <option selected="selected" disabled>Choose a gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option disabled>Choose a gender</option>
+                <option defaultValue={true}  value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
             </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 mx-3" controlId="role">
             <Form.Label>Role</Form.Label>
-            <Form.Select aria-label="Default select example" onChange={(e) => setRole(e.target.value)} value={role} required>
-                <option selected="selected" disabled>Choose a role</option>
-                <option value="member">Member</option>
-                <option value="driver">Driver</option>
-                <option value="caregiver">Caregiver</option>
+            <Form.Select aria-label="Default select example" onChange={(e) => { setRole(e.target.value);console.log(role + e.target.value)}} value={role} required>
+                <option disabled>Choose a role</option>
+                <option defaultValue={true} value="ROLE_MEMBER">Member</option>
+                <option value="ROLE_RIDER">Rider</option>
+                <option value="ROLE_CAREGIVER">Caregiver</option>
+                <option value="ROLE_VOLUNTEER">Volunteer</option>
             </Form.Select>
         </Form.Group>
         <Form.Group className="mb-3 mx-3" controlId="email">

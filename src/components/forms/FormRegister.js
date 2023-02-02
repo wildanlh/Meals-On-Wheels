@@ -1,7 +1,4 @@
-import { Button, Col, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { banner3 } from "../../assets";
-import TestFileUpload from "../../components/testFileUpload"
+import TestFileUpload from "../RegisterFunction"
 
 import './Form.css';
 
