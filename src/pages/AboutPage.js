@@ -2,6 +2,8 @@ import { Col, Row } from "react-bootstrap";
 import { aboutbanner, herobg1, staff1, staff2, staff3, staff4 } from "../assets";
 import Layout from "../components/layout/Layout";
 
+import { motion } from "framer-motion";
+
 import './css/AboutPage.css';
 
 const AboutPage = () => {
@@ -14,7 +16,9 @@ const AboutPage = () => {
             <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
                 <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
                     <div className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig" bis_skin_checked="1">
-                        <img src={aboutbanner} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
+                        <motion.img src={aboutbanner} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }} />
                     </div>
                     <div className="col-lg-6 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
                         <p>Meals on Wheels is a community-based organization dedicated to improving the health and well-being of seniors, individuals with disabilities, and others in need by providing nutritious meals, companionship, and a network of support. Our mission is to promote independence and dignity by delivering meals to those who are unable to leave their homes, and to alleviate the effects of hunger, malnutrition, and social isolation.
@@ -38,24 +42,37 @@ const AboutPage = () => {
                     <div className="hr-yellow-center mb-5"></div>
                     <Row>
                         <Col className="my-3">
-                            <img src={staff1} alt="person" className="staff rounded-circle" />
-                            <h3 className="fw-bold py-1">Clairine Musk</h3>
-                            <h5 className="fw-bold">CEO Founder</h5>
+                            <motion.div whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <img src={staff1} alt="person" className="staff rounded-circle" />
+                                <h3 className="fw-bold py-1">Clairine Musk</h3>
+                                <h5 className="fw-bold">CEO Founder</h5>
+                            </motion.div>
+
                         </Col>
                         <Col className="my-3">
-                            <img src={staff2} alt="person" className="staff rounded-circle" />
-                            <h3 className="fw-bold py-1">Isaac Clarke</h3>
-                            <h5 className="fw-bold">CO Founder</h5>
+                            <motion.div whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <img src={staff2} alt="person" className="staff rounded-circle" />
+                                <h3 className="fw-bold py-1">Isaac Clarke</h3>
+                                <h5 className="fw-bold">CO Founder</h5>
+                            </motion.div>
                         </Col>
                         <Col className="my-3">
-                            <img src={staff3} alt="person" className="staff rounded-circle" />
-                            <h3 className="fw-bold py-1">Irfan Riz</h3>
-                            <h5 className="fw-bold">Director</h5>
+                            <motion.div whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <img src={staff3} alt="person" className="staff rounded-circle" />
+                                <h3 className="fw-bold py-1">Irfan Riz</h3>
+                                <h5 className="fw-bold">Director</h5>
+                            </motion.div>
                         </Col>
                         <Col className="my-3">
-                            <img src={staff4} alt="person" className="staff rounded-circle" />
-                            <h3 className="fw-bold py-1">Ryutaro Uozumi</h3>
-                            <h5 className="fw-bold">Manager</h5>
+                            <motion.div whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                                <img src={staff4} alt="person" className="staff rounded-circle" />
+                                <h3 className="fw-bold py-1">Ryutaro Uozumi</h3>
+                                <h5 className="fw-bold">Manager</h5>
+                            </motion.div>
                         </Col>
                     </Row>
                 </div>

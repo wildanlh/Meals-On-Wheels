@@ -18,8 +18,50 @@
 }
 
 img.img-register {
+    height: 665px;
     width: 100%;
-    height: 650px;
-    object-fit: fill;
-    filter: brightness(50%);
+    object-fit: cover;
+}
+
+img.img-partner {
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.or-separator {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+.or-text {
+    position: absolute;
+    left: 43%;
+    top: 0;
+    padding: 10px;
+    color: #FFFFFF;
+}
+
+@media only screen and (max-width: 600px) {
+    img.img-register {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    img.img-partner {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .img-center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
 }
