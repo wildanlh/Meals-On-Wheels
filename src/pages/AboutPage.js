@@ -17,20 +17,20 @@ const AboutPage = () => {
                         <img src={aboutbanner} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
                     </div>
                     <div className="col-lg-6 animate__animated animate__fadeInLeftBig" bis_skin_checked="1">
-                        <p>Lorem ipsum dolor sit amet tincidunt turpis per. Augue convallis sem taciti penatibus semper etiam magnis pulvinar malesuada. Si vivamus integer elit tempor nulla lorem magna erat porta ipsum. Ligula interdum scelerisque mi pulvinar gravida. Integer conubia proin tortor montes felis aliquam letius purus. Massa gravida taciti pharetra ante curae bibendum. Pretium metus sed dignissim viverra consequat diam. Praesent hac est curabitur eu non justo porta tincidunt.
+                        <p>Meals on Wheels is a community-based organization dedicated to improving the health and well-being of seniors, individuals with disabilities, and others in need by providing nutritious meals, companionship, and a network of support. Our mission is to promote independence and dignity by delivering meals to those who are unable to leave their homes, and to alleviate the effects of hunger, malnutrition, and social isolation.
                             <br /> <br />
-                            Aliquet curabitur tempor volutpat suscipit gravida laoreet viverra nisi ex. Arcu nisl molestie magnis fringilla feugiat scelerisque id rhoncus dis. Accumsan a nisl lorem ligula cursus etiam. Consequat enim tempor leo libero fringilla sagittis cursus magnis sapien massa.
+                            We strive to make a positive impact on our community every day by providing essential services and creating a brighter future for all those we serve. With a dedicated team of volunteers and staff, Meals on Wheels is committed to providing the highest quality of care and support to those in need.
                         </p>
                     </div>
                 </div>
             </div>
             <div className="container text-center pb-5 animate__animated animate__fadeInLeftBig">
                 <h1 className="fw-bold">Our <span className="yellow">Mission</span></h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis pariatur laborum qui cupiditate consequatur illum, est in distinctio possimus animi iure voluptates? Cupiditate, dolorum voluptate facilis et assumenda sunt sit.</p>
+                <p>A place where everyone has a path to independence and wellness.</p>
             </div>
             <div className="container text-center pb-5 animate__animated animate__fadeInRightBig">
                 <h1 className="fw-bold">Our <span className="yellow">Vision</span></h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis pariatur laborum qui cupiditate consequatur illum, est in distinctio possimus animi iure voluptates? Cupiditate, dolorum voluptate facilis et assumenda sunt sit.</p>
+                <p>Fostering community wellness one person at a time.</p>
             </div>
             <div className="staff mb-5">
                 <div className="container text-center py-5 animate__animated animate__fadeInUpBig">
