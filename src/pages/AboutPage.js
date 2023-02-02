@@ -34,28 +34,28 @@ const AboutPage = () => {
             </div>
             <div className="staff mb-5">
                 <div className="container text-center py-5 animate__animated animate__fadeInUpBig">
-                    <h1 className="fw-bold">Our <span className="yellow">Staff</span></h1>
+                    <h1 className="fw-bold">Our <span className="yellow">Founders</span></h1>
                     <div className="hr-yellow-center mb-5"></div>
                     <Row>
                         <Col className="my-3">
                             <img src={staff1} alt="person" className="staff rounded-circle" />
                             <h3 className="fw-bold py-1">Clairine Musk</h3>
-                            <h5 className="fw-bold">Admin</h5>
+                            <h5 className="fw-bold">CEO Founder</h5>
                         </Col>
                         <Col className="my-3">
                             <img src={staff2} alt="person" className="staff rounded-circle" />
                             <h3 className="fw-bold py-1">Isaac Clarke</h3>
-                            <h5 className="fw-bold">Manager</h5>
+                            <h5 className="fw-bold">CO Founder</h5>
                         </Col>
                         <Col className="my-3">
                             <img src={staff3} alt="person" className="staff rounded-circle" />
                             <h3 className="fw-bold py-1">Irfan Riz</h3>
-                            <h5 className="fw-bold">Superpisor</h5>
+                            <h5 className="fw-bold">Director</h5>
                         </Col>
                         <Col className="my-3">
                             <img src={staff4} alt="person" className="staff rounded-circle" />
                             <h3 className="fw-bold py-1">Ryutaro Uozumi</h3>
-                            <h5 className="fw-bold">Data Analyst</h5>
+                            <h5 className="fw-bold">Manager</h5>
                         </Col>
                     </Row>
                 </div>
