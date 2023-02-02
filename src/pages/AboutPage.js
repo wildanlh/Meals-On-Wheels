@@ -26,11 +26,11 @@ const AboutPage = () => {
             </div>
             <div className="container text-center pb-5 animate__animated animate__fadeInLeftBig">
                 <h1 className="fw-bold">Our <span className="yellow">Mission</span></h1>
-                <p>A place where everyone has a path to independence and wellness.</p>
+                <p>Our company mission is to deliver meals for the elderly focuses on addressing food insecurity and nutritional needs among the senior population. Their aim is to provide hot, healthy, and nutritious meals to seniors who are unable to prepare their own meals due to physical limitations or financial constraints. The company operates with the belief that everyone deserves access to proper nutrition, regardless of age or circumstance. Their goal is to improve the quality of life for elderly individuals by supporting their basic needs and promoting independence and dignity. By delivering meals directly to their doors, the company also helps to combat social isolation and provide a vital connection to the wider community.</p>
             </div>
             <div className="container text-center pb-5 animate__animated animate__fadeInRightBig">
                 <h1 className="fw-bold">Our <span className="yellow">Vision</span></h1>
-                <p>Fostering community wellness one person at a time.</p>
+                <p>Our company vision is to deliver meals for the elderly envisions a world where every elderly person has access to proper nutrition and can age with dignity. The company sees a future where seniors are not limited by physical or financial barriers and can enjoy healthy, hot meals every day. The company's vision is to create a community where the elderly are valued and respected, and where their basic needs are met with compassion and care. The company aspires to be a leader in addressing food insecurity and improving the quality of life for seniors, and to inspire others to take similar action. By working towards this vision, the company hopes to make a lasting impact and ensure that all elderly individuals can live fulfilling and nourished lives.</p>
             </div>
             <div className="staff mb-5">
                 <div className="container text-center py-5 animate__animated animate__fadeInUpBig">
