@@ -63,3 +63,10 @@ h3.purple-text {
     background-color: #F7F7F7;
     padding-bottom: 50px;
 }
+
+img.partner {
+    width: 128px;
+    background-color: #F7F7F7;
+    padding: 15px;
+    border-radius: 10px;
+}
