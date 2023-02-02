@@ -20,6 +20,9 @@ import person from './img/person1.jpg';
 import topwave from './img/top-wave.svg';
 import botwave from './img/bot-wave.svg';
 import usericon from './img/icon-user.svg';
+import callicon from './img/icon-call.svg';
+import emailicon from './img/icon-email.svg';
+import pinicon from './img/icon-pin-location.svg';
 import fb from './img/icon-fb.svg';
 import ig from './img/icon-ig.svg';
 import tw from './img/icon-tw.svg';
@@ -48,6 +51,9 @@ export {
     botwave,
     person,
     usericon,
+    callicon,
+    emailicon,
+    pinicon,
     fb,
     ig,
     tw,
