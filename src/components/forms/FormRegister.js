@@ -96,7 +96,6 @@ const FormRegister = () => {
                                 <Form.Control type="file" onChange={(e) => setFile(e.target.files[0])} />
                             </Form.Group>
 
-                            {status ? <h1>{status}</h1> : null}
                             <div className="text-center mb-2 d-grid mx-3 pt-3">
                                 <Button type="submit" className="button fw-bold" size="lg">Register</Button>
                             </div>
