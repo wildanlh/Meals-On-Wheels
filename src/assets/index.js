@@ -17,6 +17,8 @@ import herobg1 from './img/hero-bg1.jpg';
 import herobg2 from './img/hero-bg2.jpg';
 import aboutbanner from './img/about-banner.jpg';
 import person from './img/person1.jpg';
+import bannerportairt1 from './img/banner-portairt1.jpg';
+import bannerportairt2 from './img/banner-portairt2.jpg';
 import staff1 from './img/staff1.jpg';
 import staff2 from './img/staff2.jpg';
 import staff3 from './img/staff3.jpg';
@@ -54,6 +56,8 @@ export {
     herobg1,
     herobg2,
     aboutbanner,
+    bannerportairt1,
+    bannerportairt2,
     topwave,
     botwave,
     person,
