@@ -94,7 +94,9 @@ const HomePage = () => {
             <div className="bottom-home">
                 <div className="container">
                     <div className="card pb-5 mb-5 text-white animate__animated animate__slideInUp">
-                        <img src={logo} alt="logo" className="py-5" />
+                        <motion.img src={logo} alt="logo" className="py-5"
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }} />
                         <div className="text-center">
                             <h1 className="text-white">Keep Up With Service News and Events</h1>
                             <h3>Keep in touch with us!</h3>
