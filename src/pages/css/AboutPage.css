@@ -34,3 +34,18 @@ span.yellow {
 .staff h5 {
     color: #FFC75F;
 }
+
+img.staff {
+    width: 160px;
+    border: 5px solid #FFC75F;
+}
+
+.hr-yellow-center {
+    background-color: #FFC75F;
+    padding: 3px 5px 5px 5px;
+    width: 10%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin: auto;
+    border-radius: 999px;
+}
