@@ -64,9 +64,9 @@ const HomePage = () => {
                     <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInRightBig" bis_skin_checked="1">
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
                             <Row>
-                                <Col><img src={unicef} alt="" className="partner" /></Col>
-                                <Col><img src={who} alt="" className="partner" /></Col>
-                                <Col><img src={un} alt="" className="partner" /></Col>
+                                <Col><img src={unicef} alt="" className="partner my-3" /></Col>
+                                <Col><img src={who} alt="" className="partner my-3" /></Col>
+                                <Col><img src={un} alt="" className="partner my-3" /></Col>
                             </Row>
                         </div>
                         <div className="col-lg-6" bis_skin_checked="1">
