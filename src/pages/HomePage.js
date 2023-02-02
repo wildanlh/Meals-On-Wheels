@@ -25,12 +25,12 @@ const HomePage = () => {
                     <div className="row flex-lg-row-reverse align-items-center g-5 py-5 animate__animated animate__fadeInDown" bis_skin_checked="1">
                         <div className="col-lg-6" bis_skin_checked="1">
                             <h1 className="display-5 fw-bold lh-1 mb-3">Who We Are</h1>
-                            <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A vivamus natoque auctor aliquet porta nibh taciti. Sapien euismod risus efficitur torquent consequat finibus. Habitant nibh platea porttitor vulputate amet pulvinar. </p>
+                            <p>All of our clients at Meals on Wheels are working toward becoming independent. We deliver hot and frozen meals, as well as provide door-to-door transportation.</p>
                             <div className="hr-yellow"></div>
                             <h3 className="fw-bold lh-1 mb-3 purple-text">Our Vision </h3>
-                            <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus</p>
+                            <p>A place where everyone has a path to independence and wellness.</p>
                             <h3 className="fw-bold lh-1 mb-3 purple-text">Our Mission </h3>
-                            <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus</p>
+                            <p>Fostering community wellness one person at a time.</p>
                         </div>
                         <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
                             <img src={banner2} className="d-block mx-lg-auto img-fluid banner rounded" alt="Bootstrap Themes" loading="lazy" />
@@ -49,14 +49,13 @@ const HomePage = () => {
                             <div className="hr-yellow"></div>
                             <h1 className="display-5 fw-bold lh-1 mb-3">Meals on Wheels Commitment</h1>
 
-                            <ol>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                            </ol>
+                            <ul>
+                                <li>We hold our volunteers in the highest regard; they are the foundation of our work.</li>
+                                <li>Through partnerships, diversity, and inclusion, we respect our community.</li>
+                                <li>We welcome innovation and organizational change.</li>
+                                <li>Our company practices fiscal, social, and environmental responsibility.</li>
+                                <li>We consistently offer services and programs of the highest caliber.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -73,7 +72,7 @@ const HomePage = () => {
                             <div className="hr-yellow"></div>
                             <h1 className="display-5 fw-bold lh-1 mb-3">Our Partner</h1>
 
-                            <p>Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A vivamus natoque auctor aliquet porta nibh taciti. Sapien euismod risus efficitur torquent consequat finibus. Habitant nibh platea porttitor vulputate amet pulvinar. </p>
+                            <p>Providing assistance to seniors (55+) and adults with disabilities who require nutritional support. Long-term assistance or temporary assistance (caregiver relief, recovery, or seasonal). </p>
                         </div>
                     </div>
                 </div>
