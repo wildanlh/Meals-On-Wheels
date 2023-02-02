@@ -1,5 +1,6 @@
 import Iframe from "react-iframe";
-import { herobg2 } from "../assets";
+import { callicon, emailicon, herobg2, pinicon } from "../assets";
+import FormContact from "../components/forms/FormContact";
 import Layout from "../components/layout/Layout";
 
 import './css/ContactPage.css';
@@ -14,24 +15,34 @@ const ContactPage = () => {
             <div className="container col-xxl-8 px-4 py-5" bis_skin_checked="1">
                 <div className="row flex-lg-row-reverse align-items-center g-5 py-5" bis_skin_checked="1">
                     <div className="col-10 col-sm-8 col-lg-6 animate__animated animate__bounceInRight" bis_skin_checked="1">
-                        <div className="card">
-                            <form className="p-3 p-md-5 rounded-3">
-                                <h3 className="contact-title py-3 text-white">Send a Message</h3>
-                                <div className="form-floating mb-3" bis_skin_checked="1">
-                                    <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-                                <div class="form-floating mb-3" bis_skin_checked="1">
-                                    <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
-                                    <label for="floatingPassword">Password</label>
-                                </div>
-                                <button className="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-                                <hr className="my-4" />
-                            </form>
-                        </div>
+                        <FormContact />
                     </div>
                     <div className="col-lg-6 animate__animated animate__bounceInLeft" bis_skin_checked="1">
                         <h1 className="display-5 fw-bold lh-1 mb-3">Get In Touch</h1>
+                        <div className="hr-yellow"></div>
+                        <ul className="py-3">
+                            <li className="d-flex">
+                                <img src={callicon} alt="" className="contact-icon" />
+                                <div className="mx-3 contact-detail">
+                                    <h5 className="fw-bold">CALL</h5>
+                                    <span>+1 111 111 111</span>
+                                </div>
+                            </li>
+                            <li className="d-flex py-3">
+                                <img src={emailicon} alt="" className="contact-icon" />
+                                <div className="mx-3 contact-detail">
+                                    <h5 className="fw-bold">EMAIL</h5>
+                                    <span>contact@mow.com</span>
+                                </div>
+                            </li>
+                            <li className="d-flex">
+                                <img src={pinicon} alt="" className="contact-icon" />
+                                <div className="mx-3 contact-detail">
+                                    <h5 className="fw-bold">ADDRESS</h5>
+                                    <span>Singapore</span>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
