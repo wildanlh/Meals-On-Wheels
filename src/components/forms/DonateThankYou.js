@@ -1,8 +1,5 @@
-
-
-
 function DonateThankYou(props) {
-    return <h1>Thank You</h1>
+    return <h1>Thank You</h1>;
 
 }
 

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 import "../../pages/css/DonatePage.css"
 
+
 export default function FormDonate() {
   const stripe = useStripe();
   const elements = useElements();
@@ -22,7 +23,7 @@ export default function FormDonate() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-      return_url: `${window.location.origin}/DonateThankYou`,
+      return_url: `${window.location.origin}/ThankYou`,
     },
     });
 
@@ -37,11 +38,10 @@ export default function FormDonate() {
 
   return (
     <form id="donate-form" onSubmit={handleSubmit}>
-      <PaymentElement id="payment-element">
-        <button disabled={isProcessing || !stripe || !elements} id="submit">
+      <PaymentElement id="payment-element" />
+        <button disabled={isProcessing || !stripe || !elements} className="button fw-bold mt-2" id="submit">
           <span id="button-text">{isProcessing ? "Processing. . ." : "Donate Now"}</span>
         </button>
-      </PaymentElement>
       {message && <div id="payment-message">{message}</div>}
     </form>
   );
