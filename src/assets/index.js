@@ -36,6 +36,7 @@ import fb from "./img/icon-fb.svg";
 import ig from "./img/icon-ig.svg";
 import tw from "./img/icon-tw.svg";
 import yt from "./img/icon-yt.svg";
+import bannerDonate from "./img/banner-donate.jpg"
 
 export {
   logo,
@@ -58,6 +59,7 @@ export {
   aboutbanner,
   bannerportairt1,
   bannerportairt2,
+  bannerDonate,
   topwave,
   botwave,
   person,
