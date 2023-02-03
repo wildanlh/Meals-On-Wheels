@@ -22,6 +22,7 @@ import AdminDonationHistoryPage from "./pages/AdminDonationHistoryPage";
 import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
 import AdminManageUsersPage from "./pages/AdminManageUsersPage";
 import DonateThankYou from "./components/forms/DonateThankYou";
+import TestRegister from "./components/forms/TestRegister";
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -31,11 +32,9 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
-
-
       <Route path="/donate" element={<DonatePage />} />
-      <Route path="/ThankYou" element={<DonateThankYou />}/>
-
+      <Route path="/ThankYou" element={<DonateThankYou />} />
+      <Route path="/Test" element={<TestRegister />} />
 
       <Route path="/partnership" element={<PartnershipPage />} />
       {!isLoggedIn && (
