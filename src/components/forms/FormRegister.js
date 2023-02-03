@@ -34,7 +34,7 @@ const FormRegister = () => {
     for (var pair of formData.entries()) {
       console.log(pair[0] + ", " + pair[1]);
     }
-    const resp = null;
+    let resp = null;
     try {
         resp = await axios.post(UPLOAD_ENDPOINT, formData, {
             headers: {
