@@ -11,7 +11,7 @@ const Input = ({
   emailTaken,
 }) => {
   const errorMessage = (
-    <p className="d-flex align-item-end text-danger font-normal">
+    <p className="d-flex align-item-end text-warning fw-bold">
       {errors[name]?.message}
     </p>
   );
@@ -37,9 +37,7 @@ const Input = ({
       <input
         type={type}
         placeholder={placeholder}
-        className={`form-control mb-3 p-3 ${
-          invalid ? "alert alert-warning" : ""
-        }`}
+        className={`form-control ${invalid ? "alert alert-warning" : ""}`}
         {...register(name, { ...validation })}
       />
       {errors && errors[name]?.type === "required" && errorMessage}

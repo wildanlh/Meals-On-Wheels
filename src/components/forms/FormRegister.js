@@ -36,20 +36,19 @@ const FormRegister = () => {
     }
     let resp = null;
     try {
-        resp = await axios.post(UPLOAD_ENDPOINT, formData, {
-            headers: {
-            "content-type": "multipart/form-data",
-            },
-        });
-    }catch( e ){
-        // todo: email already used, warn user
-        console.error(e); //can be removed
-        
-    };
+      resp = await axios.post(UPLOAD_ENDPOINT, formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
+    } catch (e) {
+      // todo: email already used, warn user
+      console.error(e); //can be removed
+    }
     setStatus(resp.status === 200 ? "Thank you!" : "Error.");
     if (resp.status === 200) {
-        // todo: succesful registration, inform user 
-        navigate("/login"); //can be removed
+      // todo: succesful registration, inform user
+      navigate("/login"); //can be removed
     }
   };
 
