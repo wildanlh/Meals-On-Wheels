@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { bannerportairt1 } from "../../assets";
 
 import "./Form.css";
@@ -17,6 +17,7 @@ const FormRegister = () => {
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     setStatus(""); // Reset status
@@ -33,12 +34,23 @@ const FormRegister = () => {
     for (var pair of formData.entries()) {
       console.log(pair[0] + ", " + pair[1]);
     }
-    const resp = await axios.post(UPLOAD_ENDPOINT, formData, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
+    const resp = null;
+    try {
+        resp = await axios.post(UPLOAD_ENDPOINT, formData, {
+            headers: {
+            "content-type": "multipart/form-data",
+            },
+        });
+    }catch( e ){
+        // todo: email already used, warn user
+        console.error(e); //can be removed
+        
+    };
     setStatus(resp.status === 200 ? "Thank you!" : "Error.");
+    if (resp.status === 200) {
+        // todo: succesful registration, inform user 
+        navigate("/login"); //can be removed
+    }
   };
 
   return (
@@ -74,6 +86,7 @@ const FormRegister = () => {
                   type="text"
                   onChange={(e) => setName(e.target.value)}
                   value={name}
+                  required
                 />
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="address">
@@ -145,6 +158,7 @@ const FormRegister = () => {
                 <Form.Control
                   type="file"
                   onChange={(e) => setFile(e.target.files[0])}
+                  required
                 />
               </Form.Group>
 
