@@ -1,21 +1,21 @@
 .top-maps {
-    border: 5px solid #845EC2;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 0;
+  border: 5px solid #845ec2;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 0;
 }
 
 .bot-maps {
-    border: 5px solid #845EC2;
-    border-radius: 0 0 10px 10px;
-    border-top: 0;
+  border: 5px solid #845ec2;
+  border-radius: 0 0 10px 10px;
+  border-top: 0;
 }
 
 img.contact-icon {
-    width: 38px;
+  width: 38px;
 }
 
 .prevent-select {
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

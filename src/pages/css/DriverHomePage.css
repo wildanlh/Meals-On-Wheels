@@ -1,74 +1,74 @@
 img.icon-car {
-    width: 24px;
-    margin: 0;
-    margin-right: 10px;
+  width: 24px;
+  margin: 0;
+  margin-right: 10px;
 }
 
 img.profile-driver {
-    width: 118px;
+  width: 118px;
 }
 
 .dropbtn {
-    background-color: #AE9BCD;
-    color: white;
-    text-align: left;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+  background-color: #ae9bcd;
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #8F68CE;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    width: 100%;
+  display: none;
+  position: absolute;
+  background-color: #8f68ce;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 100%;
 }
 
 .dropdown-content a {
-    color: white;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-decoration: none;
-    display: block;
+  color: white;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #472E71
+  background-color: #472e71;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #8777A1;
+  background-color: #8777a1;
 }
 
 img.status-icon {
-    width: 14px;
-    margin: 0;
+  width: 14px;
+  margin: 0;
 }
 
 thead.driver-table {
-    background-color: #472E71;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  background-color: #472e71;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 table.driver {
-    border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
 }

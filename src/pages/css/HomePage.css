@@ -1,72 +1,72 @@
 img.banner {
-    width: 700px;
+  width: 700px;
 }
 
 .home-content {
-    background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 .topwave {
-    width: 100%;
+  width: 100%;
 }
 
 .hr-purple {
-    background-color: #845EC2;
-    padding: 3px 5px 5px 5px;
-    width: 25%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 999px;
+  background-color: #845ec2;
+  padding: 3px 5px 5px 5px;
+  width: 25%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 999px;
 }
 
 .hr-yellow {
-    background-color: #FFC75F;
-    padding: 3px 5px 5px 5px;
-    width: 25%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 999px;
+  background-color: #ffc75f;
+  padding: 3px 5px 5px 5px;
+  width: 25%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 999px;
 }
 
 .botwave {
-    width: 100%;
+  width: 100%;
 }
 
 .wave-content {
-    background-color: #845EC2;
+  background-color: #845ec2;
 }
 
 .wave-content h1 {
-    color: #FFC75F;
+  color: #ffc75f;
 }
 
 hr {
-    color: white;
+  color: white;
 }
 
 .card {
-    background-color: #845EC2;
+  background-color: #845ec2;
 }
 
 .card img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
 }
 
 h3.purple-text {
-    color: #845EC2;
+  color: #845ec2;
 }
 
 .bottom-home {
-    background-color: #F7F7F7;
-    padding-bottom: 50px;
+  background-color: #f7f7f7;
+  padding-bottom: 50px;
 }
 
 img.partner {
-    width: 160px;
-    background-color: #F7F7F7;
-    padding: 15px;
-    border-radius: 10px;
+  width: 160px;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
 }

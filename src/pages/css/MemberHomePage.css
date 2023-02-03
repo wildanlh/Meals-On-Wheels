@@ -1,18 +1,18 @@
 .carousel-member {
-    width: 100%;
-    height: 300px;
-    object-fit: none;
-    filter: brightness(50%);
+  width: 100%;
+  height: 300px;
+  object-fit: none;
+  filter: brightness(50%);
 }
 
 .meals-package {
-    color: #845EC2;
+  color: #845ec2;
 }
 
 .card-meals h5 {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 .meals {
-    border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
 }
