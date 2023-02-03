@@ -34,7 +34,8 @@ function DonatePage() {
     <Layout>
     <div className="container">
       <div>
-        <h1>Hello</h1>
+        <h1 className="d-flex justify-content-center">Donate to Meals on Wheels</h1>
+        <p>By donating, you are nourshing our comunity wellness.</p>
         {clientSecret && stripePromise && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
             <FormDonate />
