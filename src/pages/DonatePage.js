@@ -33,7 +33,7 @@ function DonatePage() {
         <div className="container">
           <div>
             <div className="py-5">
-              <h1 className="text-center fw-bold">
+              <h1 className="text-center  fw-bold">
                 Donate to Meals on Wheels
               </h1>
               <p className="text-center">
