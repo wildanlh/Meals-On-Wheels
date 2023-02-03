@@ -1,61 +1,33 @@
-import { PaymentElement } from "@stripe/react-stripe-js";
-import { useState } from "react";
-import { useStripe, useElements } from "@stripe/react-stripe-js";
-import "../../pages/css/DonatePage.css";
+import { Form, Button } from "react-bootstrap";
+import "./Form.css";
+import { bannerportairt2 } from "../../assets";
 
-export default function FormDonate() {
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const [message, setMessage] = useState(null);
-  const [isProcessing, setIsProcessing] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      return;
-    }
-
-    setIsProcessing(true);
-
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `${window.location.origin}/ThankYou`,
-      },
-    });
-
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
-    } else {
-      setMessage("An unexpected error occured.");
-    }
-
-    setIsProcessing(false);
-  };
-
+const FormDonate = () => {
   return (
-    <div className="d-flex d-flex justify-content-center mb-5">
-      <div className="w-50">
-        <form
-          id="donate-form"
-          onSubmit={handleSubmit}
-          className="rounded border-1"
-        >
-          <PaymentElement className="mt-3" id="payment-element" />
-          <button
-            disabled={isProcessing || !stripe || !elements}
-            className="button fw-bold mt-3 text-white rounded px-3 mb-3"
-            id="submit"
-          >
-            <span id="button-text">
-              {isProcessing ? "Processing. . ." : "Donate Now"}
-            </span>
-          </button>
-          {message && <div id="payment-message" className="text-danger">{message}</div>}
-        </form>
+
+    <div className="container col-12 col-sm-3 col-lg-6 d-flex justify-content-center">
+    <div className="card m-5 w-75">
+    <Form className="px-3 text-white text-center" action="/create-checkout-session" method="POST">
+      <div className="py-3">
+        <h3 className="contact-title mx-3 text-white">Contribute to the Community</h3>
+        <hr className="text-white" />
+        <p className="text-center">
+           By donating, you are nourshing our comunity wellness.
+        </p>
+        <img
+              src={bannerportairt2}
+              className="rounded img-partner mb-3 pe-3"
+              alt="Bootstrap Themes"
+            />
+        <Button type="submit" className="button fw-bold" size="lg">
+          Donate Now
+        </Button>
+      </div>
+      </Form>
       </div>
     </div>
-  );
+  )
 }
+
+export default FormDonate;
+
