@@ -1,112 +1,71 @@
-import React, { useEffect, useState } from "react";
-import { getUserLoginAPI } from "../api/user-api";
+import React, { useEffect, useState } from "react"
+import { getUserLoginAPI } from "../api/auth-api"
+import { CONTEXT_USER } from "./context-type"
 
-// Create Context API
-const AuthContext = React.createContext({
-  userId: "",
-  profile: {
-    userId: "",
-    name: "",
-    email: "",
-    imageUrl: "",
-    address: "",
-    phoneNumber: "",
-  },
-  roles: [],
-  token: "",
-  isLoggedIn: false,
-  login: (token) => {},
-  logout: () => {},
-  refresh: () => {},
-});
+const AuthContext = React.createContext(CONTEXT_USER)
 
-// Retrive Stored Token From Local Storage
 const retriveStoredToken = () => {
-  const storedToken = localStorage.getItem("token");
+  const storedToken = localStorage.getItem("token")
 
   return {
     token: storedToken,
-  };
-};
+  }
+}
 
-// Context Provider
-export const AuthContextProvider = (props) => {
-  const storedToken = retriveStoredToken();
-  let initialToken;
+export function AuthContextProvider(props) {
+  const storedToken = retriveStoredToken()
+  let initialToken
 
   if (storedToken) {
-    initialToken = storedToken.token;
+    initialToken = storedToken.token
   }
 
-  // USE STATE
-  const [token, setToken] = useState(initialToken);
-  const [userProfile, setUserProfile] = useState({});
-  const [userStores, setUserStores] = useState([]);
-  const [userRoles, setUserRoles] = useState([]);
+  const [token, setToken] = useState(initialToken)
+  const [user, setUser] = useState(CONTEXT_USER)
 
-  // Check Token (!! = convert to Boolean)
-  const userIsLoggedIn = !!token;
+  const userIsLoggedIn = !!token
 
   // GET USER LOGIN DATA
   useEffect(() => {
     if (token) {
       getUserLoginAPI(token)
-        .then((res) => {
-          setUserProfile(res.data.profile);
-          setUserStores(res.data.stores);
-          setUserRoles(res.data.roles);
-        })
+        .then((res) => setUser(res.data))
         .catch((err) => {
-          console.log(err);
-          logoutHandler();
-        });
+          console.log(err)
+          logoutHandler()
+        })
     }
-  }, [token]);
+  }, [token])
 
-  // LOGOUT
   const logoutHandler = () => {
-    setToken(null);
-    localStorage.removeItem("token");
-  };
+    setToken(null)
+    localStorage.removeItem("token")
+  }
 
-  // LOGIN
   const loginHandler = (token) => {
-    setToken(token);
-    localStorage.setItem("token", token);
-  };
+    setToken(token)
+    localStorage.setItem("token", token)
+  }
 
-  // REFRESH USER LOGIN DATA
-  const refreshHandler = () => {
-    getUserLoginAPI(token)
-      .then((res) => {
-        setUserProfile(res.data.profile);
-        setUserStores(res.data.stores);
-        setUserRoles(res.data.roles);
-      })
-      .catch((err) => {
-        console.log(err);
-        logoutHandler();
-      });
-  };
-
-  // Context Value
   const contextValue = {
-    userId: userProfile.userId,
-    profile: userProfile,
-    stores: userStores,
-    roles: userRoles,
+    id: user.id,
+    name: user.name,
+    email: user.name,
+    imageUrl: user.imageUrl,
+    address: user.address,
+    gender: user.gender,
+    roles: user.roles,
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
-    refresh: refreshHandler,
-  };
+  }
 
   return (
     <AuthContext.Provider value={contextValue}>
       {props.children}
     </AuthContext.Provider>
-  );
-};
+  )
+}
 
-export default AuthContext;
+export default AuthContext
