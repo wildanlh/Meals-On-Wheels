@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import FormDonate from "../components/forms/FormDonate";
 import Layout from "../components/layout/Layout";
 
-
-
 function DonatePage() {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
@@ -24,26 +22,33 @@ function DonatePage() {
       body: JSON.stringify({}),
     }).then(async (result) => {
       var { clientSecret } = await result.json();
-          // console.log(clientSecret);
+      // console.log(clientSecret);
       setClientSecret(clientSecret);
     });
   }, []);
 
   return (
     <>
-    <Layout>
-    <div className="container">
-      <div>
-        <h1 className="d-flex justify-content-center">Donate to Meals on Wheels</h1>
-        <p>By donating, you are nourshing our comunity wellness.</p>
-        {clientSecret && stripePromise && (
-          <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <FormDonate />
-          </Elements>
-        )}
-      </div>
-    </div>
-    </Layout>
+      <Layout>
+        <div className="container">
+          <div>
+            <div className="py-5">
+              <h1 className="text-center  fw-bold">
+                Donate to Meals on Wheels
+              </h1>
+              <p className="text-center">
+                By donating, you are nourshing our comunity wellness.
+              </p>
+            </div>
+
+            {clientSecret && stripePromise && (
+              <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <FormDonate />
+              </Elements>
+            )}
+          </div>
+        </div>
+      </Layout>
     </>
   );
 }
