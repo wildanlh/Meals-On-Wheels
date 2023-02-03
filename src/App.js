@@ -23,6 +23,7 @@ import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
 import AdminManageUsersPage from "./pages/AdminManageUsersPage";
 import DonateThankYou from "./components/forms/DonateThankYou";
 
+
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
 
@@ -35,6 +36,7 @@ function App() {
 
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/ThankYou" element={<DonateThankYou />}/>
+
 
 
       <Route path="/partnership" element={<PartnershipPage />} />
