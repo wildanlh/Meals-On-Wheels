@@ -19,6 +19,7 @@ import AdminHomePage from "./pages/AdminHomePage";
 import AdminDonationHistoryPage from "./pages/AdminDonationHistoryPage";
 import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
 import AdminManageUsersPage from "./pages/AdminManageUsersPage";
+import DonateThankYou from "./components/forms/DonateThankYou";
 
 function App() {
   return (
@@ -26,7 +27,12 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
+
+
       <Route path="/donate" element={<DonatePage />} />
+      <Route path="/ThankYou" element={<DonateThankYou />}/>
+
+
       <Route path="/partnership" element={<PartnershipPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
