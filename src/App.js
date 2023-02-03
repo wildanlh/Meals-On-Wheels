@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "./context/auth-context";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "animate.css";
@@ -21,6 +23,8 @@ import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
 import AdminManageUsersPage from "./pages/AdminManageUsersPage";
 
 function App() {
+  const { isLoggedIn } = useContext(AuthContext);
+
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -28,27 +32,38 @@ function App() {
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/donate" element={<DonatePage />} />
       <Route path="/partnership" element={<PartnershipPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/terms" element={<TermsAndCondition />} />
-      <Route path="/home" element={<MemberHomePage />} />
-      <Route path="/feedback" element={<MemberFeedbackPage />} />
-      <Route
-        path="/meals-package-detail"
-        element={<MemberMealPackageDetailPage />}
-      />
-      <Route path="/driver" element={<DriverHomePage />} />
-      <Route path="/caregiver" element={<CaregiverHomePage />} />
-      <Route path="/admin" element={<AdminHomePage />} />
-      <Route
-        path="/admin/donation-history"
-        element={<AdminDonationHistoryPage />}
-      />
-      <Route
-        path="/admin/manage-partner"
-        element={<AdminManagePartnershipPage />}
-      />
-      <Route path="/admin/manage-users" element={<AdminManageUsersPage />} />
+      {!isLoggedIn && (
+        <>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/terms" element={<TermsAndCondition />} />
+        </>
+      )}
+      {isLoggedIn && (
+        <>
+          <Route path="/home" element={<MemberHomePage />} />
+          <Route path="/feedback" element={<MemberFeedbackPage />} />
+          <Route
+            path="/meals-package-detail"
+            element={<MemberMealPackageDetailPage />}
+          />
+          <Route path="/driver" element={<DriverHomePage />} />
+          <Route path="/caregiver" element={<CaregiverHomePage />} />
+          <Route path="/admin" element={<AdminHomePage />} />
+          <Route
+            path="/admin/donation-history"
+            element={<AdminDonationHistoryPage />}
+          />
+          <Route
+            path="/admin/manage-partner"
+            element={<AdminManagePartnershipPage />}
+          />
+          <Route
+            path="/admin/manage-users"
+            element={<AdminManageUsersPage />}
+          />
+        </>
+      )}
     </Routes>
   );
 }
