@@ -1,5 +1,4 @@
-
-#payment-form {
+#donate-form {
   border: #F6F9FC solid 1px;
   border-radius: var(--radius);
   padding: 20px;
@@ -8,8 +7,7 @@
 }
 
 #messages {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
-  display: none; /* hide initially, then show once the first message arrives */
+  display: none;
   background-color: #0A253C;
   color: #00D924;
   padding: 20px;
