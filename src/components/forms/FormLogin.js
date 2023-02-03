@@ -29,9 +29,14 @@ const FormLogin = () => {
             headers: {
             "content-type": "application/json",
             },
-        });
+        }).catch(err => console.log(err));
 
-        user_role = resp.data.roles;
+        user_role = JSON.stringify(resp.data.accessToken);
+        localStorage.setItem("token", resp.data.accessToken)
+        console.log("user_role: "+ user_role
+
+        );
+        
 
     }catch( e ){
         // todo: fail login
