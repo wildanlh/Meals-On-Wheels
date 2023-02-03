@@ -4,7 +4,7 @@ import { CONTEXT_USER, userType } from "./context-type"
 
 const AuthContext = React.createContext(CONTEXT_USER)
 
-const retriveStoredToken = () => {
+export function retriveStoredToken() {
   const storedToken = localStorage.getItem("token")
 
   return {

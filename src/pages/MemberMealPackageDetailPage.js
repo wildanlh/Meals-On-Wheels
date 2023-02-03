@@ -1,19 +1,21 @@
-import { Button, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { mealdetail } from "../assets";
-import Layout from "../components/layout/Layout";
+import { Button, Container } from "react-bootstrap"
+import { Link, useParams } from "react-router-dom"
+import { mealdetail } from "../assets"
+import Layout from "../components/layout/Layout"
 
 const MemberMealPackageDetailPage = () => {
+  const { menuId } = useParams()
+
   return (
     <Layout>
-      <Container className="d-flex justify-content-center">
-        <div className="card meals-detail my-5 align-items-center w-50">
-          <div className="text-center py-4">
-            <h2 className="text-white">Meal Package 1</h2>
+      <Container className='d-flex justify-content-center'>
+        <div className='card meals-detail my-5 align-items-center w-50'>
+          <div className='text-center py-4'>
+            <h2 className='text-white'>Meal Package {menuId}</h2>
           </div>
-          <div className="w-50">
-            <img src={mealdetail} alt="" className="w-100 rounded" />
-            <div className="text-center my-3 text-white">
+          <div className='w-50'>
+            <img src={mealdetail} alt='' className='w-100 rounded' />
+            <div className='text-center my-3 text-white'>
               <p>
                 Tender and juicy duck meat, crispy skin, and glazed with the
                 honey-balsamic glaze. Stuffed with very savory and juicy garlic
@@ -28,11 +30,11 @@ const MemberMealPackageDetailPage = () => {
                 Poci.
               </p>
             </div>
-            <div className="text-center mt-5 mb-3">
-              <Link to="/">
+            <div className='text-center mt-5 mb-3'>
+              <Link to='/'>
                 <Button
-                  variant="light"
-                  className="bg-light fw-bold btn-register w-100"
+                  variant='light'
+                  className='bg-light fw-bold btn-register w-100'
                 >
                   Request Meal
                 </Button>
@@ -42,7 +44,7 @@ const MemberMealPackageDetailPage = () => {
         </div>
       </Container>
     </Layout>
-  );
-};
+  )
+}
 
-export default MemberMealPackageDetailPage;
+export default MemberMealPackageDetailPage

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import axios from "axios"
 import { Button, Form } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useSearchParams } from "react-router-dom"
 
 import "./Form.css"
 import AuthContext from "../../context/auth-context"
@@ -14,6 +14,9 @@ const FormLogin = () => {
   const [password, setPassword] = useState("")
   const [status, setStatus] = useState("")
   const navigate = useNavigate()
+  const [msg, setMsg] = useSearchParams()
+
+  console.log(msg.toString())
 
   const handleSubmit = async (event) => {
     setStatus("") // Reset status
@@ -71,6 +74,7 @@ const FormLogin = () => {
         <Form onSubmit={handleSubmit} className='p-3 text-white text-center'>
           <div className='text-center py-3'>
             <h3 className='contact-title mx-3 text-white'>LOGIN</h3>
+            {msg.get("msg") && <span>thank you fro you registration</span>}
             <hr className='text-white' />
           </div>
           <Form.Group className='mb-3 mx-3' controlId='email'>

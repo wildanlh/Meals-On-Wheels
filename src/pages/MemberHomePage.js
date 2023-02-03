@@ -1,14 +1,31 @@
-import { useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { Carousel, Col, Container, Row, Table } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import { getMenu } from "../api/api"
 import { carousel1, carousel2, carousel3 } from "../assets"
 import Layout from "../components/layout/Layout"
+import AuthContext, { retriveStoredToken } from "../context/auth-context"
 
 import "./css/MemberHomePage.css"
 
 const MemberHomePage = () => {
   const [index, setIndex] = useState(0)
+  const { token } = useContext(AuthContext)
+  const [menu, setMenu] = useState([])
 
+  useEffect(() => {
+    getMenu(token)
+      .then((resp) => {
+        setMenu(resp.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    return () => {}
+  }, [token])
+
+  console.log(menu)
+  console.log([{ id: 1 }, { id: 2 }, { id: 3 }])
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex)
   }
@@ -63,7 +80,35 @@ const MemberHomePage = () => {
             <h5>Choose the package that is to your liking.</h5>
           </div>
           <Row className='card-meals'>
-            <Col>
+            {menu.map((data) => (
+              <Col key={data.id}>
+                <Link to={`/meals-package-detail/${data.id}`}>
+                  <div className='card text-center'>
+                    <h5 className='p-3'>{data.packageName}</h5>
+                    <Table striped bordered className='fw-bold'>
+                      <tbody>
+                        <tr>
+                          <td className='text-white'>{data.mainCourse}</td>
+                        </tr>
+                        <tr>
+                          <td className='text-white'>{data.salad}</td>
+                        </tr>
+                        <tr>
+                          <td className='text-white'>{data.soup}</td>
+                        </tr>
+                        <tr>
+                          <td className='text-white'>{data.dessert}</td>
+                        </tr>
+                        <tr>
+                          <td className='text-white'>{data.drink}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                  </div>
+                </Link>
+              </Col>
+            ))}
+            {/* <Col>
               <Link to='/meals-package-detail'>
                 <div className='card text-center'>
                   <h5 className='p-3'>Meals Package Card</h5>
@@ -114,33 +159,7 @@ const MemberHomePage = () => {
                   </Table>
                 </div>
               </Link>
-            </Col>
-            <Col>
-              <Link to='/meals-package-detail'>
-                <div className='card text-center'>
-                  <h5 className='p-3'>Meals Package Card</h5>
-                  <Table striped bordered className='fw-bold'>
-                    <tbody>
-                      <tr>
-                        <td className='text-white'>Roasted Duck</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Greek Salad</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Miso Soup</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Fruit Tart</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Teh Poci</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </Link>
-            </Col>
+            </Col> */}
           </Row>
         </div>
       </Container>

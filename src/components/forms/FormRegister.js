@@ -1,175 +1,175 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import { bannerportairt1 } from "../../assets";
+import React, { useState } from "react"
+import axios from "axios"
+import { Button, Form } from "react-bootstrap"
+import { Link, useNavigate } from "react-router-dom"
+import { bannerportairt1 } from "../../assets"
 
-import "./Form.css";
+import "./Form.css"
 
-const UPLOAD_ENDPOINT = "http://localhost:8080/api/auth/signup";
+const UPLOAD_ENDPOINT = "http://localhost:8080/api/auth/signup"
 
 const FormRegister = () => {
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [gender, setGender] = useState("MALE");
-  const [role, setRole] = useState("ROLE_MEMBER");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [file, setFile] = useState(null);
-  const [status, setStatus] = useState("");
-  const navigate = useNavigate();
+  const [name, setName] = useState("")
+  const [address, setAddress] = useState("")
+  const [gender, setGender] = useState("MALE")
+  const [role, setRole] = useState("ROLE_MEMBER")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [file, setFile] = useState(null)
+  const [status, setStatus] = useState("")
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
-    setStatus(""); // Reset status
-    event.preventDefault();
-    const formData = new FormData();
+    setStatus("") // Reset status
+    event.preventDefault()
+    const formData = new FormData()
 
-    formData.append("name", name);
-    formData.append("address", address);
-    formData.append("gender", gender);
-    formData.append("role", role);
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("file", file);
+    formData.append("name", name)
+    formData.append("address", address)
+    formData.append("gender", gender)
+    formData.append("role", role)
+    formData.append("email", email)
+    formData.append("password", password)
+    formData.append("file", file)
     for (var pair of formData.entries()) {
-      console.log(pair[0] + ", " + pair[1]);
+      console.log(pair[0] + ", " + pair[1])
     }
-    let resp = null;
+    let resp = null
     try {
       resp = await axios.post(UPLOAD_ENDPOINT, formData, {
         headers: {
           "content-type": "multipart/form-data",
         },
-      });
+      })
     } catch (e) {
       // todo: email already used, warn user
-      console.error(e); //can be removed
+      console.error(e) //can be removed
     }
-    setStatus(resp.status === 200 ? "Thank you!" : "Error.");
+    setStatus(resp.status === 200 ? "Thank you!" : "Error.")
     if (resp.status === 200) {
       // todo: succesful registration, inform user
-      navigate("/login"); //can be removed
+      navigate("/login?msg=true") //can be removed
     }
-  };
+  }
 
   return (
-    <div className="container d-flex justify-content-center">
-      <div className="col-xxl-8 px-4 py-5">
+    <div className='container d-flex justify-content-center'>
+      <div className='col-xxl-8 px-4 py-5'>
         <div
-          className="card row flex-lg-row-reverse  py-5"
-          bis_skin_checked="1"
+          className='card row flex-lg-row-reverse  py-5'
+          bis_skin_checked='1'
         >
-          <h3 className="contact-title mx-3 text-white text-center">
+          <h3 className='contact-title mx-3 text-white text-center'>
             REGISTER
           </h3>
-          <hr className="text-white" />
+          <hr className='text-white' />
           <div
-            className="col-10 col-sm-8 col-lg-6 img-center"
-            bis_skin_checked="1"
+            className='col-10 col-sm-8 col-lg-6 img-center'
+            bis_skin_checked='1'
           >
             <img
               src={bannerportairt1}
-              className="rounded img-register mb-3 pe-3"
-              alt="Bootstrap Themes"
-              loading="lazy"
+              className='rounded img-register mb-3 pe-3'
+              alt='Bootstrap Themes'
+              loading='lazy'
             />
           </div>
-          <div className="col-lg-6 text-center" bis_skin_checked="1">
+          <div className='col-lg-6 text-center' bis_skin_checked='1'>
             <Form
-              className="p-3 text-white text-center"
+              className='p-3 text-white text-center'
               onSubmit={handleSubmit}
             >
-              <Form.Group className="mb-3 mx-3" controlId="name">
+              <Form.Group className='mb-3 mx-3' controlId='name'>
                 <Form.Label>Full Name</Form.Label>
                 <Form.Control
-                  type="text"
+                  type='text'
                   onChange={(e) => setName(e.target.value)}
                   value={name}
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3 mx-3" controlId="address">
+              <Form.Group className='mb-3 mx-3' controlId='address'>
                 <Form.Label>Address</Form.Label>
                 <Form.Control
-                  type="text"
+                  type='text'
                   onChange={(e) => setAddress(e.target.value)}
                   value={address}
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3 mx-3 text" controlId="gender">
+              <Form.Group className='mb-3 mx-3 text' controlId='gender'>
                 <Form.Label>Gender</Form.Label>
                 <Form.Select
-                  aria-label="Default select example"
+                  aria-label='Default select example'
                   onChange={(e) => setGender(e.target.value)}
                   value={gender}
                   required
                 >
                   <option disabled>Choose a gender</option>
-                  <option defaultValue={true} value="MALE">
+                  <option defaultValue={true} value='MALE'>
                     Male
                   </option>
-                  <option value="FEMALE">Female</option>
+                  <option value='FEMALE'>Female</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group className="mb-3 mx-3" controlId="role">
+              <Form.Group className='mb-3 mx-3' controlId='role'>
                 <Form.Label>Role</Form.Label>
                 <Form.Select
-                  aria-label="Default select example"
+                  aria-label='Default select example'
                   onChange={(e) => {
-                    setRole(e.target.value);
-                    console.log(role + e.target.value);
+                    setRole(e.target.value)
+                    console.log(role + e.target.value)
                   }}
                   value={role}
                   required
                 >
                   <option disabled>Choose a role</option>
-                  <option defaultValue={true} value="ROLE_MEMBER">
+                  <option defaultValue={true} value='ROLE_MEMBER'>
                     Member
                   </option>
-                  <option value="ROLE_RIDER">Rider</option>
-                  <option value="ROLE_CAREGIVER">Caregiver</option>
-                  <option value="ROLE_VOLUNTEER">Volunteer</option>
+                  <option value='ROLE_RIDER'>Rider</option>
+                  <option value='ROLE_CAREGIVER'>Caregiver</option>
+                  <option value='ROLE_VOLUNTEER'>Volunteer</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group className="mb-3 mx-3" controlId="email">
+              <Form.Group className='mb-3 mx-3' controlId='email'>
                 <Form.Label>Email</Form.Label>
                 <Form.Control
-                  type="email"
-                  placeholder=""
+                  type='email'
+                  placeholder=''
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3 mx-3" controlId="password">
+              <Form.Group className='mb-3 mx-3' controlId='password'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type="password"
-                  placeholder=""
+                  type='password'
+                  placeholder=''
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-3 mx-3" controlId="file">
+              <Form.Group className='mb-3 mx-3' controlId='file'>
                 <Form.Label>File Upload</Form.Label>
                 <Form.Control
-                  type="file"
+                  type='file'
                   onChange={(e) => setFile(e.target.files[0])}
                   required
                 />
               </Form.Group>
 
-              <div className="text-center mb-2 d-grid mx-3 pt-3">
-                <Button type="submit" className="button fw-bold" size="lg">
+              <div className='text-center mb-2 d-grid mx-3 pt-3'>
+                <Button type='submit' className='button fw-bold' size='lg'>
                   Register
                 </Button>
               </div>
 
-              <div className="text-center mt-3 p-3">
+              <div className='text-center mt-3 p-3'>
                 <span>Already have an account?</span>
-                <Link to="/login" className="ms-2 text-white">
+                <Link to='/login' className='ms-2 text-white'>
                   Login
                 </Link>
               </div>
@@ -178,7 +178,7 @@ const FormRegister = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FormRegister;
+export default FormRegister

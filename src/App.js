@@ -49,7 +49,7 @@ function App() {
           <Route path='/home' element={<MemberHomePage />} />
           <Route path='/feedback' element={<MemberFeedbackPage />} />
           <Route
-            path='/meals-package-detail'
+            path='/meals-package-detail/:menuId'
             element={<MemberMealPackageDetailPage />}
           />
           <Route path='/driver' element={<DriverHomePage />} />

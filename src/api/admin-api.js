@@ -1,87 +1,88 @@
-import axios from "axios";
-import { BASE_URL } from "./constant";
+import axios from "axios"
+import { BASE_URL } from "./constant"
 
 // GET MEAL
 export const getAdminMealAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/meal`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // POST ORDER DELIVER
+//assign rider ito order
 export const postAdminOrderDeliverAPI = async (orderId, riderId, token) => {
   return await axios.post(
     `${BASE_URL}/admin/order/${orderId}/deliver/${riderId}`,
     {
-      token,
-      riderId,
+      headers: { Authorization: `Bearer ${token}` },
     }
-  );
-};
+  )
+}
 
 // POST ORDER PREPARE
+//assign partner into order
 export const postAdminOrderPrepareAPI = async (orderId, partnerId, token) => {
   return await axios.post(
     `${BASE_URL}/admin/order/${orderId}/prepare/${partnerId}`,
     {
-      token,
-      partnerId,
+      headers: { Authorization: `Bearer ${token}` },
     }
-  );
-};
+  )
+}
 
 // ORDER ALL
 export const getAdminOrderAllAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/all`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER COMPLETE
+//list all complate order
 export const getAdminOrderCompleteAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/complete`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER DELIVERY COMPLETE
 export const getAdminOrderDeliveryCompleteAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/delivery-complete`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER ON DELIVERY
 export const getAdminOrderOnDeliveryAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/on-delivery`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER PENDING
 export const getAdminOrderPendingAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/pending`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER PREPARED
 export const getAdminOrderPreparedAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/prepared`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER READY TO DELIVER
 export const getAdminOrderReadyToDeliverAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/ready-to-deliver`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ADMIN USER
 export const getAdminUserAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/user`, {
-    token,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
