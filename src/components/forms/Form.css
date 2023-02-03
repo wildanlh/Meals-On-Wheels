@@ -23,6 +23,12 @@ img.img-register {
   object-fit: cover;
 }
 
+img.img-donate {
+  height: 450px;
+  width: 50%;
+  object-fit: cover;
+}
+
 img.img-partner {
   height: 550px;
   width: 100%;
