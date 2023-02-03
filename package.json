@@ -19,13 +19,21 @@
     "react-iframe": "^1.8.5",
     "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "stripe": "^8.202.0"
   },
+  "devDependencies": {
+    "concurrently": "4.1.2"
+  },
+  "homepage": "http://localhost:3000/",
+  "proxy": "http://localhost:5252/",
   "scripts": {
-    "start": "react-scripts start",
+    "start-client": "react-scripts start",
+    "start-server": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "concurrently \"npm run start-client\" \"npm run start-server\""
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:5252",
-  "devDependencies": {
-    "prettier": "^2.7.1"
   }
 }
