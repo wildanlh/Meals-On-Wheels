@@ -43,17 +43,17 @@ export default function FormDonate() {
           onSubmit={handleSubmit}
           className="rounded border-1"
         >
-          <PaymentElement id="payment-element" />
+          <PaymentElement className="mt-3" id="payment-element" />
           <button
             disabled={isProcessing || !stripe || !elements}
-            className="button fw-bold mt-3 text-white rounded px-3"
+            className="button fw-bold mt-3 text-white rounded px-3 mb-3"
             id="submit"
           >
             <span id="button-text">
               {isProcessing ? "Processing. . ." : "Donate Now"}
             </span>
           </button>
-          {message && <div id="payment-message">{message}</div>}
+          {message && <div id="payment-message" className="text-danger">{message}</div>}
         </form>
       </div>
     </div>
