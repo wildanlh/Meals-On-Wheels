@@ -29,30 +29,16 @@ export const getUserLoginAPI = async (token) => {
   });
 };
 
-// EDIT PROFILE
-export const editProfileAPI = async (user, token) => {
-  return await axios.put(
-    `${BASE_URL}/users/edit`,
-    {
-      userId: user.userId,
-      name: user.name,
-      address: user.address,
-      phoneNumber: user.phoneNumber,
-    },
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-};
-
-// LIST USER
-export const getListUserAPI = async (token) => {
-  return await axios.get(`${BASE_URL}/users`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-};
-
 // GET USER BY ID
 export const getUserAPI = async (userId, token) => {
   return await axios.get(`${BASE_URL}/users/${userId}`, {
     headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
+// GET USER ME
+export const getUserMeAPI = async (id) => {
+  return await axios.get(`${BASE_URL}/user/me`, {
+    id,
   });
 };

@@ -1,0 +1,12 @@
+.thank-you {
+  background-color: #f7f7f7;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .card-thankyou {
+    height: 300px;
+  }
+}

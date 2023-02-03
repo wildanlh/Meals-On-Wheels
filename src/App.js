@@ -1,42 +1,43 @@
-import { Route, Routes } from "react-router-dom"
-import { useContext } from "react"
-import AuthContext from "./context/auth-context"
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./App.css"
-import "animate.css"
-import HomePage from "./pages/HomePage"
-import AboutPage from "./pages/AboutPage"
-import ContactPage from "./pages/ContactPage"
-import DonatePage from "./pages/DonatePage"
-import PartnershipPage from "./pages/PartnershipPage"
-import LoginPage from "./pages/LoginPage"
-import RegisterPage from "./pages/RegisterPage"
-import TermsAndCondition from "./pages/TermsAndConditionPage"
-import MemberHomePage from "./pages/MemberHomePage"
-import MemberMealPackageDetailPage from "./pages/MemberMealPackageDetailPage"
-import MemberFeedbackPage from "./pages/MemberFeedbackPage"
-import DriverHomePage from "./pages/DriverHomePage"
-import CaregiverHomePage from "./pages/CaregiverHomePage"
-import AdminHomePage from "./pages/AdminHomePage"
-import AdminDonationHistoryPage from "./pages/AdminDonationHistoryPage"
-import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage"
-import AdminManageUsersPage from "./pages/AdminManageUsersPage"
-import DonateThankYou from "./components/forms/DonateThankYou"
-import TestRegister from "./components/forms/TestRegister"
+mport { Route, Routes } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "./context/auth-context";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import "animate.css";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import DonatePage from "./pages/DonatePage";
+import PartnershipPage from "./pages/PartnershipPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import TermsAndCondition from "./pages/TermsAndConditionPage";
+import MemberHomePage from "./pages/MemberHomePage";
+import MemberMealPackageDetailPage from "./pages/MemberMealPackageDetailPage";
+import MemberFeedbackPage from "./pages/MemberFeedbackPage";
+import DriverHomePage from "./pages/DriverHomePage";
+import CaregiverHomePage from "./pages/CaregiverHomePage";
+import AdminHomePage from "./pages/AdminHomePage";
+import AdminDonationHistoryPage from "./pages/AdminDonationHistoryPage";
+import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
+import AdminManageUsersPage from "./pages/AdminManageUsersPage";
+import TestRegister from "./components/forms/TestRegister";
+import ThankYouPage from "./pages/ThankYouPage";
+
 
 function App() {
   const { isLoggedIn, roles } = useContext(AuthContext)
 
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/about' element={<AboutPage />} />
-      <Route path='/contact' element={<ContactPage />} />
-      <Route path='/donate' element={<DonatePage />} />
-      <Route path='/ThankYou' element={<DonateThankYou />} />
-      <Route path='/Test' element={<TestRegister />} />
+    <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/donate" element={<DonatePage />} />
+      <Route path="/thankyou" element={<ThankYouPage />} />
+      <Route path="/Test" element={<TestRegister />} />
 
-      <Route path='/partnership' element={<PartnershipPage />} />
+      <Route path="/partnership" element={<PartnershipPage />} />
       {!isLoggedIn && (
         <>
           <Route path='/login' element={<LoginPage />} />
