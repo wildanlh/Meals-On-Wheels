@@ -1,12 +1,16 @@
-export const CONTEXT_USER = {
+export const userType = {
   id: "",
   name: "",
   email: "",
   imageUrl: "",
   address: "",
-  gender: "",
-  roles: [],
+  gander: "",
+  status: "",
+  role: "",
   token: "",
+}
+export const CONTEXT_USER = {
+  currentUser: userType,
   isLoggedIn: false,
   login: (token) => {},
   logout: () => {},

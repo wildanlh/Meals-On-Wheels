@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getUserLoginAPI } from "../api/auth-api"
-import { CONTEXT_USER } from "./context-type"
+import { CONTEXT_USER, userType } from "./context-type"
 
 const AuthContext = React.createContext(CONTEXT_USER)
 
@@ -21,44 +21,55 @@ export function AuthContextProvider(props) {
   }
 
   const [token, setToken] = useState(initialToken)
-  const [user, setUser] = useState(CONTEXT_USER)
+  const [user, setUser] = useState(userType)
 
   const userIsLoggedIn = !!token
 
   // GET USER LOGIN DATA
   useEffect(() => {
-    if (token) {
-      getUserLoginAPI(token)
-        .then((res) => setUser(res.data))
-        .catch((err) => {
-          console.log(err)
-          logoutHandler()
-        })
-    }
+    getUserLoginAPI(token)
+      .then((res) => setUser(res.data))
+      .catch((err) => {
+        console.log(err)
+        setUser(userType)
+      })
   }, [token])
 
-  const logoutHandler = () => {
-    setToken(null)
-    localStorage.removeItem("token")
-  }
-
-  const loginHandler = (token) => {
-    setToken(token)
-    localStorage.setItem("token", token)
-  }
-
-  const contextValue = {
-    id: user.id,
-    name: user.name,
-    email: user.name,
-    imageUrl: user.imageUrl,
-    address: user.address,
-    gender: user.gender,
-    roles: user.roles,
+  let contextValue = {
+    currentUser: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      imageUrl: user.imageUrl,
+      address: user.address,
+      gander: user.gander,
+      status: user.status,
+      role: user.role,
+    },
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
+  }
+  function logoutHandler() {
+    setToken(null)
+    localStorage.removeItem("token")
+    contextValue.currentUser = {
+      id: "",
+      name: "",
+      email: "",
+      imageUrl: "",
+      address: "",
+      gander: "",
+      status: "",
+      role: "",
+      token: "",
+    }
+  }
+
+  function loginHandler(token) {
+    setToken(token)
+    localStorage.setItem("token", token)
   }
 
   return (

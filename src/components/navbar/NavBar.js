@@ -1,12 +1,20 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Button, Container, Nav, Navbar } from "react-bootstrap"
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import { logo } from "../../assets"
 import AuthContext from "../../context/auth-context"
+import { userType } from "../../context/context-type"
 import "./NavBar.css"
 
 const NavBar = () => {
-  const { name } = useContext(AuthContext)
+  const { currentUser, logout } = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  function handleLogout() {
+    logout()
+    navigate("/login")
+  }
+
   return (
     <div>
       <Navbar className='Navbar' expand='lg'>
@@ -51,8 +59,25 @@ const NavBar = () => {
                 Contact
               </NavLink>
             </Nav>
-            {name ? (
-              name
+            {currentUser.name ? (
+              currentUser.name && (
+                <Nav>
+                  <Button
+                    variant='outline-light'
+                    className='me-0 me-md-3 mb-md-0 mb-3 text-light fw-bold btn-login'
+                  >
+                    {currentUser.name}
+                  </Button>
+
+                  <Button
+                    variant='light'
+                    className='me-0 me-md-3 mb-md-0 mb-3 bg-light fw-bold btn-register'
+                    onClick={handleLogout}
+                  >
+                    logout
+                  </Button>
+                </Nav>
+              )
             ) : (
               <Nav>
                 <Link to='/login'>
@@ -76,16 +101,26 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/* <div className="nav-member">
-                <nav className="py-2">
-                    <div className="d-flex justify-content-center">
-                        <ul className="nav">
-                            <Link to="/home" className="text-decoration-none"><li className="text-white px-3 btn-member fw-bold">View Daily Meals</li></Link>
-                            <Link to="/feedback" className="text-decoration-none"><li className="text-white px-3 btn-member fw-bold">Feedbcak/Evaluate</li></Link>
-                        </ul>
-                    </div>
-                </nav>
-            </div> */}
+      {currentUser.role === "ROLE_MEMBER" && (
+        <div className='nav-member'>
+          <nav className='py-2'>
+            <div className='d-flex justify-content-center'>
+              <ul className='nav'>
+                <Link to='/home' className='text-decoration-none'>
+                  <li className='text-white px-3 btn-member fw-bold'>
+                    View Daily Meals
+                  </li>
+                </Link>
+                <Link to='/feedback' className='text-decoration-none'>
+                  <li className='text-white px-3 btn-member fw-bold'>
+                    Feedbcak/Evaluate
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      )}
     </div>
   )
 }
