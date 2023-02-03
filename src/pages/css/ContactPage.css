@@ -19,3 +19,7 @@ img.contact-icon {
   -ms-user-select: none;
   user-select: none;
 }
+
+.contact-pointer {
+  cursor: pointer;
+}

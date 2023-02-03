@@ -2,6 +2,7 @@ import Iframe from "react-iframe";
 import { callicon, emailicon, herobg2, pinicon } from "../assets";
 import FormContact from "../components/forms/FormContact";
 import Layout from "../components/layout/Layout";
+import { motion } from "framer-motion";
 
 import "./css/ContactPage.css";
 
@@ -30,27 +31,39 @@ const ContactPage = () => {
             <h1 className="display-5 fw-bold lh-1 mb-3">Get In Touch</h1>
             <div className="hr-yellow"></div>
             <ul className="py-3">
-              <li className="d-flex py-3">
+              <motion.li
+                className="contact-pointer d-flex py-3"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
                 <img src={callicon} alt="" className="contact-icon" />
                 <div className="mx-3 contact-detail">
                   <h5 className="fw-bold">CALL</h5>
                   <span>+1 111 111 111</span>
                 </div>
-              </li>
-              <li className="d-flex py-3">
+              </motion.li>
+              <motion.li
+                className=" contact-pointer d-flex py-3"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
                 <img src={emailicon} alt="" className="contact-icon" />
                 <div className="mx-3 contact-detail">
                   <h5 className="fw-bold">EMAIL</h5>
                   <span>contact@mow.com</span>
                 </div>
-              </li>
-              <li className="d-flex py-3">
+              </motion.li>
+              <motion.li
+                className="contact-pointer d-flex py-3"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
                 <img src={pinicon} alt="" className="contact-icon" />
                 <div className="mx-3 contact-detail">
                   <h5 className="fw-bold">ADDRESS</h5>
                   <span>Singapore</span>
                 </div>
-              </li>
+              </motion.li>
             </ul>
           </div>
         </div>
