@@ -63,7 +63,6 @@ export function AuthContextProvider(props) {
       gander: "",
       status: "",
       role: "",
-      token: "",
     }
   }
 

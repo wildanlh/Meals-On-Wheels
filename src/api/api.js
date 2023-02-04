@@ -14,3 +14,9 @@ export const getMenu = async (token) => {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
+// MENU
+export const getMenuById = async (token, id) => {
+  return await axios.get(`${BASE_URL}/menu/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
