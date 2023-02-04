@@ -38,7 +38,9 @@ const FormRegister = () => {
       .post(UPLOAD_ENDPOINT, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
-      .then((resp) => setStatus(resp.data.messsage))
+      .then((resp) => {
+        navigate(`/login?msg=${resp.data.message}`)
+      })
       .catch((err) => setStatus(err.response.data.message))
 
     // try {
