@@ -20,20 +20,16 @@ const MemberMealPackageDetailPage = () => {
   }, [menuId, token])
 
   function handlePostOrder() {
-    console.log(token, menuId)
-    try {
-      const order = postMemberOrderCreateAPI(token, menuId)
-      console.log(order)
-    } catch (err) {
-      console.log(err)
-    }
+    postMemberOrderCreateAPI(token, menuId)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.warn(err))
   }
 
   return (
     <Layout>
       <Container className='d-flex justify-content-center'>
-        {msg && <span>{msg}</span>}
         <div className='card meals-detail my-5 align-items-center w-50'>
+          {msg && <span>{msg}</span>}
           <div className='text-center py-4'>
             <h2 className='text-white'>
               {menu.packageName}

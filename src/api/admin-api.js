@@ -10,8 +10,8 @@ export const getAdminMealAPI = async (token) => {
 
 // POST ORDER DELIVER
 //assign rider ito order
-export const postAdminOrderDeliverAPI = async (orderId, riderId, token) => {
-  return await axios.post(
+export const postAdminOrderDeliverAPI = async (token, orderId, riderId) => {
+  return await axios.get(
     `${BASE_URL}/admin/order/${orderId}/deliver/${riderId}`,
     {
       headers: { Authorization: `Bearer ${token}` },
@@ -21,8 +21,8 @@ export const postAdminOrderDeliverAPI = async (orderId, riderId, token) => {
 
 // POST ORDER PREPARE
 //assign partner into order
-export const postAdminOrderPrepareAPI = async (orderId, partnerId, token) => {
-  return await axios.post(
+export const postAdminOrderPrepareAPI = async (token, orderId, partnerId) => {
+  return await axios.get(
     `${BASE_URL}/admin/order/${orderId}/prepare/${partnerId}`,
     {
       headers: { Authorization: `Bearer ${token}` },

@@ -1,30 +1,30 @@
-import axios from "axios";
-import { BASE_URL } from "./constant";
+import axios from "axios"
+import { BASE_URL } from "./constant"
 
 // GET ORDER
-export const getRiderOrderAPI = async (id) => {
+export const getRiderOrderAPI = async (token, id) => {
   return await axios.get(`${BASE_URL}/rider/order`, {
-    id,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER COMPLETE
-export const postRiderOrderCompleteAPI = async (id) => {
-  return await axios.post(`${BASE_URL}/rider/order/${id}/complete`, {
-    id,
-  });
-};
+export const postRiderOrderCompleteAPI = async (token, id) => {
+  return await axios.get(`${BASE_URL}/rider/order/${id}/complete`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // ORDER CREATE
-export const postRiderOrderCreateAPI = async (id) => {
-  return await axios.post(`${BASE_URL}/rider/order/${id}/create`, {
-    id,
-  });
-};
+export const postRiderOrderCreateAPI = async (token, id) => {
+  return await axios.get(`${BASE_URL}/rider/order/${id}/create`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 
 // GET ORDER ALL
-export const getRiderOrderAllAPI = async (id) => {
+export const getRiderOrderAllAPI = async (token, id) => {
   return await axios.get(`${BASE_URL}/rider/order/all`, {
-    id,
-  });
-};
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
