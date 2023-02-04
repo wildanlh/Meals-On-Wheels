@@ -74,7 +74,7 @@ const FormLogin = () => {
         <Form onSubmit={handleSubmit} className='p-3 text-white text-center'>
           <div className='text-center py-3'>
             <h3 className='contact-title mx-3 text-white'>LOGIN</h3>
-            {msg.get("msg") && <span>thank you fro you registration</span>}
+            {msg.get("msg") && <span>thank you for your registration</span>}
             <hr className='text-white' />
           </div>
           <Form.Group className='mb-3 mx-3' controlId='email'>
