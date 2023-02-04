@@ -23,7 +23,7 @@ const MemberMealPackageDetailPage = () => {
     postMemberOrderCreateAPI(token, menuId)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.warn(err))
-  }
+
 
   return (
     <Layout>
