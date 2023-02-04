@@ -23,7 +23,7 @@ img {
   color: #845ec2;
 }
 
-.nav-member {
+.second-nav {
   background: #e6dff3;
 }
 
@@ -36,4 +36,10 @@ img {
 
 .btn-member ul li {
   text-decoration: none;
+}
+
+.menu-user {
+  border: 1px solid #f5f5f5;
+  padding: 8px;
+  border-radius: 10px;
 }
