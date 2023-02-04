@@ -36,7 +36,8 @@ import fb from "./img/icon-fb.svg";
 import ig from "./img/icon-ig.svg";
 import tw from "./img/icon-tw.svg";
 import yt from "./img/icon-yt.svg";
-import bannerDonate from "./img/banner-donate.jpg"
+import bannerDonate from "./img/banner-donate.jpg";
+import defaultprofile from "./img/default-profile.png";
 
 export {
   logo,
@@ -78,4 +79,5 @@ export {
   ig,
   tw,
   yt,
+  defaultprofile,
 };
