@@ -4,4 +4,15 @@ h1 {
 
 .button {
   background-color: #472e71;
-} 
+}
+
+.circle-yellow-lg {
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: #ffc75f;
+  position: absolute;
+  z-index: -5;
+  bottom: -70px;
+  right: -50px;
+}

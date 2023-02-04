@@ -25,7 +25,7 @@ const HomePage = () => {
           bis_skin_checked="1"
         >
           <div
-            className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig"
+            className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig position-relative"
             bis_skin_checked="1"
           >
             <motion.img
@@ -36,8 +36,9 @@ const HomePage = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
+            <div className="circle-yellow-lg"></div>
           </div>
-          <motiondiv
+          <div
             className="col-lg-6 animate__animated animate__fadeInLeftBig"
             bis_skin_checked="1"
           >
@@ -50,7 +51,7 @@ const HomePage = () => {
               community we serve, and we are driven by a strong commitment to
               our volunteers, donors, partners, and community.
             </p>
-          </motiondiv>
+          </div>
         </div>
       </div>
       <div className="home-content">
