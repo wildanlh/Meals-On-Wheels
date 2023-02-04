@@ -20,13 +20,8 @@ const MemberMealPackageDetailPage = () => {
   }, [menuId, token])
 
   function handlePostOrder() {
-    console.log(token, menuId)
-    try {
-      const order = postMemberOrderCreateAPI(token, menuId)
-      console.log(order)
-    } catch (err) {
-      console.log(err)
-    }
+    postMemberOrderCreateAPI(token, menuId).then((resp) => console.log(resp) )
+    .catch((err) => console.log(err))
   }
 
   return (

@@ -17,7 +17,7 @@ export const postMemberOrderCompleteAPI = async (token, id) => {
 
 // ORDER CREATE
 export const postMemberOrderCreateAPI = async (token, id) => {
-  return await axios.post(`${BASE_URL}/member/order/${id}/create`, {
+  return await axios.get(`${BASE_URL}/member/order/${id}/create`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
