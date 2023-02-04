@@ -17,7 +17,7 @@ const FormLogin = () => {
   const [msg, setMsg] = useSearchParams()
 
   const handleSubmit = async (event) => {
-    setStatus("") // Reset status
+    //setStatus("") // Reset status
     event.preventDefault()
     const formData = new FormData()
 
@@ -33,15 +33,19 @@ const FormLogin = () => {
             "content-type": "application/json",
           },
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          console.log(err)
+          setStatus(err.response.data.message)
+        })
 
       authCtx.login(resp.data.accessToken)
-      user_role = JSON.stringify(resp.data.accessToken)
-      localStorage.setItem("token", resp.data.accessToken)
-      console.log("user_role: " + user_role)
-    } catch (e) {
+      // user_role = JSON.stringify(resp.data.accessToken)
+      // localStorage.setItem("token", resp.data.accessToken)
+      // console.log("user_role: " + user_role)
+    } catch (err) {
       // todo: fail login
-      console.error(e) //can be removed
+
+      console.error(err) //can be removed
     }
     setStatus(resp.status === 200 ? "Thank you!" : "Error.")
     if (resp.status === 200) {
@@ -73,6 +77,8 @@ const FormLogin = () => {
           <div className='text-center py-3'>
             <h3 className='contact-title mx-3 text-white'>LOGIN</h3>
             {msg.get("msg") && <span>{msg.get("msg")}</span>}
+
+            {status}
             <hr className='text-white' />
           </div>
           <Form.Group className='mb-3 mx-3' controlId='email'>
