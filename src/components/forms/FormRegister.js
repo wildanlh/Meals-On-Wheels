@@ -70,7 +70,6 @@ const FormRegister = () => {
         >
           <h3 className='contact-title mx-3 text-white text-center'>
             REGISTER
-            {status}
           </h3>
           <hr className='text-white' />
           <div
@@ -151,6 +150,7 @@ const FormRegister = () => {
                   value={email}
                   required
                 />
+                <p className="text-warning">{status}</p>
               </Form.Group>
               <Form.Group className='mb-3 mx-3' controlId='password'>
                 <Form.Label>Password</Form.Label>
