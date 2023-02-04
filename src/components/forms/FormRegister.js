@@ -31,25 +31,32 @@ const FormRegister = () => {
     formData.append("email", email)
     formData.append("password", password)
     formData.append("file", file)
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ", " + pair[1])
-    }
-    let resp = null
-    try {
-      resp = await axios.post(UPLOAD_ENDPOINT, formData, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ", " + pair[1])
+    // }
+    axios
+      .post(UPLOAD_ENDPOINT, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       })
-    } catch (e) {
-      // todo: email already used, warn user
-      console.error(e) //can be removed
-    }
-    setStatus(resp.status === 200 ? "Thank you!" : "Error.")
-    if (resp.status === 200) {
-      // todo: succesful registration, inform user
-      navigate("/login?msg=true") //can be removed
-    }
+      .then((resp) => setStatus(resp.data.messsage))
+      .catch((err) => setStatus(err.response.data.message))
+
+    // try {
+    //   let resp = await axios.post(UPLOAD_ENDPOINT, formData, {
+    //     headers: {
+    //       "content-type": "multipart/form-data",
+    //     },
+    //   })
+    //   console.log(resp)
+    // } catch (e) {
+    //   // todo: email already used, warn user
+    //   console.error(e) //can be removed
+    // }
+    // setStatus(resp.status === 200 ? "Thank you!" : "Error.")
+    // if (resp.status === 200) {
+    //   // todo: succesful registration, inform user
+    //   navigate("/login?msg=true") //can be removed
+    // }
   }
 
   return (
@@ -61,6 +68,7 @@ const FormRegister = () => {
         >
           <h3 className='contact-title mx-3 text-white text-center'>
             REGISTER
+            {status}
           </h3>
           <hr className='text-white' />
           <div

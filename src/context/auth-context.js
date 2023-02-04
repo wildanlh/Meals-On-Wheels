@@ -27,6 +27,7 @@ export function AuthContextProvider(props) {
 
   // GET USER LOGIN DATA
   useEffect(() => {
+    if (!token) return
     getUserLoginAPI(token)
       .then((res) => setUser(res.data))
       .catch((err) => {
