@@ -19,9 +19,11 @@ const NavBar = () => {
     <div>
       <Navbar className='Navbar' expand='lg'>
         <Container>
-          <img src={logo} alt='' />
+
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className="w-25"><img src={logo} alt='' /></Nav>
+
             <Nav className='ms-auto me-md-auto'>
               <NavLink
                 activeclassname='active'
@@ -61,7 +63,7 @@ const NavBar = () => {
             </Nav>
             {currentUser.name ? (
               currentUser.name && (
-                <Nav>
+                <Nav className="w-25 justify-content-end">
                   <Button
                     variant='outline-light'
                     className='me-0 me-md-3 mb-md-0 mb-3 text-light fw-bold btn-login'
@@ -79,7 +81,7 @@ const NavBar = () => {
                 </Nav>
               )
             ) : (
-              <Nav>
+              <Nav className="w-25 justify-content-end">
                 <Link to='/login'>
                   <Button
                     variant='outline-light'
