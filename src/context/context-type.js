@@ -1,4 +1,4 @@
-export const userType = {
+export const user_type = {
   id: "",
   name: "",
   email: "",
@@ -8,10 +8,20 @@ export const userType = {
   status: "",
   role: "",
 }
-export const CONTEXT_USER = {
-  currentUser: userType,
+export const context_user = {
+  currentUser: user_type,
   isLoggedIn: false,
   token: "",
   login: (token) => {},
   logout: () => {},
+}
+
+export const order_type = {
+  id: "",
+  orderBy: user_type,
+  preparedBy: user_type,
+  deliveredBy: user_type,
+  mealPackage: "",
+  orderOn: "",
+  orderStatus: "",
 }

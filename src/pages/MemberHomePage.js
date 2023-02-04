@@ -23,10 +23,9 @@ const MemberHomePage = () => {
       .catch((err) => {
         console.log(err)
       })
-    getMemberOrderAPI(token).then((resp) => {
-      setOrder(resp.data)
-      console.log(resp.data)
-    })
+    getMemberOrderAPI(token)
+      .then((resp) => setOrder(resp.data))
+      .catch((err) => console.log(err.response.data))
   }, [token])
 
   const handleSelect = (selectedIndex, e) => {

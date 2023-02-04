@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { getUserLoginAPI } from "../api/auth-api"
-import { CONTEXT_USER, userType } from "./context-type"
+import { context_user, user_type } from "./context-type"
 
-const AuthContext = React.createContext(CONTEXT_USER)
+const AuthContext = React.createContext(context_user)
 
 export function retriveStoredToken() {
   const storedToken = localStorage.getItem("token")
@@ -21,7 +21,7 @@ export function AuthContextProvider(props) {
   }
 
   const [token, setToken] = useState(initialToken)
-  const [user, setUser] = useState(userType)
+  const [user, setUser] = useState(user_type)
 
   const userIsLoggedIn = !!token
 
@@ -32,7 +32,7 @@ export function AuthContextProvider(props) {
       .then((res) => setUser(res.data))
       .catch((err) => {
         console.log(err)
-        setUser(userType)
+        setUser(user_type)
       })
   }, [token])
 

@@ -3,7 +3,7 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap"
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import { logo } from "../../assets"
 import AuthContext from "../../context/auth-context"
-import { userType } from "../../context/context-type"
+import { user_type } from "../../context/context-type"
 import "./NavBar.css"
 
 const NavBar = () => {

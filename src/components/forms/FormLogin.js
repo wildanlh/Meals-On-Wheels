@@ -24,21 +24,44 @@ const FormLogin = () => {
     formData.append("email", email)
     formData.append("password", password)
 
-    let resp = null
-    let user_role = null
     try {
-      resp = await axios
+      await axios
         .post(LOGIN_ENDPOINT, formData, {
           headers: {
             "content-type": "application/json",
           },
+        })
+        .then((resp) => {
+          authCtx.login(resp.data.accessToken)
+
+          console.log(resp.data.role)
+          switch (resp.data.role) {
+            case "[ROLE_MEMBER]":
+              navigate("/home")
+              break
+            case "[ROLE_PARTNER]":
+              navigate("/#partner")
+              break
+            case "[ROLE_RIDER]":
+              navigate("/driver")
+              break
+            case "[ROLE_VOLUNTEER]":
+              navigate("/#volunteer")
+              break
+            case "[ROLE_ADMIN]":
+              navigate("/admin")
+              break
+
+            default:
+              navigate("/")
+              break
+          }
         })
         .catch((err) => {
           console.log(err)
           setStatus(err.response.data.message)
         })
 
-      authCtx.login(resp.data.accessToken)
       // user_role = JSON.stringify(resp.data.accessToken)
       // localStorage.setItem("token", resp.data.accessToken)
       // console.log("user_role: " + user_role)
@@ -47,27 +70,27 @@ const FormLogin = () => {
 
       console.error(err) //can be removed
     }
-    setStatus(resp.status === 200 ? "Thank you!" : "Error.")
-    if (resp.status === 200) {
-      // todo: success login
-      // todo: update context to logged in
+    // setStatus(resp.status === 200 ? "Thank you!" : "Error.")
+    // if (resp.status === 200) {
+    //   // todo: success login
+    //   // todo: update context to logged in
 
-      navigate("/home")
+    //   navigate("/home")
 
-      // if (user_role === "[ROLE_MEMBER]") {
-      //   navigate("#member_home")
-      // } else if (user_role === "[ROLE_VOLUNTEER]") {
-      //   navigate("#volunteer_home")
-      // } else if (user_role === "[ROLE_CAREGIVER]") {
-      //   navigate("#caregiver_home")
-      // } else if (user_role === "[ROLE_RIDER]") {
-      //   navigate("#rider_home")
-      // } else if (user_role === "[ROLE_ADMIN]") {
-      //   navigate("#admin_home")
-      // } else if (user_role === "[ROLE_PARTNER]") {
-      //   navigate("#partner_home")
-      // }
-    }
+    //   // if (user_role === "[ROLE_MEMBER]") {
+    //   //   navigate("#member_home")
+    //   // } else if (user_role === "[ROLE_VOLUNTEER]") {
+    //   //   navigate("#volunteer_home")
+    //   // } else if (user_role === "[ROLE_CAREGIVER]") {
+    //   //   navigate("#caregiver_home")
+    //   // } else if (user_role === "[ROLE_RIDER]") {
+    //   //   navigate("#rider_home")
+    //   // } else if (user_role === "[ROLE_ADMIN]") {
+    //   //   navigate("#admin_home")
+    //   // } else if (user_role === "[ROLE_PARTNER]") {
+    //   //   navigate("#partner_home")
+    //   // }
+    // }
   }
 
   return (
