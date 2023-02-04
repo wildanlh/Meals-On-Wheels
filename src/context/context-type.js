@@ -7,11 +7,11 @@ export const userType = {
   gander: "",
   status: "",
   role: "",
-  token: "",
 }
 export const CONTEXT_USER = {
   currentUser: userType,
   isLoggedIn: false,
+  token: "",
   login: (token) => {},
   logout: () => {},
 }

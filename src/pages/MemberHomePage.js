@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react"
 import { Carousel, Col, Container, Row, Table } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { getMenu } from "../api/api"
+import { getMemberOrderAPI } from "../api/member-api"
 import { carousel1, carousel2, carousel3 } from "../assets"
 import Layout from "../components/layout/Layout"
 import AuthContext, { retriveStoredToken } from "../context/auth-context"
@@ -12,6 +13,7 @@ const MemberHomePage = () => {
   const [index, setIndex] = useState(0)
   const { token } = useContext(AuthContext)
   const [menu, setMenu] = useState([])
+  const [order, setOrder] = useState([])
 
   useEffect(() => {
     getMenu(token)
@@ -21,11 +23,12 @@ const MemberHomePage = () => {
       .catch((err) => {
         console.log(err)
       })
-    return () => {}
+    getMemberOrderAPI(token).then((resp) => {
+      setOrder(resp.data)
+      console.log(resp.data)
+    })
   }, [token])
 
-  console.log(menu)
-  console.log([{ id: 1 }, { id: 2 }, { id: 3 }])
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex)
   }
