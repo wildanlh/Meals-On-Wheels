@@ -16,12 +16,22 @@ export const context_user = {
   logout: () => {},
 }
 
+export const menu_type = {
+  id: "",
+  packageName: "",
+  mainCourse: "",
+  salad: "",
+  soup: "",
+  dessert: "",
+  drink: "",
+  packageImage: "",
+}
 export const order_type = {
   id: "",
   orderBy: user_type,
   preparedBy: user_type,
   deliveredBy: user_type,
-  mealPackage: "",
+  mealPackage: menu_type,
   orderOn: "",
   orderStatus: "",
 }

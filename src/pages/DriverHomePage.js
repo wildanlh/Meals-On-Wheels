@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import {
+  Button,
   Carousel,
   Col,
   Container,
@@ -195,7 +196,24 @@ const DriverHomePage = () => {
                       </div>
                     </td>
                     <td className='text-white'>
-                      <DropdownButton
+                      {order.orderStatus === "READY_TO_DELIVER" ? (
+                        <Button
+                          onClick={() => {
+                            handlePickUp(order.id)
+                          }}
+                        >
+                          pickup
+                        </Button>
+                      ) : (
+                        <Button
+                          onClick={() => {
+                            handleComplate(order.id)
+                          }}
+                        >
+                          complate
+                        </Button>
+                      )}
+                      {/* <DropdownButton
                         id='dropdown-basic-button'
                         title='Status'
                         variant='light'
@@ -219,7 +237,7 @@ const DriverHomePage = () => {
                         <Dropdown.Item href='#/action-3'>
                           declin *not work
                         </Dropdown.Item>
-                      </DropdownButton>
+                      </DropdownButton> */}
                     </td>
                   </tr>
                 ))}

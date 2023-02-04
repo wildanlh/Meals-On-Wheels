@@ -3,32 +3,62 @@ import {
   Button,
   Col,
   Container,
+  Dropdown,
+  DropdownButton,
   Form,
   Modal,
   Row,
   Table,
 } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { getAdminOrderPendingAPI } from "../api/admin-api"
+import {
+  getAdminOrderPendingAPI,
+  getPartnersAPI,
+  getRidersAPI,
+  postAdminOrderDeliverAPI,
+  postAdminOrderPrepareAPI,
+} from "../api/admin-api"
 import { greencircle, redcircle, usericon, yellowcircle } from "../assets"
 import Layout from "../components/layout/Layout"
 import AuthContext from "../context/auth-context"
-import { order_type } from "../context/context-type"
+import { order_type, user_type } from "../context/context-type"
 
 import "./css/AdminHomePage.css"
 
 const AdminHomePage = () => {
   const { token } = useContext(AuthContext)
   const [show, setShow] = useState(false)
-  const [orderPending, setOrderPending] = useState([order_type])
+  const [orderList, setOrderList] = useState([order_type])
+  const [msg, setMsg] = useState("")
+  const [riders, setRider] = useState([user_type])
+  const [paertners, setPartner] = useState([user_type])
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  function handlePrepare(order, user) {
+    postAdminOrderPrepareAPI(token, order, user)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.log(err.response.data))
+  }
+  function handleDeliver(order, user) {
+    postAdminOrderDeliverAPI(token, order, user)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.log(err.response.data))
+  }
+
   useEffect(() => {
     getAdminOrderPendingAPI(token)
-      .then((resp) => setOrderPending(resp.data))
+      .then((resp) => setOrderList(resp.data))
       .catch((err) => console.log(err.response.data))
-  }, [token])
+
+    getPartnersAPI(token)
+      .then((resp) => setPartner(resp.data))
+      .catch((err) => console.log(err.response.data))
+
+    getRidersAPI(token)
+      .then((resp) => setRider(resp.data))
+      .catch((err) => console.log(err.response.data))
+  }, [token, msg])
   return (
     <Layout>
       <Container>
@@ -81,7 +111,7 @@ const AdminHomePage = () => {
         </Row>
 
         <Row className='mb-5'>
-          <Col sm={8}>
+          {/* <Col sm={8}>
             <h4 className='fw-bold title-caregiver'>Order Notification</h4>
             <div className='card'>
               <div className='container'>
@@ -95,7 +125,7 @@ const AdminHomePage = () => {
                     </tr>
                   </thead>
                   <tbody className='text-white'>
-                    {orderPending.map((order, index) => (
+                    {orderList.map((order, index) => (
                       <tr key={order.id}>
                         <td className='text-white'>{index}</td>
                         <td className='text-white'>{order.orderBy.name}</td>
@@ -103,7 +133,7 @@ const AdminHomePage = () => {
                         <td className='text-white'>5:00 PM</td>
                       </tr>
                     ))}
-                    {/* <tr>
+                    <tr>
                       <td className='text-white'>1</td>
                       <td className='text-white'>
                         Purwa requested for Package Meal 2
@@ -118,12 +148,12 @@ const AdminHomePage = () => {
                       </td>
                       <td className='text-white'>Decemeber 31, 2000</td>
                       <td className='text-white'>5:00 PM</td>
-                    </tr> */}
+                    </tr> 
                   </tbody>
                 </Table>
               </div>
             </div>
-          </Col>
+          </Col> */}
           <Col sm={4}>
             <h4 className='fw-bold title-caregiver'>Donation</h4>
             <div className='card'>
@@ -216,6 +246,7 @@ const AdminHomePage = () => {
         </Row>
         <div className='task pb-5'>
           <h4 className='fw-bold title-caregiver'>Task</h4>
+          {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
           <div className='card'>
             <div className='container'>
               <Table striped className='text-white text-center driver my-3'>
@@ -224,24 +255,70 @@ const AdminHomePage = () => {
                     <th>No</th>
                     <th>Meals Request List</th>
                     <th>Status</th>
-                    <th>Select Driver</th>
-                    <th></th>
+                    <th>prepare by</th>
+                    <th>deliver by</th>
+                    <th>action</th>
                   </tr>
                 </thead>
                 <tbody className='text-white'>
-                  <tr>
-                    <td className='text-white'>1</td>
-                    <td className='text-white'>Meal Package 1</td>
-                    <td className='text-white'>
-                      <div className='status text-white d-flex justify-content-center'>
-                        <img src={redcircle} alt='' className='status-icon' />
-                        <span className='fw-bold ms-3'>Pending</span>
-                      </div>
-                    </td>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>Submit</td>
-                  </tr>
-                  <tr>
+                  {orderList.map((order, index) => (
+                    <tr key={order.id}>
+                      <td className='text-white'>{index + 1}</td>
+                      <td className='text-white'>
+                        {order.mealPackage.packageName}
+                      </td>
+                      <td className='text-white'>
+                        <div className='status text-white d-flex justify-content-center'>
+                          <img src={redcircle} alt='' className='status-icon' />
+                          <span className='fw-bold ms-3'>
+                            {order.orderStatus}
+                          </span>
+                        </div>
+                      </td>
+                      <td className='text-white'>{order.preparedBy?.name}</td>
+                      <td className='text-white'>{order.deliveredBy?.name}</td>
+                      <td className='text-white'>
+                        {order.orderStatus === "PENDING" ? (
+                          <DropdownButton
+                            id='dropdown-basic-button'
+                            title='prepare'
+                            variant='light'
+                          >
+                            {paertners.map((partner) => (
+                              <Dropdown.Item
+                                href='#/action-1'
+                                onClick={() =>
+                                  handlePrepare(order.id, partner.id)
+                                }
+                                key={partner.id}
+                              >
+                                {partner.name} {partner.status}
+                              </Dropdown.Item>
+                            ))}
+                          </DropdownButton>
+                        ) : (
+                          <DropdownButton
+                            id='dropdown-basic-button'
+                            title='delver'
+                            variant='light'
+                          >
+                            {riders.map((rider) => (
+                              <Dropdown.Item
+                                href='#/action-1'
+                                onClick={() =>
+                                  handleDeliver(order.id, rider.id)
+                                }
+                                key={rider.id}
+                              >
+                                {rider.name} {rider.status}
+                              </Dropdown.Item>
+                            ))}
+                          </DropdownButton>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  {/* <tr>
                     <td className='text-white'>1</td>
                     <td className='text-white'>Meal Package 1</td>
                     <td className='text-white'>
@@ -268,7 +345,7 @@ const AdminHomePage = () => {
                     </td>
                     <td className='text-white'>John Doe</td>
                     <td className='text-white'>Submit</td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </Table>
             </div>

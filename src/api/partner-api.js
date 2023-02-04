@@ -2,7 +2,7 @@ import axios from "axios"
 import { BASE_URL } from "./constant"
 
 // GET ORDER
-export const getPartnerOrderAPI = async (token, id) => {
+export const getPartnerOrderAPI = async (token) => {
   return await axios.get(`${BASE_URL}/partner/order`, {
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -17,7 +17,7 @@ export const postPartnerOrderCompleteAPI = async (token, id) => {
 
 // ORDER CREATE
 export const postPartnerOrderCreateAPI = async (token, id) => {
-  return await axios.get(`${BASE_URL}/partner/order/${id}/create`, {
+  return await axios.get(`${BASE_URL}/partner/order/${id}/prepare`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }

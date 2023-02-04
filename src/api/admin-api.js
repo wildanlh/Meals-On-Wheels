@@ -61,7 +61,7 @@ export const getAdminOrderOnDeliveryAPI = async (token) => {
 
 // ORDER PENDING
 export const getAdminOrderPendingAPI = async (token) => {
-  return await axios.get(`${BASE_URL}/admin/order/pending`, {
+  return await axios.get(`${BASE_URL}/admin/order`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
@@ -83,6 +83,16 @@ export const getAdminOrderReadyToDeliverAPI = async (token) => {
 // ADMIN USER
 export const getAdminUserAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/user`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
+export const getPartnersAPI = async (token) => {
+  return await axios.get(`${BASE_URL}/admin/partner`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
+export const getRidersAPI = async (token) => {
+  return await axios.get(`${BASE_URL}/admin/rider`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }

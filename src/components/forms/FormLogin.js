@@ -40,7 +40,7 @@ const FormLogin = () => {
               navigate("/home")
               break
             case "[ROLE_PARTNER]":
-              navigate("/#partner")
+              navigate("/caregiver")
               break
             case "[ROLE_RIDER]":
               navigate("/driver")
