@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import { Carousel, Col, Container, Row, Table } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { getMenu } from "../api/api"
 import { getMemberOrderAPI } from "../api/member-api"
 import { carousel1, carousel2, carousel3 } from "../assets"
@@ -14,6 +14,8 @@ const MemberHomePage = () => {
   const { token } = useContext(AuthContext)
   const [menu, setMenu] = useState([])
   const [order, setOrder] = useState([])
+  const [msg, setMsg] = useSearchParams();
+
 
   useEffect(() => {
     getMenu(token)
@@ -35,6 +37,7 @@ const MemberHomePage = () => {
   return (
     <Layout>
       <Container>
+      {msg.get("msg") && <h1>{msg.get("msg")}</h1>}
         <Carousel activeIndex={index} onSelect={handleSelect} className='my-5'>
           <Carousel.Item>
             <img

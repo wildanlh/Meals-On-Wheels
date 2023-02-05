@@ -16,6 +16,7 @@ const FormRegister = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
+  const [image, setImage] = useState(null);
   const [status, setStatus] = useState("");
   const navigate = useNavigate();
 
@@ -31,6 +32,7 @@ const FormRegister = () => {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("file", file);
+    formData.append("image", image);
     // for (var pair of formData.entries()) {
     //   console.log(pair[0] + ", " + pair[1])
     // }
@@ -159,6 +161,7 @@ const FormRegister = () => {
               <Form.Group className="mb-3 mx-3" controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
+                  minLength={6}
                   type="password"
                   placeholder=""
                   onChange={(e) => setPassword(e.target.value)}
@@ -167,10 +170,18 @@ const FormRegister = () => {
                 />
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="file">
-                <Form.Label>File Upload</Form.Label>
+                <Form.Label>Qualification File Upload</Form.Label>
                 <Form.Control
                   type="file"
                   onChange={(e) => setFile(e.target.files[0])}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3 mx-3" controlId="file">
+                <Form.Label>Image Upload</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={(e) => setImage(e.target.files[0])}
                   required
                 />
               </Form.Group>
