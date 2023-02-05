@@ -14,12 +14,12 @@ const AdminManageUsersPage = () => {
               <thead className="driver-table">
                 <tr>
                   <th>No</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Name</th>
                   <th>Address</th>
                   <th>Email</th>
                   <th>Gender</th>
                   <th>Roles</th>
+                  <th>File</th>
                   <th>Action</th>
                 </tr>
               </thead>
