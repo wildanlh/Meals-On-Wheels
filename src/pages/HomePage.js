@@ -24,10 +24,7 @@ const HomePage = () => {
           className="row flex-lg-row-reverse align-items-center g-5 py-5"
           bis_skin_checked="1"
         >
-          <div
-            className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig position-relative"
-            bis_skin_checked="1"
-          >
+          <div className="col-10 col-sm-8 col-lg-6 animate__animated animate__fadeInRightBig position-relative">
             <motion.img
               src={banner1}
               className="d-block mx-lg-auto img-fluid banner rounded"
@@ -141,31 +138,61 @@ const HomePage = () => {
             <div className="col-10 col-sm-8 col-lg-6" bis_skin_checked="1">
               <Row>
                 <Col>
-                  <motion.img
-                    src={unicef}
-                    alt=""
-                    className="partner my-3"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  />
+                  <div className="position-relative">
+                    <motion.img
+                      src={unicef}
+                      alt=""
+                      className="partner my-3"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    />
+                    <div
+                      className="circle-light-yellow-lg"
+                      style={{ left: "-20px", bottom: "-10px" }}
+                    ></div>
+                  </div>
                 </Col>
                 <Col>
-                  <motion.img
-                    src={who}
-                    alt=""
-                    className="partner my-3"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  />
+                  <div className="position-relative">
+                    <motion.img
+                      src={who}
+                      alt=""
+                      className="partner my-3"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    />
+                    <div
+                      className="circle-light-yellow-lg"
+                      style={{ left: "-20px", top: "-10px" }}
+                    ></div>
+                  </div>
                 </Col>
                 <Col>
-                  <motion.img
-                    src={un}
-                    alt=""
-                    className="partner my-3"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  />
+                  <div className="position-relative">
+                    <motion.img
+                      src={un}
+                      alt=""
+                      className="partner my-3"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    />
+                    <div
+                      className="circle-light-yellow-lg"
+                      style={{ left: "-20px", bottom: "-10px" }}
+                    ></div>
+                  </div>
                 </Col>
               </Row>
             </div>

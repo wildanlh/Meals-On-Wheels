@@ -16,3 +16,12 @@ h1 {
   bottom: -70px;
   right: -50px;
 }
+
+.circle-light-yellow-lg {
+  background: #f9f871;
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  position: absolute;
+  z-index: -5;
+}
