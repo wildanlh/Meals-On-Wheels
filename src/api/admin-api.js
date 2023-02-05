@@ -86,6 +86,23 @@ export const getAdminUserAPI = async (token) => {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
+
+export const getAdminUserActiveAPI = async (token, id) => {
+  return await axios.get(`${BASE_URL}/admin/user/${id}/activate`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
+export const getAdminPartnerAPI = async (token) => {
+  return await axios.get(`${BASE_URL}/admin/partner`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
+
+export const getAdminPartnerActiveAPI = async (token, id) => {
+  return await axios.get(`${BASE_URL}/admin/partner${id}/activate`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
 export const getPartnersAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/partner`, {
     headers: { Authorization: `Bearer ${token}` },
