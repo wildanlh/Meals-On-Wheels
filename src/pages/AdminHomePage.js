@@ -125,80 +125,7 @@ const AdminHomePage = () => {
           </Col>
         </Row>
 
-        <Row className='mb-5'>
-          {/* <Col sm={8}>
-            <h4 className='fw-bold title-caregiver'>Order Notification</h4>
-            <div className='card'>
-              <div className='container'>
-                <Table striped className='text-white text-center driver my-3'>
-                  <thead className='driver-table'>
-                    <tr>
-                      <th>No</th>
-                      <th>Request</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                    </tr>
-                  </thead>
-                  <tbody className='text-white'>
-                    {orderList.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className='text-white'>{index}</td>
-                        <td className='text-white'>{order.orderBy.name}</td>
-                        <td className='text-white'>{order.orderOn}</td>
-                        <td className='text-white'>5:00 PM</td>
-                      </tr>
-                    ))}
-                    <tr>
-                      <td className='text-white'>1</td>
-                      <td className='text-white'>
-                        Purwa requested for Package Meal 2
-                      </td>
-                      <td className='text-white'>Decemeber 31, 2000</td>
-                      <td className='text-white'>5:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td className='text-white'>1</td>
-                      <td className='text-white'>
-                        Purwa requested for Package Meal 2
-                      </td>
-                      <td className='text-white'>Decemeber 31, 2000</td>
-                      <td className='text-white'>5:00 PM</td>
-                    </tr> 
-                  </tbody>
-                </Table>
-              </div>
-            </div>
-          </Col> */}
-          <Col sm={4}>
-            <h4 className='fw-bold title-caregiver'>Register Request</h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>Name</th>
-                    <th>Accept/Deny?</th>
-                  </tr>
-                </thead>
-                <tbody className='text-white'>
-                  <tr>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>want to register as member</td>
-                  </tr>
-                </tbody>
-              </Table>
-              <div className='text-center fw-bold py-3'>
-                <Link to='/admin/donation-history'>
-                  <Button
-                    variant='light'
-                    className='bg-light fw-bold btn-register fw-bold'
-                  >
-                    History
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </Col>
-        </Row>
+
 
         <Row className='pb-5'>
           <Col>
@@ -258,6 +185,37 @@ const AdminHomePage = () => {
             </div>
           </Col>
         </Row>
+        <Row className='mb-5'>
+          <Col sm={4}>
+            <h4 className='fw-bold title-caregiver'>Active Account Request</h4>
+            <div className='card'>
+              <Table striped className='text-white text-center driver mb-3'>
+                <thead className='driver-table'>
+                  <tr>
+                    <th>Name</th>
+                    <th>Active?</th>
+                  </tr>
+                </thead>
+                <tbody className='text-white'>
+                  <tr>
+                    <td className='text-white'>John Doe</td>
+                    <td className='text-white'>want to register as member</td>
+                  </tr>
+                </tbody>
+              </Table>
+              <div className='text-center fw-bold py-3'>
+                <Link to='/admin/donation-history'>
+                  <Button
+                    variant='light'
+                    className='bg-light fw-bold btn-register fw-bold'
+                  >
+                    History
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Col>
+        </Row>
         <div className='task pb-5'>
           <h4 className='fw-bold title-caregiver'>Task</h4>
           {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
@@ -269,9 +227,8 @@ const AdminHomePage = () => {
                     <th>No</th>
                     <th>Meals Request List</th>
                     <th>Status</th>
-                    <th>prepare by</th>
-                    <th>deliver by</th>
-                    <th>action</th>
+                    <th>Assigned Partner</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody className='text-white'>
@@ -290,7 +247,86 @@ const AdminHomePage = () => {
                         </div>
                       </td>
                       <td className='text-white'>{order.preparedBy?.name}</td>
-                      <td className='text-white'>{order.deliveredBy?.name}</td>
+                      {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
+                      <td className='text-white'>
+                        {order.orderStatus === "PENDING" ? (
+                          <DropdownButton
+                            id='dropdown-basic-button'
+                            title='prepare'
+                            variant='light'
+                          >
+                            {paertners.map((partner) => (
+                              <Dropdown.Item
+                                href='#/action-1'
+                                onClick={() =>
+                                  handlePrepare(order.id, partner.id)
+                                }
+                                key={partner.id}
+                              >
+                                {partner.name} {partner.status}
+                              </Dropdown.Item>
+                            ))}
+                          </DropdownButton>
+                        ) : (
+                          <DropdownButton
+                            id='dropdown-basic-button'
+                            title='delver'
+                            variant='light'
+                          >
+                            {riders.map((rider) => (
+                              <Dropdown.Item
+                                href='#/action-1'
+                                onClick={() =>
+                                  handleDeliver(order.id, rider.id)
+                                }
+                                key={rider.id}
+                              >
+                                {rider.name} {rider.status}
+                              </Dropdown.Item>
+                            ))}
+                          </DropdownButton>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          </div>
+        </div>
+
+        <div className='task pb-5'>
+          <h4 className='fw-bold title-caregiver'>Rider Task</h4>
+          {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
+          <div className='card'>
+            <div className='container'>
+              <Table striped className='text-white text-center driver my-3'>
+                <thead className='driver-table'>
+                  <tr>
+                    <th>No</th>
+                    <th>Meals Request List</th>
+                    <th>Status</th>
+                    <th>Assigned Driver</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody className='text-white'>
+                  {orderList.map((order, index) => (
+                    <tr key={order.id}>
+                      <td className='text-white'>{index + 1}</td>
+                      <td className='text-white'>
+                        {order.mealPackage.packageName}
+                      </td>
+                      <td className='text-white'>
+                        <div className='status text-white d-flex justify-content-center'>
+                          <img src={redcircle} alt='' className='status-icon' />
+                          <span className='fw-bold ms-3'>
+                            {order.orderStatus}
+                          </span>
+                        </div>
+                      </td>
+                      <td className='text-white'>{order.preparedBy?.name}</td>
+                      {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
                       <td className='text-white'>
                         {order.orderStatus === "PENDING" ? (
                           <DropdownButton

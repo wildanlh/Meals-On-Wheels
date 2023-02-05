@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { bannerportairt1 } from "../../assets";
 
@@ -20,6 +20,7 @@ const FormRegister = () => {
   const [status, setStatus] = useState("");
   const navigate = useNavigate();
 
+
   const handleSubmit = async (event) => {
     setStatus(""); // Reset status
     event.preventDefault();
@@ -36,6 +37,7 @@ const FormRegister = () => {
     // for (var pair of formData.entries()) {
     //   console.log(pair[0] + ", " + pair[1])
     // }
+
     axios
       .post(UPLOAD_ENDPOINT, formData, {
         headers: { "Content-Type": "multipart/form-data" },

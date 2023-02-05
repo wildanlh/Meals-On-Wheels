@@ -3,11 +3,11 @@ import Layout from "../components/layout/Layout";
 
 import "./css/AdminDonationHistoryPage.css";
 
-const AdminDonationHistoryPage = () => {
+const AdminMealHistoryPage = () => {
   return (
     <Layout>
       <Container>
-        <h1 className="text-center py-5 fw-bold">Donation History</h1>
+        <h1 className="text-center py-5 fw-bold">Meal History</h1>
         <Form.Select className="fw-bold mb-5">
           <option>2022</option>
           <option>2021</option>
@@ -16,26 +16,25 @@ const AdminDonationHistoryPage = () => {
         </Form.Select>
 
         <div className="card-history">
-          <h5 className="fw-bold mx-3">April 20, 2020</h5>
+          <h5 className="fw-bold mx-3">April 20, 2020 (Display Date)</h5>
 
           <Table striped className="text-white text-center history-table mb-5">
             <thead className="history-table text-dark">
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Amount</th>
-                <th>Message</th>
+                <th>Name</th>
+                <th>Package Name</th>
+                <th>Order On</th>
+                <th>Status</th>
+                <th>Tambah aja kalau ada yang kurang</th>
               </tr>
             </thead>
             <tbody className="text-white">
               <tr>
                 <td>John</td>
-                <td>Doe</td>
-                <td>$10</td>
-                <td>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Incidunt, ad?
-                </td>
+                <td>Meal 1</td>
+                <td>Jan 23, 2023</td>
+                <td>Completed</td>
+                <td>Tamabh aja klau ada yang kurang</td>
               </tr>
             </tbody>
           </Table>
@@ -45,4 +44,4 @@ const AdminDonationHistoryPage = () => {
   );
 };
 
-export default AdminDonationHistoryPage;
+export default AdminMealHistoryPage;

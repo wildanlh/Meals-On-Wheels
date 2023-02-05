@@ -174,6 +174,11 @@ const NavBar = () => {
                       Manage Partner
                     </li>
                   </Link>
+                  <Link to="/admin/meal-history" className="text-decoration-none">
+                    <li className="text-white px-3 btn-member fw-bold">
+                      Meal History
+                    </li>
+                  </Link>
                 </ul>
               </div>
             </nav>

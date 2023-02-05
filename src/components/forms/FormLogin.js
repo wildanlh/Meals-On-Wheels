@@ -124,7 +124,8 @@ const FormLogin = () => {
         <Form onSubmit={handleSubmit} className="p-3 text-white text-center">
           <div className="text-center py-3">
             <h3 className="contact-title mx-3 text-white">LOGIN</h3>
-            {msg.get("msg") && <span>{msg.get("msg")}</span>}
+            <h1 id="text-pop">{msg.get("msg") && <span>{msg.get("msg")}</span>}</h1>
+            
 
             {status}
             {statusBr}

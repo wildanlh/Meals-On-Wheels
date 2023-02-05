@@ -18,13 +18,13 @@ import MemberFeedbackPage from "./pages/MemberFeedbackPage";
 import DriverHomePage from "./pages/DriverHomePage";
 import CaregiverHomePage from "./pages/CaregiverHomePage";
 import AdminHomePage from "./pages/AdminHomePage";
-import AdminDonationHistoryPage from "./pages/AdminDonationHistoryPage";
 import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
 import AdminManageUsersPage from "./pages/AdminManageUsersPage";
 import TestRegister from "./components/forms/TestRegister";
 import ThankYouPage from "./pages/ThankYouPage";
 import MemberOrderHistoryPage from "./pages/MemberOrderHistoryPage";
 import PartnerHomePage from "./pages/PartnerHomePage";
+import AdminMealHistoryPage from "./pages/AdminMealHistoryPage";
 
 function App() {
   const { isLoggedIn, currentUser } = useContext(AuthContext);
@@ -85,8 +85,8 @@ function App() {
             <>
               <Route path="/admin" element={<AdminHomePage />} />
               <Route
-                path="/admin/donation-history"
-                element={<AdminDonationHistoryPage />}
+                path="/admin/meal-history"
+                element={<AdminMealHistoryPage />}
               />
               <Route
                 path="/admin/manage-partner"
