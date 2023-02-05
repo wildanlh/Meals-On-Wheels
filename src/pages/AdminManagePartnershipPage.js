@@ -28,15 +28,15 @@ const AdminManagePartnershipPage = () => {
             <Form.Control type="text" placeholder="Search" className="my-3" />
             <div className="card-charity">
               <Row>
-                <Col sm={10}>
+                <Col sm={9}>
                   <div className="d-flex">
                     <img src={person} alt="" />
                     <h3>Charity Company Ltd</h3>
                   </div>
                 </Col>
-                <Col sm={2}>
+                <Col sm={3}>
                   <div className="text-center p-3">
-                    <Button className="button fw-bold w-50">Submit</Button>
+                    <Button className="button fw-bold">Accept Partnership</Button>
                   </div>
                 </Col>
               </Row>
