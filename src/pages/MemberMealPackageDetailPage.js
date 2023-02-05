@@ -14,9 +14,9 @@ const MemberMealPackageDetailPage = () => {
   const [msg, setMsg] = useState("")
 
   //Modal
-  const [show, setShow] = useState(false)
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     getMenuById(token, menuId)

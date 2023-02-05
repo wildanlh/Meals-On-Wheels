@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import "./Form.css";
@@ -18,8 +18,14 @@ const FormLogin = () => {
   const navigate = useNavigate();
   const [msg, setMsg] = useSearchParams();
 
+    //Modal
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
   const handleSubmit = async (event) => {
     //setStatus("") // Reset status
+    handleShow ()
     event.preventDefault();
     const formData = new FormData();
 
@@ -125,9 +131,6 @@ const FormLogin = () => {
           <div className="text-center py-3">
             <h3 className="contact-title mx-3 text-white">LOGIN</h3>
             <p id="text-pop">{msg.get("msg") && <span>{msg.get("msg")}</span>}</p>
-            <p id="msg-error">{status}{statusBr}</p>
-            
-
             {/* {status}
             {statusBr} */}
             {/* {action} */}
@@ -151,7 +154,7 @@ const FormLogin = () => {
             />
           </Form.Group>
           <div className="text-center mb-2 d-grid mx-3 pt-3">
-            <Button type="submit" className="button fw-bold" size="lg">
+            <Button  type="submit" className="button fw-bold" size="lg">
               Login
             </Button>
           </div>
@@ -162,6 +165,26 @@ const FormLogin = () => {
             </Link>
           </div>
         </Form>
+        
+        {/* Popup Request Msg */}
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton className='modal-popup'>
+            <div className='text-center'>
+              <Modal.Title className='text-white fw-bold'>
+              </Modal.Title>
+            </div>
+          </Modal.Header>
+        <Modal.Body className='modal-popup'>
+          <p className="text-center" id="msg-error">{status}{statusBr}</p>
+        </Modal.Body>
+          <div className='text-center modal-popup p-3'>
+            <Button onClick={handleClose} className='button fw-bold w-50'>
+              Try Again
+            </Button>
+          </div>
+        </Modal>
+
+
         <div
           className="circle-yellow-lg"
           style={{ bottom: "-70px", right: "-50px" }}
