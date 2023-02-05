@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom"
 import {
   getAdminOrderPendingAPI,
+  getAdminUserCountAPI,
   getPartnersAPI,
   getRidersAPI,
   postAdminOrderDeliverAPI,
@@ -21,7 +22,7 @@ import {
 import { greencircle, redcircle, usericon, yellowcircle } from "../assets"
 import Layout from "../components/layout/Layout"
 import AuthContext from "../context/auth-context"
-import { order_type, user_type } from "../context/context-type"
+import { order_type, user_count, user_type } from "../context/context-type"
 
 import "./css/AdminHomePage.css"
 
@@ -32,6 +33,7 @@ const AdminHomePage = () => {
   const [msg, setMsg] = useState("")
   const [riders, setRider] = useState([user_type])
   const [paertners, setPartner] = useState([user_type])
+  const [userCount, setUserCount] = useState(user_count)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -58,6 +60,10 @@ const AdminHomePage = () => {
     getRidersAPI(token)
       .then((resp) => setRider(resp.data))
       .catch((err) => console.log(err.response.data))
+
+    getAdminUserCountAPI(token)
+      .then((resp) => setUserCount(resp.data))
+      .catch((err) => console.log(err.response.data))
   }, [token, msg])
   return (
     <Layout>
@@ -70,7 +76,9 @@ const AdminHomePage = () => {
               <div className='mx-3 pb-3'>
                 <div className='d-flex'>
                   <img src={usericon} alt='' className='icon-user' />
-                  <span className='mx-2 fw-bold text-white'>123</span>
+                  <span className='mx-2 fw-bold text-white'>
+                    {userCount.totalUser}
+                  </span>
                 </div>
               </div>
             </div>
@@ -81,7 +89,9 @@ const AdminHomePage = () => {
               <div className='mx-3 pb-3'>
                 <div className='d-flex'>
                   <img src={usericon} alt='' className='icon-user' />
-                  <span className='mx-2 fw-bold text-white'>123</span>
+                  <span className='mx-2 fw-bold text-white'>
+                    {userCount.totalVolunteer}
+                  </span>
                 </div>
               </div>
             </div>
@@ -92,7 +102,9 @@ const AdminHomePage = () => {
               <div className='mx-3 pb-3'>
                 <div className='d-flex'>
                   <img src={usericon} alt='' className='icon-user' />
-                  <span className='mx-2 fw-bold text-white'>123</span>
+                  <span className='mx-2 fw-bold text-white'>
+                    {userCount.totalRider}
+                  </span>
                 </div>
               </div>
             </div>
@@ -103,7 +115,9 @@ const AdminHomePage = () => {
               <div className='mx-3 pb-3'>
                 <div className='d-flex'>
                   <img src={usericon} alt='' className='icon-user' />
-                  <span className='mx-2 fw-bold text-white'>123</span>
+                  <span className='mx-2 fw-bold text-white'>
+                    {userCount.totalPartner}
+                  </span>
                 </div>
               </div>
             </div>
@@ -194,19 +208,19 @@ const AdminHomePage = () => {
               <Table striped className='text-white text-center driver mb-3'>
                 <thead className='driver-table'>
                   <tr>
+                    <th>no</th>
                     <th>Name</th>
+                    <th>status</th>
                   </tr>
                 </thead>
                 <tbody className='text-white'>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
+                  {riders.map((rider, index) => (
+                    <tr key={rider.id}>
+                      <td className='text-white'>{index + 1}</td>
+                      <td className='text-white'>{rider.name}</td>
+                      <td className='text-white'>{rider.status}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </Table>
             </div>

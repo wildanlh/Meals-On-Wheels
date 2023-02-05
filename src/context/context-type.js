@@ -35,3 +35,10 @@ export const order_type = {
   orderOn: "",
   orderStatus: "",
 }
+
+export const user_count = {
+  totalUser: 0,
+  totalVolunteer: 0,
+  totalPartner: 0,
+  totalRider: 0,
+}

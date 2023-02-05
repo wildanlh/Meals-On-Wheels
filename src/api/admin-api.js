@@ -61,14 +61,14 @@ export const getAdminOrderOnDeliveryAPI = async (token) => {
 
 // ORDER PENDING
 export const getAdminOrderPendingAPI = async (token) => {
-  return await axios.get(`${BASE_URL}/admin/order`, {
+  return await axios.get(`${BASE_URL}/admin/order/pending`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
 
 // ORDER PREPARED
-export const getAdminOrderPreparedAPI = async (token) => {
-  return await axios.get(`${BASE_URL}/admin/order/prepared`, {
+export const getAdminUserCountAPI = async (token) => {
+  return await axios.get(`${BASE_URL}/admin/user/count`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
