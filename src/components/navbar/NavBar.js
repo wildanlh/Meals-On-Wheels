@@ -84,7 +84,7 @@ const NavBar = () => {
                       src={currentUser.imageUrl ? currentUser.imageUrl : defaultprofile}
                       alt="profile_picture"
                       className="rounded-circle me-2 text-white"
-                      style={{ width: "30px" }}
+                      style={{ width: "45px" }} height="45px"
                     />
                     <NavDropdown title={currentUser.name} className="fw-bold" id="navName">
                       <NavDropdown.Divider />
