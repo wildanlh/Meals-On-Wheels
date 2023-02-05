@@ -38,7 +38,7 @@ function App() {
       <Route path="/thankyou" element={<ThankYouPage />} />
       <Route path="/Test" element={<TestRegister />} />
       <Route path="/partnership" element={<PartnershipPage />} />
-      
+
       {!isLoggedIn && (
         <>
           <Route path="/login" element={<LoginPage />} />
@@ -66,7 +66,7 @@ function App() {
           )}
 
         {/* Login as Driver Access */}
-          {currentUser.role === "ROLE_DRIVER" && (
+          {currentUser.role === "ROLE_RIDER" && (
             <Route path="/driver" element={<DriverHomePage />} />
           )}
 
