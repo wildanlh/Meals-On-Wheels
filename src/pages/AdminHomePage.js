@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom"
 import {
   getAdminOrderPendingAPI,
+  getAdminOrderReadyToDeliverAPI,
   getAdminUserCountAPI,
   getPartnersAPI,
   getRidersAPI,
@@ -22,7 +23,12 @@ import {
 import { greencircle, redcircle, usericon, yellowcircle } from "../assets"
 import Layout from "../components/layout/Layout"
 import AuthContext from "../context/auth-context"
-import { order_type, user_count, user_type } from "../context/context-type"
+import {
+  menu_type,
+  order_type,
+  user_count,
+  user_type,
+} from "../context/context-type"
 
 import "./css/AdminHomePage.css"
 
@@ -30,40 +36,47 @@ const AdminHomePage = () => {
   const { token } = useContext(AuthContext)
   const [show, setShow] = useState(false)
   const [orderList, setOrderList] = useState([order_type])
+  const [deliverList, setDeliverList] = useState([order_type])
   const [msg, setMsg] = useState("")
   const [riders, setRider] = useState([user_type])
   const [paertners, setPartner] = useState([user_type])
   const [userCount, setUserCount] = useState(user_count)
+  const [menu, setMenu] = useState([menu_type])
+
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
   function handlePrepare(order, user) {
     postAdminOrderPrepareAPI(token, order, user)
       .then((resp) => setMsg(resp.data.message))
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
   }
   function handleDeliver(order, user) {
     postAdminOrderDeliverAPI(token, order, user)
       .then((resp) => setMsg(resp.data.message))
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
   }
 
   useEffect(() => {
     getAdminOrderPendingAPI(token)
       .then((resp) => setOrderList(resp.data))
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
+
+    getAdminOrderReadyToDeliverAPI(token)
+      .then((resp) => setDeliverList(resp.data))
+      .catch((err) => console.log(err))
 
     getPartnersAPI(token)
       .then((resp) => setPartner(resp.data))
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
 
     getRidersAPI(token)
       .then((resp) => setRider(resp.data))
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
 
     getAdminUserCountAPI(token)
       .then((resp) => setUserCount(resp.data))
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
   }, [token, msg])
 
   return (
@@ -125,8 +138,6 @@ const AdminHomePage = () => {
           </Col>
         </Row>
 
-
-
         <Row className='pb-5'>
           <Col>
             <h4 className='text-center fw-bold title-caregiver'>
@@ -179,7 +190,8 @@ const AdminHomePage = () => {
                   variant='primary'
                   onClick={handleShow}
                   className='button'
-                >+ Add Meal Package
+                >
+                  + Add Meal Package
                 </Button>
               </div>
             </div>
@@ -249,43 +261,23 @@ const AdminHomePage = () => {
                       <td className='text-white'>{order.preparedBy?.name}</td>
                       {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
                       <td className='text-white'>
-                        {order.orderStatus === "PENDING" ? (
-                          <DropdownButton
-                            id='dropdown-basic-button'
-                            title='prepare'
-                            variant='light'
-                          >
-                            {paertners.map((partner) => (
-                              <Dropdown.Item
-                                href='#/action-1'
-                                onClick={() =>
-                                  handlePrepare(order.id, partner.id)
-                                }
-                                key={partner.id}
-                              >
-                                {partner.name} {partner.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        ) : (
-                          <DropdownButton
-                            id='dropdown-basic-button'
-                            title='delver'
-                            variant='light'
-                          >
-                            {riders.map((rider) => (
-                              <Dropdown.Item
-                                href='#/action-1'
-                                onClick={() =>
-                                  handleDeliver(order.id, rider.id)
-                                }
-                                key={rider.id}
-                              >
-                                {rider.name} {rider.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        )}
+                        <DropdownButton
+                          id='dropdown-basic-button'
+                          title='prepare'
+                          variant='light'
+                        >
+                          {paertners.map((partner) => (
+                            <Dropdown.Item
+                              href='#/action-1'
+                              onClick={() =>
+                                handlePrepare(order.id, partner.id)
+                              }
+                              key={partner.id}
+                            >
+                              {partner.name} {partner.status}
+                            </Dropdown.Item>
+                          ))}
+                        </DropdownButton>
                       </td>
                     </tr>
                   ))}
@@ -311,7 +303,7 @@ const AdminHomePage = () => {
                   </tr>
                 </thead>
                 <tbody className='text-white'>
-                  {orderList.map((order, index) => (
+                  {deliverList.map((order, index) => (
                     <tr key={order.id}>
                       <td className='text-white'>{index + 1}</td>
                       <td className='text-white'>
@@ -325,46 +317,24 @@ const AdminHomePage = () => {
                           </span>
                         </div>
                       </td>
-                      <td className='text-white'>{order.preparedBy?.name}</td>
+                      <td className='text-white'>{order.deliveredBy?.name}</td>
                       {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
                       <td className='text-white'>
-                        {order.orderStatus === "PENDING" ? (
-                          <DropdownButton
-                            id='dropdown-basic-button'
-                            title='prepare'
-                            variant='light'
-                          >
-                            {paertners.map((partner) => (
-                              <Dropdown.Item
-                                href='#/action-1'
-                                onClick={() =>
-                                  handlePrepare(order.id, partner.id)
-                                }
-                                key={partner.id}
-                              >
-                                {partner.name} {partner.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        ) : (
-                          <DropdownButton
-                            id='dropdown-basic-button'
-                            title='delver'
-                            variant='light'
-                          >
-                            {riders.map((rider) => (
-                              <Dropdown.Item
-                                href='#/action-1'
-                                onClick={() =>
-                                  handleDeliver(order.id, rider.id)
-                                }
-                                key={rider.id}
-                              >
-                                {rider.name} {rider.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        )}
+                        <DropdownButton
+                          id='dropdown-basic-button'
+                          title='delver'
+                          variant='light'
+                        >
+                          {riders.map((rider) => (
+                            <Dropdown.Item
+                              href='#/action-1'
+                              onClick={() => handleDeliver(order.id, rider.id)}
+                              key={rider.id}
+                            >
+                              {rider.name} {rider.status}
+                            </Dropdown.Item>
+                          ))}
+                        </DropdownButton>
                       </td>
                     </tr>
                   ))}
@@ -434,7 +404,7 @@ const AdminHomePage = () => {
           </Button>
         </div>
       </Modal>
-                        {/* <tr>
+      {/* <tr>
                     <td className='text-white'>1</td>
                     <td className='text-white'>Meal Package 1</td>
                     <td className='text-white'>
@@ -463,8 +433,6 @@ const AdminHomePage = () => {
                     <td className='text-white'>Submit</td>
                   </tr> */}
     </Layout>
-
-    
   )
 }
 

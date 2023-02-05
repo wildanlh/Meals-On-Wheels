@@ -7,6 +7,7 @@ export const user_type = {
   gander: "",
   status: "",
   role: "",
+  fileUrl: "",
 }
 export const context_user = {
   currentUser: user_type,

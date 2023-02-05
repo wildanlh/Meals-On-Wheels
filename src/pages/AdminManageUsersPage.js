@@ -10,22 +10,23 @@ import { user_type } from "../context/context-type"
 const AdminManageUsersPage = () => {
   const { token } = useContext(AuthContext)
   const [users, setUsers] = useState([user_type])
-  const [msg, setMsg] = useState()
+  const [msg, setMsg] = useState("")
 
   function handleActive(id) {
     getAdminUserActiveAPI(token, id)
-      .then((resp) => setMsg(resp.data))
+      .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err))
   }
   useEffect(() => {
     getAdminUserAPI(token)
       .then((resp) => setUsers(resp.data))
       .catch((err) => console.log(err))
-  }, [token, msg])
+  }, [token])
   return (
     <Layout>
       <Container>
         <h1 className='text-center py-5 fw-bold'>Manage Users</h1>
+        {msg && <span onClick={() => setMsg("")}>{msg}</span>}
         <div className='card mb-5'>
           <div className='container'>
             <Table striped className='text-white text-center driver my-3'>
@@ -51,7 +52,7 @@ const AdminManageUsersPage = () => {
                     <td className='text-white'>{user.gander}</td>
                     <td className='text-white'>{user.role}</td>
                     <td className='text-white'>
-                      <a href={user.imageUrl}>file</a>
+                      <a href={user.fileUrl}>file</a>
                     </td>
                     <td className='text-white'>
                       <DropdownButton
