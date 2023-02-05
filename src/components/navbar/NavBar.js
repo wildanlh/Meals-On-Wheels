@@ -124,6 +124,9 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {/* NAVBAR AFTER LOGIN */}
+      {/* MEMBER ADDITIONAL NAVBAR */}
       {currentUser.role === "ROLE_MEMBER" && (
         <div className="nav-member">
           <div className="second-nav">
@@ -138,6 +141,35 @@ const NavBar = () => {
                   <Link to="/feedback" className="text-decoration-none">
                     <li className="text-white px-3 btn-member fw-bold">
                       Feedback/Evaluate
+                    </li>
+                  </Link>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
+
+      {/* ADMIN ADDITIONAL NAVBAR */}
+      {currentUser.role === "ROLE_ADMIN" && (
+        <div className="nav-member">
+          <div className="second-nav">
+            <nav className="py-2">
+              <div className="d-flex justify-content-center">
+                <ul className="nav">
+                <Link to="/admin" className="text-decoration-none">
+                    <li className="text-white px-3 btn-member fw-bold">
+                      Dashboard
+                    </li>
+                  </Link>
+                  <Link to="/admin/manage-users" className="text-decoration-none">
+                    <li className="text-white px-3 btn-member fw-bold">
+                      Manage Users
+                    </li>
+                  </Link>
+                  <Link to="/admin/manage-partner" className="text-decoration-none">
+                    <li className="text-white px-3 btn-member fw-bold">
+                      Manage Partner
                     </li>
                   </Link>
                 </ul>

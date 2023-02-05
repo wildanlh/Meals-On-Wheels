@@ -77,7 +77,7 @@ const AdminHomePage = () => {
           </Col>
           <Col>
             <div className='mini-card mb-5'>
-              <h5 className='fw-bold text-white mx-3 pt-3'>Caregiver</h5>
+              <h5 className='fw-bold text-white mx-3 pt-3'>Volunteer</h5>
               <div className='mx-3 pb-3'>
                 <div className='d-flex'>
                   <img src={usericon} alt='' className='icon-user' />
