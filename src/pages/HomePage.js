@@ -33,7 +33,10 @@ const HomePage = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
-            <div className="circle-yellow-lg"></div>
+            <div
+              className="circle-yellow-lg"
+              style={{ bottom: "-70px", right: "-50px" }}
+            ></div>
           </div>
           <div
             className="col-lg-6 animate__animated animate__fadeInLeftBig"

@@ -13,8 +13,6 @@ h1 {
   background: #ffc75f;
   position: absolute;
   z-index: -5;
-  bottom: -70px;
-  right: -50px;
 }
 
 .circle-light-yellow-lg {
@@ -23,5 +21,14 @@ h1 {
   height: 110px;
   border-radius: 999px;
   position: absolute;
+  z-index: -5;
+}
+
+.stroke-circle-yellow-lg {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 10px solid #ffc75f;
+  border-radius: 999px;
   z-index: -5;
 }
