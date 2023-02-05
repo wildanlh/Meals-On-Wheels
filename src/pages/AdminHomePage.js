@@ -65,6 +65,7 @@ const AdminHomePage = () => {
       .then((resp) => setUserCount(resp.data))
       .catch((err) => console.log(err.response.data))
   }, [token, msg])
+
   return (
     <Layout>
       <Container>
@@ -169,19 +170,19 @@ const AdminHomePage = () => {
             </div>
           </Col> */}
           <Col sm={4}>
-            <h4 className='fw-bold title-caregiver'>Donation</h4>
+            <h4 className='fw-bold title-caregiver'>Register Request</h4>
             <div className='card'>
               <Table striped className='text-white text-center driver mb-3'>
                 <thead className='driver-table'>
                   <tr>
                     <th>Name</th>
-                    <th>Payment</th>
+                    <th>Accept/Deny?</th>
                   </tr>
                 </thead>
                 <tbody className='text-white'>
                   <tr>
                     <td className='text-white'>John Doe</td>
-                    <td className='text-white'>$100</td>
+                    <td className='text-white'>want to register as member</td>
                   </tr>
                 </tbody>
               </Table>
@@ -251,8 +252,7 @@ const AdminHomePage = () => {
                   variant='primary'
                   onClick={handleShow}
                   className='button'
-                >
-                  + Add Meal Package
+                >+ Add Meal Package
                 </Button>
               </div>
             </div>
@@ -332,34 +332,6 @@ const AdminHomePage = () => {
                       </td>
                     </tr>
                   ))}
-                  {/* <tr>
-                    <td className='text-white'>1</td>
-                    <td className='text-white'>Meal Package 1</td>
-                    <td className='text-white'>
-                      <div className='status text-white d-flex justify-content-center'>
-                        <img
-                          src={yellowcircle}
-                          alt=''
-                          className='status-icon'
-                        />
-                        <span className='fw-bold ms-3'>On the Way</span>
-                      </div>
-                    </td>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>Submit</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                    <td className='text-white'>Meal Package 1</td>
-                    <td className='text-white'>
-                      <div className='status text-white d-flex justify-content-center'>
-                        <img src={greencircle} alt='' className='status-icon' />
-                        <span className='fw-bold ms-3'>Completed</span>
-                      </div>
-                    </td>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>Submit</td>
-                  </tr> */}
                 </tbody>
               </Table>
             </div>
@@ -426,7 +398,37 @@ const AdminHomePage = () => {
           </Button>
         </div>
       </Modal>
+                        {/* <tr>
+                    <td className='text-white'>1</td>
+                    <td className='text-white'>Meal Package 1</td>
+                    <td className='text-white'>
+                      <div className='status text-white d-flex justify-content-center'>
+                        <img
+                          src={yellowcircle}
+                          alt=''
+                          className='status-icon'
+                        />
+                        <span className='fw-bold ms-3'>On the Way</span>
+                      </div>
+                    </td>
+                    <td className='text-white'>John Doe</td>
+                    <td className='text-white'>Submit</td>
+                  </tr>
+                  <tr>
+                    <td className='text-white'>1</td>
+                    <td className='text-white'>Meal Package 1</td>
+                    <td className='text-white'>
+                      <div className='status text-white d-flex justify-content-center'>
+                        <img src={greencircle} alt='' className='status-icon' />
+                        <span className='fw-bold ms-3'>Completed</span>
+                      </div>
+                    </td>
+                    <td className='text-white'>John Doe</td>
+                    <td className='text-white'>Submit</td>
+                  </tr> */}
     </Layout>
+
+    
   )
 }
 

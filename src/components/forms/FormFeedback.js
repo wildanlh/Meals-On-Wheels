@@ -1,7 +1,8 @@
 import { FloatingLabel, Form, Button } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/auth-context";
 
 const MEAL_PACKAGE_COUNT = fetch("http://localhost:8080/api/mealcount")
   .then((response) => {
@@ -84,7 +85,7 @@ const FormFeedback = () => {
               className="mx-3 mb-3"
             >
               <Form.Select aria-label="Floating label select example" onChange={(e) => setmealPackageId(e.target.value)} value={mealPackageId}>
-                <option disabled selected>Select Meal Package Number</option>
+                <option disabled defaultValue={true}>Select Meal Package Number</option>
                 {itemList}
               </Form.Select>
             </FloatingLabel>

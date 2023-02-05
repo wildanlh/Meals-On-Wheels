@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { Button, Container } from "react-bootstrap"
+import { Button, Container, Form, Modal } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import { getMenuById } from "../api/api"
 import { postMemberOrderCreateAPI } from "../api/member-api"
@@ -13,13 +13,21 @@ const MemberMealPackageDetailPage = () => {
   const [menu, setMenu] = useState({})
   const [msg, setMsg] = useState("")
 
+  //Modal
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
   useEffect(() => {
     getMenuById(token, menuId)
       .then((resp) => setMenu(resp.data))
       .catch((err) => console.log(err))
   }, [menuId, token])
 
+
+  //Submit Meal
   function handlePostOrder() {
+    handleShow ()
     postMemberOrderCreateAPI(token, menuId)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.warn(err))
@@ -29,7 +37,6 @@ const MemberMealPackageDetailPage = () => {
     <Layout>
       <Container className='d-flex justify-content-center'>
         <div className='card meals-detail my-5 align-items-center w-50'>
-          {msg && <span>{msg}</span>}
           <div className='text-center py-4'>
             <h2 className='text-white'>
               {menu.packageName}
@@ -53,6 +60,7 @@ const MemberMealPackageDetailPage = () => {
                 Poci.
               </p>
             </div>
+
             <div className='text-center mt-5 mb-3'>
               <Button
                 variant='light'
@@ -65,7 +73,29 @@ const MemberMealPackageDetailPage = () => {
           </div>
         </div>
       </Container>
+
+
+      {/* Popup Request Msg */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton className='modal-popup'>
+          <div className='text-center'>
+            <Modal.Title className='text-white fw-bold'>
+            </Modal.Title>
+          </div>
+        </Modal.Header>
+        <Modal.Body className='modal-popup'>
+          <h2 className="text-white text-center">{msg && <span>{msg}</span>}</h2>
+        </Modal.Body>
+        <div className='text-center modal-popup p-3'>
+          <Button onClick={handleClose} className='button fw-bold w-50'>
+            Back
+          </Button>
+        </div>
+      </Modal>
     </Layout>
+
+
+
   )
 }
 

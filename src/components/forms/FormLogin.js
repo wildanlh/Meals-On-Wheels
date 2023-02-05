@@ -13,6 +13,8 @@ const FormLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
+  const [statusBr, setStatusBr] = useState("");
+  const [action, setAction] = useState("");
   const navigate = useNavigate();
   const [msg, setMsg] = useSearchParams();
 
@@ -39,8 +41,11 @@ const FormLogin = () => {
             case "[ROLE_MEMBER]":
               navigate("/home");
               break;
+            case "[ROLE_CAREGIVER]":
+                navigate("/caregiver");
+            break;
             case "[ROLE_PARTNER]":
-              navigate("/caregiver");
+              navigate("/partner");
               break;
             case "[ROLE_RIDER]":
               navigate("/driver");
@@ -59,7 +64,23 @@ const FormLogin = () => {
         })
         .catch((err) => {
           console.log(err);
-          setStatus(err.response.data.message);
+          let errMsg = err.response.data.message;
+          setMsg();
+          setStatus(errMsg);
+          setStatusBr(<br/>);
+          setAction("Contact Our Customer Service if this persist");
+          
+          if(
+            errMsg === "ROLE_MEMBER" ||
+            errMsg === "ROLE_CAREGIVER" || 
+            errMsg === "ROLE_VOLUNTEER") {
+            setStatus("Account awaiting admin approval.");
+          }
+          if(
+            errMsg === "ROLE_PARTNER" ||
+            errMsg === "ROLE_RIDER") {
+            setStatus("Your account has not been activated");
+          }
         });
 
       // user_role = JSON.stringify(resp.data.accessToken)
@@ -106,6 +127,8 @@ const FormLogin = () => {
             {msg.get("msg") && <span>{msg.get("msg")}</span>}
 
             {status}
+            {statusBr}
+            {action}
             <hr className="text-white" />
           </div>
           <Form.Group className="mb-3 mx-3" controlId="email">
@@ -119,6 +142,7 @@ const FormLogin = () => {
           <Form.Group className="mb-3 mx-3" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              minLength={6}
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               placeholder=""

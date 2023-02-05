@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "./context/auth-context";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,6 +24,7 @@ import AdminManageUsersPage from "./pages/AdminManageUsersPage";
 import TestRegister from "./components/forms/TestRegister";
 import ThankYouPage from "./pages/ThankYouPage";
 import MemberOrderHistoryPage from "./pages/MemberOrderHistoryPage";
+import PartnerHomePage from "./pages/PartnerHomePage";
 
 function App() {
   const { isLoggedIn, currentUser } = useContext(AuthContext);
@@ -46,40 +47,53 @@ function App() {
       )}
       {isLoggedIn && (
         <>
-          {/* MEMBER SECTION */}
-          <Route path="/home" element={<MemberHomePage />} />
-          <Route
-            path="/home/order-history"
-            element={<MemberOrderHistoryPage />}
-          />
-          <Route path="/feedback" element={<MemberFeedbackPage />} />
-          <Route
-            path="/meals-package-detail/:menuId"
-            element={<MemberMealPackageDetailPage />}
-          />
-          
-          {/* DRIVER SECTION */}
-          <Route path="/driver" element={<DriverHomePage />} />
+          {currentUser.role === "ROLE_MEMBER" && (
+            <>
+              <Route path="/home" element={<MemberHomePage />} />
+              <Route
+                path="/home/order-history"
+                element={<MemberOrderHistoryPage />}
+              />
+              <Route path="/feedback" element={<MemberFeedbackPage />} />
+              <Route
+                path="/meals-package-detail/:menuId"
+                element={<MemberMealPackageDetailPage />}
+              />
+            </>
+          )}
 
 
-          {/* CAREGIVER SECTION */}
-          <Route path="/caregiver" element={<CaregiverHomePage />} />
+          {currentUser.role === "ROLE_DRIVER" && (
+            <Route path="/driver" element={<DriverHomePage />} />
+          )}
 
 
-          {/* ADMIN SECTION */}
-          <Route path="/admin" element={<AdminHomePage />} />
-          <Route
-            path="/admin/donation-history"
-            element={<AdminDonationHistoryPage />}
-          />
-          <Route
-            path="/admin/manage-partner"
-            element={<AdminManagePartnershipPage />}
-          />
-          <Route
-            path="/admin/manage-users"
-            element={<AdminManageUsersPage />}
-          />
+          {currentUser.role === "ROLE_CAREGIVER" && (
+            <Route path="/caregiver" element={<CaregiverHomePage />} />
+          )}
+
+          {currentUser.role === "ROLE_PARTNER" && (
+            <Route path="/partner" element={<PartnerHomePage />} />
+          )}
+
+
+          {currentUser.role === "ROLE_ADMIN" && (
+            <>
+              <Route path="/admin" element={<AdminHomePage />} />
+              <Route
+                path="/admin/donation-history"
+                element={<AdminDonationHistoryPage />}
+              />
+              <Route
+                path="/admin/manage-partner"
+                element={<AdminManagePartnershipPage />}
+              />
+              <Route
+                path="/admin/manage-users"
+                element={<AdminManageUsersPage />}
+              />
+            </>
+          )}
         </>
       )}
     </Routes>
