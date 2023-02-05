@@ -84,7 +84,7 @@ const FormFeedback = () => {
               className="mx-3 mb-3"
             >
               <Form.Select aria-label="Floating label select example" onChange={(e) => setmealPackageId(e.target.value)} value={mealPackageId}>
-                <option disabled selected>Select Meal Package Number</option>
+                <option disabled defaultValue={true}>Select Meal Package Number</option>
                 {itemList}
               </Form.Select>
             </FloatingLabel>
