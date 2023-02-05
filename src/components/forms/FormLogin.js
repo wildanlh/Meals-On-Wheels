@@ -65,13 +65,13 @@ const FormLogin = () => {
           setMsg();
           setStatus(errMsg);
           setStatusBr(<br/>);
-          setAction("Contact admin if this persist");
+          setAction("Contact Our Customer Service if this persist");
           
           if(
             errMsg === "ROLE_MEMBER" ||
             errMsg === "ROLE_CAREGIVER" || 
             errMsg === "ROLE_VOLUNTEER") {
-            setStatus("Account awaiting admin approval");
+            setStatus("Account awaiting admin approval.");
           }
           if(
             errMsg === "ROLE_PARTNER" ||
