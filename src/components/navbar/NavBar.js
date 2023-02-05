@@ -86,7 +86,7 @@ const NavBar = () => {
                       className="rounded-circle me-2 text-white"
                       style={{ width: "30px" }}
                     />
-                    <NavDropdown title={currentUser.name} className="fw-bold">
+                    <NavDropdown title={currentUser.name} className="fw-bold" id="navName">
                       <NavDropdown.Divider />
                       <NavDropdown.Item href="#action/3.4">
                         <Button
@@ -124,6 +124,8 @@ const NavBar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+
 
       {/* NAVBAR AFTER LOGIN */}
       {/* MEMBER ADDITIONAL NAVBAR */}
