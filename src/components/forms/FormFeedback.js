@@ -1,7 +1,8 @@
 import { FloatingLabel, Form, Button } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/auth-context";
 
 const MEAL_PACKAGE_COUNT = fetch("http://localhost:8080/api/mealcount")
   .then((response) => {
