@@ -41,8 +41,11 @@ const FormLogin = () => {
             case "[ROLE_MEMBER]":
               navigate("/home");
               break;
+            case "[ROLE_CAREGIVER]":
+                navigate("/caregiver");
+            break;
             case "[ROLE_PARTNER]":
-              navigate("/caregiver");
+              navigate("/partner");
               break;
             case "[ROLE_RIDER]":
               navigate("/driver");
