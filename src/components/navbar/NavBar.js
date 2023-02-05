@@ -81,7 +81,7 @@ const NavBar = () => {
                   </Button> */}
                   <div className="menu-user text-white">
                     <img
-                      src={defaultprofile}
+                      src={currentUser.imageUrl ? currentUser.imageUrl : defaultprofile}
                       alt="profile_picture"
                       className="rounded-circle me-2 text-white"
                       style={{ width: "30px" }}
