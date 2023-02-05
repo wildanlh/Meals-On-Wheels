@@ -1,44 +1,44 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { useContext } from "react";
-import AuthContext from "./context/auth-context";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import "animate.css";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
-import DonatePage from "./pages/DonatePage";
-import PartnershipPage from "./pages/PartnershipPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import TermsAndCondition from "./pages/TermsAndConditionPage";
-import MemberHomePage from "./pages/MemberHomePage";
-import MemberMealPackageDetailPage from "./pages/MemberMealPackageDetailPage";
-import MemberFeedbackPage from "./pages/MemberFeedbackPage";
-import DriverHomePage from "./pages/DriverHomePage";
-import CaregiverHomePage from "./pages/CaregiverHomePage";
-import AdminHomePage from "./pages/AdminHomePage";
-import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage";
-import AdminManageUsersPage from "./pages/AdminManageUsersPage";
-import TestRegister from "./components/forms/TestRegister";
-import ThankYouPage from "./pages/ThankYouPage";
-import MemberOrderHistoryPage from "./pages/MemberOrderHistoryPage";
-import PartnerHomePage from "./pages/PartnerHomePage";
-import AdminMealHistoryPage from "./pages/AdminMealHistoryPage";
+import { Navigate, Route, Routes } from "react-router-dom"
+import { useContext } from "react"
+import AuthContext from "./context/auth-context"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./App.css"
+import "animate.css"
+import HomePage from "./pages/HomePage"
+import AboutPage from "./pages/AboutPage"
+import ContactPage from "./pages/ContactPage"
+import DonatePage from "./pages/DonatePage"
+import PartnershipPage from "./pages/PartnershipPage"
+import LoginPage from "./pages/LoginPage"
+import RegisterPage from "./pages/RegisterPage"
+import TermsAndCondition from "./pages/TermsAndConditionPage"
+import MemberHomePage from "./pages/MemberHomePage"
+import MemberMealPackageDetailPage from "./pages/MemberMealPackageDetailPage"
+import MemberFeedbackPage from "./pages/MemberFeedbackPage"
+import DriverHomePage from "./pages/DriverHomePage"
+import CaregiverHomePage from "./pages/CaregiverHomePage"
+import AdminHomePage from "./pages/AdminHomePage"
+import AdminManagePartnershipPage from "./pages/AdminManagePartnershipPage"
+import AdminManageUsersPage from "./pages/AdminManageUsersPage"
+import TestRegister from "./components/forms/TestRegister"
+import ThankYouPage from "./pages/ThankYouPage"
+import MemberOrderHistoryPage from "./pages/MemberOrderHistoryPage"
+import PartnerHomePage from "./pages/PartnerHomePage"
+import AdminMealHistoryPage from "./pages/AdminMealHistoryPage"
 
 function App() {
   const { isLoggedIn, currentUser } = useContext(AuthContext)
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/donate" element={<DonatePage />} />
-      <Route path="/thankyou" element={<ThankYouPage />} />
-      <Route path="/Test" element={<TestRegister />} />
-      <Route path="/partnership" element={<PartnershipPage />} />
-      
+      <Route path='/' element={<HomePage />} />
+      <Route path='/about' element={<AboutPage />} />
+      <Route path='/contact' element={<ContactPage />} />
+      <Route path='/donate' element={<DonatePage />} />
+      <Route path='/thankyou' element={<ThankYouPage />} />
+      <Route path='/Test' element={<TestRegister />} />
+      <Route path='/partnership' element={<PartnershipPage />} />
+
       {!isLoggedIn && (
         <>
           <Route path='/login' element={<LoginPage />} />
@@ -65,9 +65,9 @@ function App() {
             </>
           )}
 
-        {/* Login as Driver Access */}
-          {currentUser.role === "ROLE_DRIVER" && (
-            <Route path="/driver" element={<DriverHomePage />} />
+          {/* Login as Driver Access */}
+          {currentUser.role === "ROLE_RIDER" && (
+            <Route path='/driver' element={<DriverHomePage />} />
           )}
 
           {/* Login as Caregiver Access */}
@@ -85,7 +85,7 @@ function App() {
             <>
               <Route path='/admin' element={<AdminHomePage />} />
               <Route
-                path="/admin/meal-history"
+                path='/admin/meal-history'
                 element={<AdminMealHistoryPage />}
               />
               <Route
