@@ -46,6 +46,7 @@ function App() {
       )}
       {isLoggedIn && (
         <>
+          {/* MEMBER SECTION */}
           <Route path="/home" element={<MemberHomePage />} />
           <Route
             path="/home/order-history"
@@ -57,7 +58,11 @@ function App() {
             element={<MemberMealPackageDetailPage />}
           />
           
+          {/* DRIVER SECTION */}
           <Route path="/driver" element={<DriverHomePage />} />
+
+
+          {/* CAREGIVER SECTION */}
           <Route path="/caregiver" element={<CaregiverHomePage />} />
 
 
