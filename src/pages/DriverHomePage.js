@@ -129,12 +129,12 @@ const DriverHomePage = () => {
                 </Col>
               </Row>
               <div className='dropdown'>
-                <button className='dropbtn'>Status</button>
+                <button className='dropbtn'>Status {currentUser.status}</button>
                 <div className='dropdown-content'>
                   <a href='#'>
                     <div className='status text-white d-flex justify-content-center'>
                       <img src={greencircle} alt='' className='status-icon' />
-                      <span className='fw-bold ms-3'>{currentUser.status}</span>
+                      <span className='fw-bold ms-3'>available</span>
                     </div>
                   </a>
                   <a href='#'>
