@@ -38,6 +38,7 @@ function App() {
       <Route path="/thankyou" element={<ThankYouPage />} />
       <Route path="/Test" element={<TestRegister />} />
       <Route path="/partnership" element={<PartnershipPage />} />
+      
       {!isLoggedIn && (
         <>
           <Route path="/login" element={<LoginPage />} />
@@ -45,8 +46,10 @@ function App() {
           <Route path="/terms" element={<TermsAndCondition />} />
         </>
       )}
+
       {isLoggedIn && (
         <>
+        {/* Login as Member Access */}
           {currentUser.role === "ROLE_MEMBER" && (
             <>
               <Route path="/home" element={<MemberHomePage />} />
@@ -62,21 +65,22 @@ function App() {
             </>
           )}
 
-
+        {/* Login as Driver Access */}
           {currentUser.role === "ROLE_DRIVER" && (
             <Route path="/driver" element={<DriverHomePage />} />
           )}
 
-
+        {/* Login as Caregiver Access */}
           {currentUser.role === "ROLE_CAREGIVER" && (
             <Route path="/caregiver" element={<CaregiverHomePage />} />
           )}
 
+        {/* Login as Partner Access */}
           {currentUser.role === "ROLE_PARTNER" && (
             <Route path="/partner" element={<PartnerHomePage />} />
           )}
 
-
+        {/* Login as Admin Access */}
           {currentUser.role === "ROLE_ADMIN" && (
             <>
               <Route path="/admin" element={<AdminHomePage />} />
