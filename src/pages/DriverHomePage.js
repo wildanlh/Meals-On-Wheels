@@ -115,7 +115,7 @@ const DriverHomePage = () => {
               </div>
               <Row className='mb-3'>
                 <Col>
-                  <img src={person} alt='' className='profile-driver' />
+                  <img src={currentUser.imageUrl} alt='profile pic' className='profile-driver'/>
                 </Col>
                 <Col className='text-white'>
                   <span>Name : </span>

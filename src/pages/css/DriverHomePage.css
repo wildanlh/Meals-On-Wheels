@@ -5,7 +5,10 @@ img.icon-car {
 }
 
 img.profile-driver {
-  width: 118px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .dropbtn {
