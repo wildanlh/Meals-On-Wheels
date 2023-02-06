@@ -213,7 +213,7 @@ const AdminHomePage = () => {
             <h4 className="fw-bold title-caregiver text-center">
               Active Account Request
             </h4>
-            <div className="card">
+            <div className="card" style={{ height: "400px" }}>
               <Table striped className="text-white text-center driver mb-3">
                 <thead className="driver-table">
                   <tr>
