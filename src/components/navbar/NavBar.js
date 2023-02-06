@@ -171,8 +171,43 @@ const NavBar = () => {
         </div>
       )}
 
+        {/* CAREGIVER ADDITIONAL NAVBAR */}
+        {currentUser.role === "ROLE_CAREGIVER" && (
+        <div className="nav-member">
+          <div className="second-nav">
+            <nav className="py-2">
+              <div className="d-flex justify-content-center">
+                <ul className="nav">
+                  <Link to="/caregiver" className="text-decoration-none">
+                    <li className="text-white px-3 btn-member fw-bold">
+                      Dashboard
+                    </li>
+                  </Link>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
 
-
+        {/* PARTNER ADDITIONAL NAVBAR */}
+        {currentUser.role === "ROLE_PARTNER" && (
+        <div className="nav-member">
+          <div className="second-nav">
+            <nav className="py-2">
+              <div className="d-flex justify-content-center">
+                <ul className="nav">
+                  <Link to="/partner" className="text-decoration-none">
+                    <li className="text-white px-3 btn-member fw-bold">
+                      Dashboard
+                    </li>
+                  </Link>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
 
       {/* ADMIN ADDITIONAL NAVBAR */}
       {currentUser.role === "ROLE_ADMIN" && (
