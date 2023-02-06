@@ -91,10 +91,10 @@ const AdminHomePage = () => {
     getAdminUserAPI(token)
       .then((resp) => {
         resp.data = resp.data
-          .filter(function (item) {
-            return item.active == false
+          .filter((item) => {
+            return item.active === false
           })
-          .map(function (item) {
+          .map((item) => {
             setUsers(item)
             return item
           })
@@ -515,6 +515,14 @@ const AdminHomePage = () => {
                     <td className='text-white'>John Doe</td>
                     <td className='text-white'>Submit</td>
                   </tr> */}
+      <div
+        className='circle-yellow-lg'
+        style={{ bottom: "-100px", left: "-100px" }}
+      ></div>
+      <div
+        className='circle-yellow-lg'
+        style={{ bottom: "-400px", right: "-100px" }}
+      ></div>
     </Layout>
   )
 }
