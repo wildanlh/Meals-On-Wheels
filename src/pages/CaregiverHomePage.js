@@ -106,9 +106,6 @@ const CaregiverHomePage = () => {
       .then((resp) => setRider(resp.data))
       .catch((err) => console.log(err))
 
-    getPartnerOrderAPI(token)
-      .then((resp) => setOrderList(resp.data))
-      .catch((err) => console.log(err.response));
   }, [token, msg]);
   return (
     <Layout>
@@ -196,52 +193,6 @@ const CaregiverHomePage = () => {
         </Row>
 
         <Row className="mb-5">
-          <Col sm={8}>
-            <h4 className="fw-bold title-caregiver">Order Notification</h4>
-            <div className="card">
-              <div className="container">
-                <Table striped className="text-white text-center driver my-3">
-                  <thead className="driver-table">
-                    <tr>
-                      <th>No</th>
-                      <th>Request</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-white">
-                    {orderList.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className="text-white">{index + 1}</td>
-                        <td className="text-white">
-                          {order.orderBy.name} requested for{" "}
-                          {order.mealPackage.packageName}
-                        </td>
-                        <td className="text-white">{order.orderOn}</td>
-                        <td className="text-white">5:00 PM</td>
-                      </tr>
-                    ))}
-                    {/* <tr>
-                      <td className='text-white'>1</td>
-                      <td className='text-white'>
-                        Purwa requested for Package Meal 2
-                      </td>
-                      <td className='text-white'>Decemeber 31, 2000</td>
-                      <td className='text-white'>5:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td className='text-white'>1</td>
-                      <td className='text-white'>
-                        Purwa requested for Package Meal 2
-                      </td>
-                      <td className='text-white'>Decemeber 31, 2000</td>
-                      <td className='text-white'>5:00 PM</td>
-                    </tr> */}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
-          </Col>
           <Col>
             <h4 className='text-center fw-bold title-caregiver'>
               Driver Availability
