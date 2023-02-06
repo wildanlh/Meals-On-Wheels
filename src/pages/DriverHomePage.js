@@ -157,9 +157,7 @@ const DriverHomePage = () => {
                 </Col>
               </Row>
               <div className="dropdown">
-                <button className="dropbtn">
-                  Status: {currentUser.status}
-                </button>
+                <button className="dropbtn">Status {currentUser.status}</button>
                 <div className="dropdown-content">
                   <div className="status text-white d-flex justify-content-center w-50 m-auto mb-2 mt-2">
                     <Button
@@ -243,7 +241,7 @@ const DriverHomePage = () => {
                             handlePickUp(order.id);
                           }}
                         >
-                          pickup
+                          Pickup
                         </Button>
                       ) : (
                         <Button
@@ -252,7 +250,7 @@ const DriverHomePage = () => {
                             handleComplete(order.id);
                           }}
                         >
-                          complete
+                          Complete
                         </Button>
                       )}
                       {/* <DropdownButton
