@@ -49,7 +49,7 @@ const AdminManageUsersPage = () => {
                     <td className="text-white">{user.name}</td>
                     <td className="text-white">{user.address}</td>
                     <td className="text-white">{user.email}</td>
-                    <td className="text-white">{user.gander}</td>
+                    <td className="text-white">{user.gender}</td>
                     <td className="text-white">{user.role}</td>
                     <td className="text-white">
                       <a href={user.fileUrl}>file</a>
