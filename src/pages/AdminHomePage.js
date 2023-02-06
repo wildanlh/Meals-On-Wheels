@@ -267,7 +267,8 @@ const AdminHomePage = () => {
           {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
           <div className="card">
             <div className="container">
-              <Table striped className="text-white text-center driver my-3">
+              <div className="task-header-div">
+              <Table striped className="text-white text-center driver my-3 task-header tbl-width col-width">
                 <thead className="driver-table">
                   <tr>
                     <th>No</th>
@@ -277,8 +278,12 @@ const AdminHomePage = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
+              </Table>
+              </div>
+              <div className="task-tbl-div">
+              <Table striped className="text-white text-center driver my-3 task-tbl tbl-width col-width">
                 <tbody className="text-white">
-                  {orderList.slice(0, 10).map((order, index) => (
+                  {orderList.map((order, index) => (
                     <tr key={order.id}>
                       <td className="text-white">{index + 1}</td>
                       <td className="text-white">
@@ -320,6 +325,7 @@ const AdminHomePage = () => {
                   ))}
                 </tbody>
               </Table>
+              </div>
             </div>
           </div>
         </div>
@@ -329,7 +335,8 @@ const AdminHomePage = () => {
           {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
           <div className="card">
             <div className="container">
-              <Table striped className="text-white text-center driver my-3">
+            <div className="task-header-div">
+              <Table striped className="text-white text-center driver my-3 task-header tbl-width col-width">
                 <thead className="driver-table">
                   <tr>
                     <th>No</th>
@@ -339,8 +346,12 @@ const AdminHomePage = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
+                </Table>
+                </div>
+                <div className="task-tbl-div">
+                <Table striped className="text-white text-center driver my-3 task-tbl tbl-width col-width">
                 <tbody className="text-white">
-                  {deliverList.slice(0, 10).map((order, index) => (
+                  {deliverList.map((order, index) => (
                     <tr key={order.id}>
                       <td className="text-white">{index + 1}</td>
                       <td className="text-white">
@@ -380,6 +391,7 @@ const AdminHomePage = () => {
                   ))}
                 </tbody>
               </Table>
+              </div>
             </div>
           </div>
         </div>

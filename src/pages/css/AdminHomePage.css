@@ -9,3 +9,30 @@ img.icon-user {
   margin: 0;
   padding: 0;
 }
+
+.task-header {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.task-tbl {
+  margin-top: 0 !important;
+  height: 150px; 
+}
+
+.task-tbl-div {
+  height: 150px; 
+  overflow: auto !important;
+  scrollbar-gutter: stable;
+}
+
+.tbl-width {
+  table-layout: fixed;
+  width: 80%;
+}
+
+.col-width {
+  width: 100%;
+  overflow: hidden;
+}
