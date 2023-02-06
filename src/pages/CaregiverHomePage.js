@@ -36,36 +36,6 @@ const CaregiverHomePage = () => {
   const [index, setIndex] = useState(0);
   const [menu, setMenu] = useState([menu_type]);
 
-  const [packageName, setPackageName] = useState("");
-  const [mainCourse, setMainCourse] = useState("");
-  const [salad, setSalad] = useState("");
-  const [soup, setSoup] = useState("");
-  const [dessert, setDessert] = useState("");
-  const [drink, setDrink] = useState("");
-  const [frozen, setFrozen] = useState("");
-  const [image, setImage] = useState(null);
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = async (event) => {
-    setStatus(""); // Reset status
-    //event.preventDefault();
-    const formData = new FormData();
-
-    formData.append("packageName", packageName);
-    formData.append("mainCourse", mainCourse);
-    formData.append("salad", salad);
-    formData.append("soup", soup);
-    formData.append("dessert", dessert);
-    formData.append("drink", drink);
-    formData.append("frozen", frozen);
-    formData.append("packageImage", image);
-
-    addMenu(token, formData);
-
-    window.location.reload();
-
-  };
-
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
