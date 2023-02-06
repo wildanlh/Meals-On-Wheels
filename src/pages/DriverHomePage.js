@@ -134,7 +134,7 @@ const DriverHomePage = () => {
                   <a href='#'>
                     <div className='status text-white d-flex justify-content-center'>
                       <img src={greencircle} alt='' className='status-icon' />
-                      <span className='fw-bold ms-3'>available</span>
+                      <span className='fw-bold ms-3'>Available</span>
                     </div>
                   </a>
                   <a href='#'>
