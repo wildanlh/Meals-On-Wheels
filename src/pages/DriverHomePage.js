@@ -210,7 +210,7 @@ const DriverHomePage = () => {
                             handleComplate(order.id)
                           }}
                         >
-                          complate
+                          complete
                         </Button>
                       )}
                       {/* <DropdownButton
