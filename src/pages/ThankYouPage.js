@@ -4,7 +4,8 @@ import "./css/ThankYouPage.css";
 
 const ThankYouPage = () => {
   return (
-    <div className="thank-you d-flex ">
+    <div className="thank-you d-flex">
+    <div className="col-8 mx-auto">
       <div className="card card-thankyou m-auto p-5 w-50">
         <h1 className="text-white text-center fw-bold animate__animated animate__fadeInDown">
           Thank You
@@ -23,6 +24,8 @@ const ThankYouPage = () => {
         </Link>
       </div>
     </div>
+    </div>
+
   );
 };
 
