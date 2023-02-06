@@ -67,6 +67,14 @@ const AdminMealHistoryPage = () => {
           </Table>
         </div>
       </Container>
+      <div
+        className="half-circle"
+        style={{ bottom: "200px", right: "-50px" }}
+      ></div>
+      <div
+        className="circle-yellow-lg"
+        style={{ bottom: "400px", left: "-100px" }}
+      ></div>
     </Layout>
   );
 };

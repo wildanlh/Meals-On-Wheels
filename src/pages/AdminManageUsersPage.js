@@ -52,7 +52,9 @@ const AdminManageUsersPage = () => {
                     <td className="text-white">{user.gender}</td>
                     <td className="text-white">{user.role}</td>
                     <td className="text-white">
-                      <a className="link-light" href={user.fileUrl}>file</a>
+                      <a className="link-light" href={user.fileUrl}>
+                        file
+                      </a>
                     </td>
                     <td className="text-white">
                       <DropdownButton
@@ -148,6 +150,15 @@ const AdminManageUsersPage = () => {
           </div>
         </div>
       </Container>
+
+      <div
+        className="circle-yellow-lg"
+        style={{ bottom: "400px", left: "-100px" }}
+      ></div>
+      <div
+        className="half-circle"
+        style={{ bottom: "400px", right: "-50px" }}
+      ></div>
     </Layout>
   );
 };
