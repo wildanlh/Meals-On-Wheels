@@ -520,8 +520,8 @@ const AdminHomePage = () => {
         style={{ bottom: "-100px", left: "-100px" }}
       ></div>
       <div
-        className="circle-yellow-lg"
-        style={{ bottom: "-400px", right: "-100px" }}
+        className="half-circle"
+        style={{ bottom: "-300px", right: "-50px" }}
       ></div>
     </Layout>
   );
