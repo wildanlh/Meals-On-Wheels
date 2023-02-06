@@ -20,6 +20,7 @@ import { user_type } from "../context/context-type"
 const AdminManagePartnershipPage = () => {
   const { token } = useContext(AuthContext)
   const [partner, setPartner] = useState([user_type])
+  const [inactivePartner, setInactivePartner] = useState([user_type])
   const [msg, setMsg] = useState("")
 
   function handleAccept(id) {
@@ -32,6 +33,20 @@ const AdminManagePartnershipPage = () => {
     getAdminPartnerAPI(token)
       .then((resp) => setPartner(resp.data))
       .catch((err) => console.table(err))
+
+    getAdminPartnerAPI(token)
+      .then((resp) => {
+        resp.data = resp.data
+          .filter((item) => {
+            return item.active === false
+          })
+          .map((item) => {
+            setInactivePartner(item)
+            return item
+          })
+          setInactivePartner(resp.data)
+      })
+      .catch((err) => console.log(err))
   }, [token, msg])
 
   return (
@@ -49,7 +64,7 @@ const AdminManagePartnershipPage = () => {
             {msg}
             <div className='card-charity'>
               <Row>
-                {partner.map((data) => (
+                {inactivePartner.map((data) => (
                   <Fragment key={data.id}>
                     <Col sm={9}>
                       <div className='d-flex'>
