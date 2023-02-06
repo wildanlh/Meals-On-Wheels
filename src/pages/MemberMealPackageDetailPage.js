@@ -40,7 +40,7 @@ const MemberMealPackageDetailPage = () => {
           <div className='text-center py-4'>
             <h2 className='text-white'>
               {menu.packageName}
-              {menuId}
+              {/* {menuId} */}
             </h2>
           </div>
           <div className='w-50 text-center'>
@@ -51,7 +51,7 @@ const MemberMealPackageDetailPage = () => {
               alt=''
               className='w-100 rounded'
             />
-            <Table striped bordered className='mb-0'>
+            <Table striped bordered className='mb-0 mt-3'>
               <tbody>
                 <tr>
                   <td className='text-white'>{menu.mainCourse}</td>
@@ -71,7 +71,7 @@ const MemberMealPackageDetailPage = () => {
               </tbody>
             </Table>
 
-            <div className='text-center mt-5 mb-3'>
+            <div className='text-center mt-4 mb-3'>
               <Button
                 variant='light'
                 className='bg-light fw-bold btn-register w-100'
