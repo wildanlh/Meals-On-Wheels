@@ -216,9 +216,9 @@ const CaregiverHomePage = () => {
               <Table striped className="text-white text-center driver mb-3">
                 <thead className="driver-table">
                   <tr>
-                    <th>no</th>
+                    <th>No</th>
                     <th>Name</th>
-                    <th>status</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody className="text-white">
