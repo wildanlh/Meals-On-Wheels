@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import {
   Button,
   Col,
@@ -11,7 +12,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getMenu } from "../api/api";
+import { getMenu, addMenu } from "../api/api";
 import {
   getAdminOrderPendingAPI,
   getAdminOrderReadyToDeliverAPI,
@@ -46,6 +47,35 @@ const AdminHomePage = () => {
   const [paertners, setPartner] = useState([user_type]);
   const [userCount, setUserCount] = useState(user_count);
   const [menu, setMenu] = useState([menu_type]);
+
+  const [packageName, setPackageName] = useState("");
+  const [mainCourse, setMainCourse] = useState("");
+  const [salad, setSalad] = useState("");
+  const [soup, setSoup] = useState("");
+  const [dessert, setDessert] = useState("");
+  const [drink, setDrink] = useState("");
+  const [frozen, setFrozen] = useState("");
+  const [image, setImage] = useState(null);
+  const [status, setStatus] = useState("");
+
+
+  const handleSubmit = async (event) => {
+    setStatus(""); // Reset status
+    //event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("packageName", packageName);
+    formData.append("mainCourse", mainCourse);
+    formData.append("salad", salad);
+    formData.append("soup", soup);
+    formData.append("dessert", dessert);
+    formData.append("drink", drink);
+    formData.append("frozen", frozen);
+    formData.append("packageImage", image);
+
+    addMenu(token, formData);
+
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -409,53 +439,97 @@ const AdminHomePage = () => {
           </div>
         </Modal.Header>
         <Modal.Body className="modal-popup">
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="packageName">
+              <Form.Label className="text-white fw-bold">
+                Package Name
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Package 1/ Frozen Package 2/ect"
+                onChange={(e) => setPackageName(e.target.value)} value={packageName}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="mainCourse">
               <Form.Label className="text-white fw-bold">
                 Main Course
               </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex: Roasted Duck/ Spicy Thai Chicken/ect"
+                onChange={(e) => setMainCourse(e.target.value)} value={mainCourse}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="salad">
               <Form.Label className="text-white fw-bold">Salad</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex: garden salad/Greek salad/chopped Thai salad"
+                onChange={(e) => setSalad(e.target.value)} value={salad}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="soup">
               <Form.Label className="text-white fw-bold">Soup</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex: Pumpkin soup/Tuscan/ect"
+                onChange={(e) => setSoup(e.target.value)} value={soup}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="dessert">
               <Form.Label className="text-white fw-bold">Dessert</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex: Pudding/ fruit tarts/ lemon creme/ ect"
+                onChange={(e) => setDessert(e.target.value)} value={dessert}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="drink">
               <Form.Label className="text-white fw-bold">Drink</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect"
+                onChange={(e) => setDrink(e.target.value)} value={drink}
                 autoFocus
               />
             </Form.Group>
+            <Form.Group className="mb-3 mx-3" controlId="frozen">
+                <Form.Label>Frozen</Form.Label>
+                <Form.Select
+                  aria-label="Default select example"
+                  onChange={(e) => {
+                    setFrozen(e.target.value);
+                  }}
+                  value={frozen}
+                  required
+                >
+                  <option disabled>Is it frozen</option>
+                  <option defaultValue={true} value="1">
+                    Yes
+                  </option>
+                  <option value="2">No</option>
+
+                </Form.Select>
+              </Form.Group>
+            <Form.Group className="mb-3 mx-3" controlId="file">
+                <Form.Label>Image Upload</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={(e) => setImage(e.target.files[0])}
+                  required
+                />
+              </Form.Group>
           </Form>
         </Modal.Body>
         <div className="text-center modal-popup p-3">
-          <Button onClick={handleClose} className="button fw-bold w-50">
+          <Button type="submit" 
+          onClick={handleSubmit} 
+          className="button fw-bold w-50">
             Submit
           </Button>
         </div>
