@@ -1,49 +1,48 @@
-import { useContext, useEffect, useRef, useState } from "react"
-import { Carousel, Col, Container, Row, Table } from "react-bootstrap"
-import { Link, useSearchParams } from "react-router-dom"
-import { getMenu } from "../api/api"
-import { getMemberOrderAPI } from "../api/member-api"
-import { carousel1, carousel2, carousel3 } from "../assets"
-import Layout from "../components/layout/Layout"
-import AuthContext, { retriveStoredToken } from "../context/auth-context"
+import { useContext, useEffect, useRef, useState } from "react";
+import { Button, Carousel, Col, Container, Row, Table } from "react-bootstrap";
+import { Link, useSearchParams } from "react-router-dom";
+import { getMenu } from "../api/api";
+import { getMemberOrderAPI } from "../api/member-api";
+import { carousel1, carousel2, carousel3 } from "../assets";
+import Layout from "../components/layout/Layout";
+import AuthContext, { retriveStoredToken } from "../context/auth-context";
 
-import "./css/MemberHomePage.css"
+import "./css/MemberHomePage.css";
 
 const MemberHomePage = () => {
-  const [index, setIndex] = useState(0)
-  const { token } = useContext(AuthContext)
-  const [menu, setMenu] = useState([])
-  const [order, setOrder] = useState([])
+  const [index, setIndex] = useState(0);
+  const { token } = useContext(AuthContext);
+  const [menu, setMenu] = useState([]);
+  const [order, setOrder] = useState([]);
   const [msg, setMsg] = useSearchParams();
-
 
   useEffect(() => {
     getMenu(token)
       .then((resp) => {
-        setMenu(resp.data)
+        setMenu(resp.data);
       })
       .catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
     getMemberOrderAPI(token)
       .then((resp) => setOrder(resp.data))
-      .catch((err) => console.log(err.response.data))
-  }, [token])
+      .catch((err) => console.log(err.response.data));
+  }, [token]);
 
   const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex)
-  }
+    setIndex(selectedIndex);
+  };
 
   return (
     <Layout>
       <Container>
-      {msg.get("msg") && <h1>{msg.get("msg")}</h1>}
-        <Carousel activeIndex={index} onSelect={handleSelect} className='my-5'>
+        {msg.get("msg") && <h1>{msg.get("msg")}</h1>}
+        <Carousel activeIndex={index} onSelect={handleSelect} className="my-5">
           <Carousel.Item>
             <img
-              className='d-block w-100 carousel-member rounded'
+              className="d-block w-100 carousel-member rounded"
               src={carousel1}
-              alt='First slide'
+              alt="First slide"
             />
             <Carousel.Caption>
               <h3>Daily Meals</h3>
@@ -52,9 +51,9 @@ const MemberHomePage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className='d-block w-100 carousel-member rounded'
+              className="d-block w-100 carousel-member rounded"
               src={carousel2}
-              alt='Second slide'
+              alt="Second slide"
             />
 
             <Carousel.Caption>
@@ -64,9 +63,9 @@ const MemberHomePage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className='d-block w-100 carousel-member rounded'
+              className="d-block w-100 carousel-member rounded"
               src={carousel3}
-              alt='Third slide'
+              alt="Third slide"
             />
 
             <Carousel.Caption>
@@ -77,40 +76,41 @@ const MemberHomePage = () => {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <div className='meals-package mb-5'>
-          <div className='col-lg-6 mb-3'>
-            <h3 className='fw-bold'>
+        <div className="meals-package mb-5">
+          <div className="col-lg-6 mb-3">
+            <h3 className="fw-bold">
               Our Menus are in Packages to Help You Manage A Balanced Diet.
             </h3>
             <h5>Choose the package that is to your liking.</h5>
           </div>
-          <Row className='card-meals'>
+          <Row className="card-meals">
             {menu.map((data) => (
               <Col key={data.id}>
-                <Link to={`/meals-package-detail/${data.id}`}>
-                  <div className='card text-center'>
-                    <h5 className='p-3'>{data.packageName}</h5>
-                    <Table striped bordered className='fw-bold'>
-                      <tbody>
-                        <tr>
-                          <td className='text-white'>{data.mainCourse}</td>
-                        </tr>
-                        <tr>
-                          <td className='text-white'>{data.salad}</td>
-                        </tr>
-                        <tr>
-                          <td className='text-white'>{data.soup}</td>
-                        </tr>
-                        <tr>
-                          <td className='text-white'>{data.dessert}</td>
-                        </tr>
-                        <tr>
-                          <td className='text-white'>{data.drink}</td>
-                        </tr>
-                      </tbody>
-                    </Table>
-                  </div>
-                </Link>
+                <div className="card text-center">
+                  <h5 className="p-3 button">{data.packageName}</h5>
+                  <Table striped bordered>
+                    <tbody>
+                      <tr>
+                        <td className="text-white">{data.mainCourse}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-white">{data.salad}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-white">{data.soup}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-white">{data.dessert}</td>
+                      </tr>
+                      <tr>
+                        <td className="text-white">{data.drink}</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                  <Link to={`/meals-package-detail/${data.id}`}>
+                    <Button className="fw-bold button my-3">Order Meal</Button>
+                  </Link>
+                </div>
               </Col>
             ))}
             {/* <Col>
@@ -169,7 +169,7 @@ const MemberHomePage = () => {
         </div>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default MemberHomePage
+export default MemberHomePage;
