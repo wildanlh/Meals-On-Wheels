@@ -109,7 +109,7 @@ const CaregiverHomePage = () => {
   return (
     <Layout>
       <Container>
-        <h1 className="py-5 fw-bold">Hello, John Doe!</h1>
+        <h1 className="py-5 fw-bold">Hello, {currentUser.name}!</h1>
 
         <Row className="mb-5">
           <Col sm={8}>
