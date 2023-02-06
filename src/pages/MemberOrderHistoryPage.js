@@ -48,26 +48,25 @@ const MemberOrderHistoryPage = () => {
               <tr>
                 <th>No</th>
                 <th>Meal Package</th>
-                <th>Prepare by</th>
-                <th>Order on</th>
-                <th>Deliver to</th>
+                <th>Prepared by</th>
+                <th>Ordered on</th>
+                <th>Delivery Address</th>
                 <th>Deliver by</th>
                 <th>Status</th>
-                <th>action</th>
+                {/* <th>action</th> */}
               </tr>
             </thead>
             <tbody className='text-white'>
               {order.map((x, i) => (
                 <tr key={x.id}>
                   <td>{i + 1}</td>
-
                   <td>{x.mealPackage.packageName}</td>
                   <td>{x.preparedBy?.name}</td>
                   <td>{Date(x.orderOn).slice(0, 10)}</td>
                   <td>{x.orderBy.address}</td>
                   <td>{x.deliveredBy?.name}</td>
                   <td>{x.orderStatus}</td>
-                  <td>
+                  {/* <td>
                     {x.orderStatus === "DELIVERY_COMPLETE" ? (
                       <Button onClick={() => handleComplate(x.id)}>
                         Complate Order
@@ -75,7 +74,7 @@ const MemberOrderHistoryPage = () => {
                     ) : (
                       <Button variant='light'>Driver di Kejar Anjing</Button>
                     )}
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

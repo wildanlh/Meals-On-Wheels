@@ -45,8 +45,11 @@ const MemberHomePage = () => {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>Daily Meals</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>What is Healthy Diet</h3>
+              <p>A healthy diet is an essential aspect of a well-balanced lifestyle. 
+                It should include a variety of fruits, vegetables, whole grains, lean protein sources, and healthy fats.
+                A healthy diet is not about strict limitations, 
+                but rather about feeling good, having more energy, and keeping your body healthy.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -57,8 +60,11 @@ const MemberHomePage = () => {
             />
 
             <Carousel.Caption>
-              <h3>Daily Meals</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>Benefit of Healthy Diet</h3>
+              <p>Eating a healthy diet has numerous benefits for both physical and mental health.
+              Eating a diet rich in nutrients also supports strong bones, healthy skin, and good eye health. 
+              Additionally, a healthy diet can improve mental clarity, increase energy levels, and boost mood. 
+              Moreover, it can aid in digestion, reduce inflammation, and support a strong immune system.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -69,9 +75,11 @@ const MemberHomePage = () => {
             />
 
             <Carousel.Caption>
-              <h3>Daily Meals</h3>
+              <h3>Our Meal Package</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Our meal package include a balanced selection of nutritious options, including whole grains, lean proteins, and plenty of fresh fruits and vegetables. 
+                The menu also offer healthy fats and limit processed foods, added sugars, and unhealthy fats.
+                We follow a strict regulation to make well-balanced, portion-controlled, and meet specific dietary requirements, such as low-sodium or gluten-free options. 
               </p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -115,58 +123,6 @@ const MemberHomePage = () => {
                 </div>
               </Col>
             ))}
-            {/* <Col>
-              <Link to='/meals-package-detail'>
-                <div className='card text-center'>
-                  <h5 className='p-3'>Meals Package Card</h5>
-                  <Table striped bordered className='fw-bold'>
-                    <tbody>
-                      <tr>
-                        <td className='text-white'>Roasted Duck</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Greek Salad</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Miso Soup</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Fruit Tart</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Teh Poci</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </Link>
-            </Col>
-            <Col>
-              <Link to='/meals-package-detail'>
-                <div className='card text-center'>
-                  <h5 className='p-3'>Meals Package Card</h5>
-                  <Table striped bordered className='fw-bold'>
-                    <tbody>
-                      <tr>
-                        <td className='text-white'>Roasted Duck</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Greek Salad</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Miso Soup</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Fruit Tart</td>
-                      </tr>
-                      <tr>
-                        <td className='text-white'>Teh Poci</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </Link>
-            </Col> */}
           </Row>
         </div>
       </Container>

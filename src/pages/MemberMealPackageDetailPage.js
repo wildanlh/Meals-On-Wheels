@@ -7,6 +7,7 @@ import { mealdetail } from "../assets"
 import Layout from "../components/layout/Layout"
 import AuthContext from "../context/auth-context"
 import { menu_type } from "../context/context-type"
+import "../pages/css/MemberMealPackageDetailPage.css"
 
 const MemberMealPackageDetailPage = () => {
   const { menuId } = useParams()
@@ -45,7 +46,7 @@ const MemberMealPackageDetailPage = () => {
           </div>
           <div className='w-50 text-center'>
             <img
-              height='200px'
+              height='220px'
               style={{ objectFit: "contain" }}
               src={menu.packageImage}
               alt=''
@@ -71,15 +72,22 @@ const MemberMealPackageDetailPage = () => {
               </tbody>
             </Table>
 
-            <div className='text-center mt-4 mb-3'>
-              <Button
-                variant='light'
-                className='bg-light fw-bold btn-register w-100'
-                onClick={handlePostOrder}
-              >
-                Request Meal
-              </Button>
-            </div>
+              <div class="row text-center mt-4 mb-3">
+                <div class="col-sm">
+                <Button href="/home" variant="danger" className="button text-white w-100">
+                    Cancel
+                  </Button> 
+                </div>
+                <div class="col-sm">
+                <Button
+                  variant='primary'
+                  className='button text-white w-100'
+                  onClick={handlePostOrder}>
+                  Request Meal
+                </Button>
+                  {/* <a href="/home" className="btn button text-white w-100">Back to Home</a> */}
+                </div>
+              </div>
           </div>
         </div>
       </Container>
