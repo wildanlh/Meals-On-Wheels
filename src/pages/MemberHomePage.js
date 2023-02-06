@@ -87,8 +87,8 @@ const MemberHomePage = () => {
             {menu.map((data) => (
               <Col key={data.id}>
                 <div className="card text-center">
-                  <h5 className="p-3 button">{data.packageName}</h5>
-                  <Table striped bordered>
+                  <h5 className="p-3 button mb-0">{data.packageName}</h5>
+                  <Table striped bordered className="mb-0">
                     <tbody>
                       <tr>
                         <td className="text-white">{data.mainCourse}</td>
@@ -107,9 +107,11 @@ const MemberHomePage = () => {
                       </tr>
                     </tbody>
                   </Table>
-                  <Link to={`/meals-package-detail/${data.id}`}>
-                    <Button className="fw-bold button my-3">Order Meal</Button>
-                  </Link>
+                  <div>
+                    <Link to={`/meals-package-detail/${data.id}`}>
+                      <Button className="fw-bold button my-3">Order Meal</Button>
+                    </Link>
+                  </div>
                 </div>
               </Col>
             ))}
