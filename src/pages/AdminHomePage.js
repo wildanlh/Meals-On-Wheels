@@ -89,7 +89,16 @@ const AdminHomePage = () => {
       .catch((err) => console.log(err));
 
     getAdminUserAPI(token)
-      .then((resp) => setUsers(resp.data))
+      .then((resp) => {
+        console.log(resp.data);
+        resp.data = resp.data.filter(function(item){
+          return item.active == false;
+       }).map(function(item){
+        console.log(item);
+          setUsers(item);
+           return item;
+       });
+        setUsers(resp.data)})
       .catch((err) => console.log(err));
 
     getMenu(token)
@@ -247,11 +256,8 @@ const AdminHomePage = () => {
                           <Dropdown.Item onClick={() => handleActive(user.id)}>
                             approve
                           </Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">
-                            *Delete
-                          </Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">
-                            *Something else
+                          <Dropdown.Item href={user.fileUrl}>
+                            download user file
                           </Dropdown.Item>
                         </DropdownButton>
                       </td>
