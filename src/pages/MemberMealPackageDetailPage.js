@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { Button, Container, Form, Modal } from "react-bootstrap"
+import { Button, Container, Form, Modal, Table } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import { getMenuById } from "../api/api"
 import { postMemberOrderCreateAPI } from "../api/member-api"
@@ -43,23 +43,33 @@ const MemberMealPackageDetailPage = () => {
               {menuId}
             </h2>
           </div>
-          <div className='w-50'>
-            <img src={menu.packageImage} alt='' className='w-100 rounded' />
-            <div className='text-center my-3 text-white'>
-              <p>
-                Tender and juicy duck meat, crispy skin, and glazed with the
-                honey-balsamic glaze. Stuffed with very savory and juicy garlic
-                and lemon.{" "}
-              </p>
-
-              <p>
-                {" "}
-                Comes with fresh and healthy Greek Salad made of mixed greens,
-                romaine and kale. Miso Soup with tofu and wakame seaweed. Fruit
-                Tart with blueberries, peaches and kiwis. Lastly, a cup of Teh
-                Poci.
-              </p>
-            </div>
+          <div className='w-50 text-center'>
+            <img
+              height='200px'
+              style={{ objectFit: "contain" }}
+              src={menu.packageImage}
+              alt=''
+              className='w-100 rounded'
+            />
+            <Table striped bordered className='mb-0'>
+              <tbody>
+                <tr>
+                  <td className='text-white'>{menu.mainCourse}</td>
+                </tr>
+                <tr>
+                  <td className='text-white'>{menu.salad}</td>
+                </tr>
+                <tr>
+                  <td className='text-white'>{menu.soup}</td>
+                </tr>
+                <tr>
+                  <td className='text-white'>{menu.dessert}</td>
+                </tr>
+                <tr>
+                  <td className='text-white'>{menu.drink}</td>
+                </tr>
+              </tbody>
+            </Table>
 
             <div className='text-center mt-5 mb-3'>
               <Button
