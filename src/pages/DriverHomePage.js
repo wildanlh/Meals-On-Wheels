@@ -207,15 +207,15 @@ const DriverHomePage = () => {
           {msg && (
             <span
               onClick={() => {
-                setMsg("");
+                setMsg("")
               }}
             >
               {msg}
             </span>
           )}
-          <div className="container">
-            <Table striped className="text-white text-center driver mb-3">
-              <thead className="driver-table">
+          <div className='container'>
+            <Table striped className='text-white text-center driver mb-3'>
+              <thead className='driver-table'>
                 <tr>
                   <th>No</th>
                   <th>Pick up</th>
