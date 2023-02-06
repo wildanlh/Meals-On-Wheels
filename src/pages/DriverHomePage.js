@@ -157,7 +157,9 @@ const DriverHomePage = () => {
                 </Col>
               </Row>
               <div className="dropdown">
-                <button className="dropbtn">Status {currentUser.status}</button>
+                <button className="dropbtn">
+                  STATUS: {currentUser.status}
+                </button>
                 <div className="dropdown-content">
                   <div className="status text-white d-flex justify-content-center w-50 m-auto mb-2 mt-2">
                     <Button
@@ -237,6 +239,8 @@ const DriverHomePage = () => {
                     <td className="text-white">
                       {order.orderStatus === "READY_TO_DELIVER" ? (
                         <Button
+                          size="sm"
+                          className="w-50"
                           onClick={() => {
                             handlePickUp(order.id);
                           }}
@@ -245,7 +249,9 @@ const DriverHomePage = () => {
                         </Button>
                       ) : (
                         <Button
+                          size="sm"
                           variant="success"
+                          className="w-50"
                           onClick={() => {
                             handleComplete(order.id);
                           }}
@@ -253,64 +259,9 @@ const DriverHomePage = () => {
                           Complete
                         </Button>
                       )}
-                      {/* <DropdownButton
-                        id='dropdown-basic-button'
-                        title='Status'
-                        variant='light'
-                      >
-                        <Dropdown.Item
-                          href='#/action-1'
-                          onClick={() => {
-                            handlePickUp(order.id)
-                          }}
-                        >
-                          pick up
-                        </Dropdown.Item>
-                        <Dropdown.Item
-                          href='#/action-2'
-                          onClick={() => {
-                            handleComplate(order.id)
-                          }}
-                        >
-                          complate
-                        </Dropdown.Item>
-                        <Dropdown.Item href='#/action-3'>
-                          declin *not work
-                        </Dropdown.Item>
-                      </DropdownButton> */}
                     </td>
                   </tr>
                 ))}
-                {/* <tr>
-                  <td className='text-white'>1</td>
-                  <td className='text-white'>
-                    5001 Lem Road, Charter Street, Paul’s Garage
-                  </td>
-                  <td className='text-white'>
-                    339 Tetrick Road, Fort Myers, No. 18
-                  </td>
-                  <td className='text-white'>
-                    <div className='status text-white d-flex justify-content-center'>
-                      <img src={greencircle} alt='' className='status-icon' />
-                      <span className='ms-3'>Completed</span>
-                    </div>
-                  </td>
-                  <td className='text-white'>
-                    <DropdownButton
-                      id='dropdown-basic-button'
-                      title='Status'
-                      variant='light'
-                    >
-                      <Dropdown.Item href='#/action-1'>Action</Dropdown.Item>
-                      <Dropdown.Item href='#/action-2'>
-                        Another action
-                      </Dropdown.Item>
-                      <Dropdown.Item href='#/action-3'>
-                        Something else
-                      </Dropdown.Item>
-                    </DropdownButton>
-                  </td>
-                </tr> */}
               </tbody>
             </Table>
           </div>
