@@ -90,11 +90,9 @@ const AdminHomePage = () => {
 
     getAdminUserAPI(token)
       .then((resp) => {
-        console.log(resp.data);
         resp.data = resp.data.filter(function(item){
           return item.active == false;
        }).map(function(item){
-        console.log(item);
           setUsers(item);
            return item;
        });
