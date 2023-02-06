@@ -53,7 +53,7 @@ const AdminMealHistoryPage = () => {
                   <td>{x.orderBy.name}</td>
                   <td>{x.mealPackage.packageName}</td>
                   <td>{x.orderBy.address}</td>
-                  <td>{Date(x.orderOn).slice(0, 10)}</td>
+                  <td>{new Date(x.orderOn).toLocaleString('en-GB', { timeZone: 'Asia/Singapore',hour12:true })}</td>
                   <td>{x.preparedBy?.name}</td>
                   <td>{x.deliveredBy?.name}</td>
                   <td>{x.orderStatus}</td>
