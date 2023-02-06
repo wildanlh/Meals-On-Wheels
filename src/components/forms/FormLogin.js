@@ -129,9 +129,12 @@ const FormLogin = () => {
         <Form onSubmit={handleSubmit} className="p-3 text-white text-center">
           <div className="text-center py-3">
             <h3 className="contact-title mx-3 text-white">LOGIN</h3>
-            <p id="text-pop">
+            <div className="d-flex mx-auto col-8">
+            <p className="" id="text-pop">
               {msg.get("msg") && <span>{msg.get("msg")}</span>}
             </p>
+            </div>
+
             {/* {status}
             {statusBr} */}
             {/* {action} */}
