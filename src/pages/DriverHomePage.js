@@ -47,7 +47,7 @@ const DriverHomePage = () => {
       .catch((err) => console.log(err.response))
   }
 
-  function handleComplate(id) {
+  function handleComplete(id) {
     postRiderOrderCompleteAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response))
@@ -57,7 +57,7 @@ const DriverHomePage = () => {
     setStatusAPI(token, statusCode)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response))
-      window.location.reload();
+    window.location.reload()
   }
 
   useEffect(() => {
@@ -123,7 +123,11 @@ const DriverHomePage = () => {
               </div>
               <Row className='mb-3'>
                 <Col>
-                  <img src={currentUser.imageUrl} alt='profile pic' className='profile-driver'/>
+                  <img
+                    src={currentUser.imageUrl}
+                    alt='profile pic'
+                    className='profile-driver'
+                  />
                 </Col>
                 <Col className='text-white'>
                   <span>Name : </span>
@@ -139,37 +143,39 @@ const DriverHomePage = () => {
               <div className='dropdown'>
                 <button className='dropbtn'>Status {currentUser.status}</button>
                 <div className='dropdown-content'>
-                <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2 mt-2'>
-                  <Button className="w-100 text-left"
-                        onClick={() => {
-                          handleStatusUpdate(1)
-                        }}
-                      > 
-                    <img src={greencircle} alt='' className='status-icon' />
-                    <span className='fw-bold ms-3'>Available</span>
-                  </Button>
-                </div>
-                <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2'>
-                <Button className="w-100 text-left"
+                  <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2 mt-2'>
+                    <Button
+                      className='w-100 text-left'
+                      onClick={() => {
+                        handleStatusUpdate(1)
+                      }}
+                    >
+                      <img src={greencircle} alt='' className='status-icon' />
+                      <span className='fw-bold ms-3'>Available</span>
+                    </Button>
+                  </div>
+                  <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2'>
+                    <Button
+                      className='w-100 text-left'
                       onClick={() => {
                         handleStatusUpdate(2)
                       }}
-                    > 
-                  <img src={yellowcircle} alt='' className='status-icon' />
-                  <span className='fw-bold ms-3'>Busy</span>
-                </Button>
-                </div>
-                <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2'>
-                  <Button className="w-100 text-left"
-                        onClick={() => {
-                          handleStatusUpdate(3)
-                        }}
-                      > 
-                    <img src={redcircle} alt='' className='status-icon' />
-                    <span className='fw-bold ms-3'>Not Available</span>
-                  </Button>
-                </div>
-
+                    >
+                      <img src={yellowcircle} alt='' className='status-icon' />
+                      <span className='fw-bold ms-3'>Busy</span>
+                    </Button>
+                  </div>
+                  <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2'>
+                    <Button
+                      className='w-100 text-left'
+                      onClick={() => {
+                        handleStatusUpdate(3)
+                      }}
+                    >
+                      <img src={redcircle} alt='' className='status-icon' />
+                      <span className='fw-bold ms-3'>Not Available</span>
+                    </Button>
+                  </div>
                 </div>
               </div>
               <div className='status text-white d-flex justify-content-center my-3'>
@@ -228,8 +234,9 @@ const DriverHomePage = () => {
                         </Button>
                       ) : (
                         <Button
+                          variant='success'
                           onClick={() => {
-                            handleComplate(order.id)
+                            handleComplete(order.id)
                           }}
                         >
                           complete

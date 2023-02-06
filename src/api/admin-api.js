@@ -38,7 +38,7 @@ export const getAdminOrderAllAPI = async (token) => {
 }
 
 // ORDER COMPLETE
-//list all complate order
+//list all complete order
 export const getAdminOrderCompleteAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/order/complete`, {
     headers: { Authorization: `Bearer ${token}` },

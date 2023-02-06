@@ -8,12 +8,24 @@ import {
   Modal,
   Row,
   Table,
-} from "react-bootstrap"
+} from "react-bootstrap";
 import {
   getPartnerOrderAPI,
   postPartnerOrderCompleteAPI,
   postPartnerOrderCreateAPI,
 } from "../api/partner-api"
+import {
+  getAdminOrderPendingAPI,
+  getAdminOrderReadyToDeliverAPI,
+  getAdminUserCountAPI,
+  getPartnersAPI,
+  getRidersAPI,
+  postAdminOrderDeliverAPI,
+  postAdminOrderPrepareAPI,
+  getAdminUserActiveAPI,
+  getAdminUserAPI,
+} from "../api/admin-api"
+import { getMenu, addMenu } from "../api/api";
 import {
   carousel1,
   carousel2,
@@ -21,18 +33,20 @@ import {
   greencircle,
   redcircle,
   yellowcircle,
-} from "../assets"
-import Layout from "../components/layout/Layout"
-import AuthContext from "../context/auth-context"
-import { order_type } from "../context/context-type"
+} from "../assets";
+import Layout from "../components/layout/Layout";
+import AuthContext from "../context/auth-context";
+import { order_type, menu_type,  user_type, user_count } from "../context/context-type";
 
 import "./css/CaregiverHomePage.css"
 
 const PartnerHomePage = () => {
-  const { token, currentUser } = useContext(AuthContext)
+
+  const { token } = useContext(AuthContext)
   const [msg, setMsg] = useState("")
   const [orderList, setOrderList] = useState([order_type])
   const [index, setIndex] = useState(0)
+  const [menu, setMenu] = useState([menu_type]);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex)
@@ -43,19 +57,64 @@ const PartnerHomePage = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+
+  const [packageName, setPackageName] = useState("");
+  const [mainCourse, setMainCourse] = useState("");
+  const [salad, setSalad] = useState("");
+  const [soup, setSoup] = useState("");
+  const [dessert, setDessert] = useState("");
+  const [drink, setDrink] = useState("");
+  const [frozen, setFrozen] = useState("1");
+  const [image, setImage] = useState(null);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (event) => {
+    setStatus(""); // Reset status
+    //event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("packageName", packageName);
+    formData.append("mainCourse", mainCourse);
+    formData.append("salad", salad);
+    formData.append("soup", soup);
+    formData.append("dessert", dessert);
+    formData.append("drink", drink);
+    formData.append("frozen", frozen);
+    formData.append("packageImage", image);
+
+    console.log(frozen);
+
+    addMenu(token, formData);
+
+    window.location.reload();
+
+  };
+
   function handlePrepare(id) {
     postPartnerOrderCreateAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response))
   }
 
-  function handleComplate(id) {
+  function handleComplete(id) {
     postPartnerOrderCompleteAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response))
   }
 
   useEffect(() => {
+    getAdminOrderPendingAPI(token)
+      .then((resp) => setOrderList(resp.data))
+      .catch((err) => console.log(err))
+
+    getMenu(token)
+      .then((resp) => {
+        setMenu(resp.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     getPartnerOrderAPI(token)
       .then((resp) => setOrderList(resp.data))
       .catch((err) => console.log(err.response))
@@ -113,34 +172,30 @@ const PartnerHomePage = () => {
             </Carousel>
           </Col>
           <Col sm={4}>
-            <h4 className='text-center fw-bold title-caregiver'>
+          <h4 className="text-center fw-bold title-caregiver">
               Meal Package List
             </h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
+            <div className="card">
+              <Table striped className="text-white text-center driver mb-3">
+                <thead className="driver-table">
                   <tr>
                     <th>Meal</th>
                   </tr>
                 </thead>
-                <tbody className='text-white'>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                </tbody>
+                {menu.slice(0, 6).map((data) => (
+                  <tbody className="text-white" key={data.id}>
+                    <tr>
+                      <td className="text-white">{data.packageName}</td>
+                    </tr>
+                  </tbody>
+                ))}
               </Table>
 
-              <div className='text-center fw-bold py-3'>
+              <div className="text-center fw-bold">
                 <Button
-                  variant='primary'
+                  variant="primary"
                   onClick={handleShow}
-                  className='button'
+                  className="button my-3"
                 >
                   + Add Meal Package
                 </Button>
@@ -149,79 +204,6 @@ const PartnerHomePage = () => {
           </Col>
         </Row>
 
-        <Row className='mb-5'>
-          <Col sm={8}>
-            <h4 className='fw-bold title-caregiver'>Order Notification</h4>
-            <div className='card'>
-              <div className='container'>
-                <Table striped className='text-white text-center driver my-3'>
-                  <thead className='driver-table'>
-                    <tr>
-                      <th>No</th>
-                      <th>Request</th>
-                      <th>Date</th>
-                      <th>Time</th>
-                    </tr>
-                  </thead>
-                  <tbody className='text-white'>
-                    {orderList.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className='text-white'>{index + 1}</td>
-                        <td className='text-white'>
-                          {order.orderBy.name} requested for{" "}
-                          {order.mealPackage.packageName}
-                        </td>
-                        <td className='text-white'>{Date(order.orderOn).slice(0, 10)}</td>
-                        <td className='text-white'>{Date(order.orderOn).slice(15, 30)}</td>
-                      </tr>
-                    ))}
-                    {/* <tr>
-                      <td className='text-white'>1</td>
-                      <td className='text-white'>
-                        Purwa requested for Package Meal 2
-                      </td>
-                      <td className='text-white'>Decemeber 31, 2000</td>
-                      <td className='text-white'>5:00 PM</td>
-                    </tr>
-                    <tr>
-                      <td className='text-white'>1</td>
-                      <td className='text-white'>
-                        Purwa requested for Package Meal 2
-                      </td>
-                      <td className='text-white'>Decemeber 31, 2000</td>
-                      <td className='text-white'>5:00 PM</td>
-                    </tr> */}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
-          </Col>
-          <Col sm={4}>
-            <h4 className='text-center fw-bold title-caregiver'>
-              Driver Availability
-            </h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>Name</th>
-                  </tr>
-                </thead>
-                <tbody className='text-white'>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                  </tr>
-                </tbody>
-              </Table>
-            </div>
-          </Col>
-        </Row>
         <div className='task pb-5'>
           <h4 className='fw-bold title-caregiver'>Task</h4>
           {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
@@ -252,14 +234,18 @@ const PartnerHomePage = () => {
                           </span>
                         </div>
                       </td>
-                      <td className='text-white'>{order.orderOn}</td>
+                      <td className='text-white'>
+                        {
+                          new Date(order.orderOn).toLocaleString('en-GB', { timeZone: 'Asia/Singapore',hour12:true }).slice(11,30)
+                        }
+                      </td>
                       <td className='text-white'>
                         {order.orderStatus === "PENDING" ? (
                           <Button onClick={() => handlePrepare(order.id)}>
                             prepare
                           </Button>
                         ) : (
-                          <Button onClick={() => handleComplate(order.id)}>
+                          <Button onClick={() => handleComplete(order.id)}>
                             complete
                           </Button>
                         )}
@@ -301,61 +287,103 @@ const PartnerHomePage = () => {
         </div>
       </Container>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton className='modal-popup'>
-          <div className='text-center'>
-            <Modal.Title className='text-white fw-bold'>
+        <Modal.Header closeButton className="modal-popup">
+          <div className="text-center">
+            <Modal.Title className="text-white fw-bold">
               Add Package
             </Modal.Title>
           </div>
         </Modal.Header>
-        <Modal.Body className='modal-popup'>
-          <Form>
-            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-              <Form.Label className='text-white fw-bold'>
+        <Modal.Body className="modal-popup">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="packageName">
+              <Form.Label className="text-white fw-bold">
+                Package Name
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Package 1/ Frozen Package 2/ect"
+                onChange={(e) => setPackageName(e.target.value)} value={packageName}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="mainCourse">
+              <Form.Label className="text-white fw-bold">
                 Main Course
               </Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Ex: Roasted Duck/ Spicy Thai Chicken/ect'
+                type="text"
+                placeholder="Ex: Roasted Duck/ Spicy Thai Chicken/ect"
+                onChange={(e) => setMainCourse(e.target.value)} value={mainCourse}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-              <Form.Label className='text-white fw-bold'>Salad</Form.Label>
+            <Form.Group className="mb-3" controlId="salad">
+              <Form.Label className="text-white fw-bold">Salad</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Ex: garden salad/Greek salad/chopped Thai salad'
+                type="text"
+                placeholder="Ex: garden salad/Greek salad/chopped Thai salad"
+                onChange={(e) => setSalad(e.target.value)} value={salad}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-              <Form.Label className='text-white fw-bold'>Soup</Form.Label>
+            <Form.Group className="mb-3" controlId="soup">
+              <Form.Label className="text-white fw-bold">Soup</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Ex: Pumpkin soup/Tuscan/ect'
+                type="text"
+                placeholder="Ex: Pumpkin soup/Tuscan/ect"
+                onChange={(e) => setSoup(e.target.value)} value={soup}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-              <Form.Label className='text-white fw-bold'>Dessert</Form.Label>
+            <Form.Group className="mb-3" controlId="dessert">
+              <Form.Label className="text-white fw-bold">Dessert</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Ex: Pudding/ fruit tarts/ lemon creme/ ect'
+                type="text"
+                placeholder="Ex: Pudding/ fruit tarts/ lemon creme/ ect"
+                onChange={(e) => setDessert(e.target.value)} value={dessert}
                 autoFocus
               />
             </Form.Group>
-            <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-              <Form.Label className='text-white fw-bold'>Drink</Form.Label>
+            <Form.Group className="mb-3" controlId="drink">
+              <Form.Label className="text-white fw-bold">Drink</Form.Label>
               <Form.Control
-                type='text'
-                placeholder='Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect'
+                type="text"
+                placeholder="Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect"
+                onChange={(e) => setDrink(e.target.value)} value={drink}
                 autoFocus
               />
             </Form.Group>
+            <Form.Group className="mb-3 mx-3" controlId="frozen">
+                <Form.Label>Frozen</Form.Label>
+                <Form.Select
+                  aria-label="Default select example"
+                  onChange={(e) => {
+                    setFrozen(e.target.value);
+                  }}
+                  value={frozen}
+                  required
+                >
+                  <option disabled>Is it frozen</option>
+                  <option defaultValue={true} value="1">
+                    Yes
+                  </option>
+                  <option value="0">No</option>
+
+                </Form.Select>
+              </Form.Group>
+            <Form.Group className="mb-3 mx-3" controlId="file">
+                <Form.Label>Image Upload</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={(e) => setImage(e.target.files[0])}
+                  required
+                />
+              </Form.Group>
           </Form>
         </Modal.Body>
-        <div className='text-center modal-popup p-3'>
-          <Button onClick={handleClose} className='button fw-bold w-50'>
+        <div className="text-center modal-popup p-3">
+          <Button type="submit" onClick={handleSubmit} className="button fw-bold w-50">
             Submit
           </Button>
         </div>
