@@ -25,7 +25,7 @@ const FormLogin = () => {
 
   const handleSubmit = async (event) => {
     //setStatus("") // Reset status
-    handleShow ()
+    handleShow();
     event.preventDefault();
     const formData = new FormData();
 
@@ -48,8 +48,8 @@ const FormLogin = () => {
               navigate("/home");
               break;
             case "[ROLE_CAREGIVER]":
-                navigate("/caregiver");
-            break;
+              navigate("/caregiver");
+              break;
             case "[ROLE_PARTNER]":
               navigate("/partner");
               break;
@@ -73,18 +73,17 @@ const FormLogin = () => {
           let errMsg = err.response.data.message;
           setMsg();
           setStatus(errMsg);
-          setStatusBr(<br/>);
+          setStatusBr(<br />);
           setAction("Contact Our Customer Service if this persist");
-          
-          if(
+
+          if (
             errMsg === "ROLE_MEMBER" ||
-            errMsg === "ROLE_CAREGIVER" || 
-            errMsg === "ROLE_VOLUNTEER") {
+            errMsg === "ROLE_CAREGIVER" ||
+            errMsg === "ROLE_VOLUNTEER"
+          ) {
             setStatus("Account awaiting admin approval.");
           }
-          if(
-            errMsg === "ROLE_PARTNER" ||
-            errMsg === "ROLE_RIDER") {
+          if (errMsg === "ROLE_PARTNER" || errMsg === "ROLE_RIDER") {
             setStatus("Your account has not been activated");
           }
         });
@@ -130,7 +129,9 @@ const FormLogin = () => {
         <Form onSubmit={handleSubmit} className="p-3 text-white text-center">
           <div className="text-center py-3">
             <h3 className="contact-title mx-3 text-white">LOGIN</h3>
-            <p id="text-pop">{msg.get("msg") && <span>{msg.get("msg")}</span>}</p>
+            <p id="text-pop">
+              {msg.get("msg") && <span>{msg.get("msg")}</span>}
+            </p>
             {/* {status}
             {statusBr} */}
             {/* {action} */}
@@ -154,7 +155,7 @@ const FormLogin = () => {
             />
           </Form.Group>
           <div className="text-center mb-2 d-grid mx-3 pt-3">
-            <Button  type="submit" className="button fw-bold" size="lg">
+            <Button type="submit" className="button fw-bold" size="lg">
               Login
             </Button>
           </div>
@@ -165,20 +166,30 @@ const FormLogin = () => {
             </Link>
           </div>
         </Form>
-        
+
         {/* Popup Request Msg */}
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton className='modal-popup'>
-            <div className='text-center'>
-              <Modal.Title className='text-white fw-bold'>
-              </Modal.Title>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <div className="text-center">
+              <Modal.Title
+                className="text-white fw-bold"
+                id="contained-modal-title-vcenter"
+              ></Modal.Title>
             </div>
           </Modal.Header>
-        <Modal.Body className='modal-popup'>
-          <p className="text-center" id="msg-error">{status}{statusBr}</p>
-        </Modal.Body>
-          <div className='text-center modal-popup p-3'>
-            <Button onClick={handleClose} className='button fw-bold w-50'>
+          <Modal.Body>
+            <p className="text-center fw-bold" id="msg-error">
+              {status}
+              {statusBr}
+            </p>
+          </Modal.Body>
+          <div className="text-center p-3">
+            <Button onClick={handleClose} className="button fw-bold w-50">
               Try Again
             </Button>
           </div>
