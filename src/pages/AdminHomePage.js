@@ -19,6 +19,8 @@ import {
   getRidersAPI,
   postAdminOrderDeliverAPI,
   postAdminOrderPrepareAPI,
+  getAdminUserActiveAPI,
+  getAdminUserAPI,
 } from "../api/admin-api";
 import { greencircle, redcircle, usericon, yellowcircle } from "../assets";
 import Layout from "../components/layout/Layout";
@@ -37,6 +39,7 @@ const AdminHomePage = () => {
   const [show, setShow] = useState(false);
   const [orderList, setOrderList] = useState([order_type]);
   const [deliverList, setDeliverList] = useState([order_type]);
+  const [users, setUsers] = useState([user_type]);
   const [msg, setMsg] = useState("");
   const [riders, setRider] = useState([user_type]);
   const [paertners, setPartner] = useState([user_type]);
@@ -53,6 +56,12 @@ const AdminHomePage = () => {
   }
   function handleDeliver(order, user) {
     postAdminOrderDeliverAPI(token, order, user)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.log(err));
+  }
+
+  function handleActive(id) {
+    getAdminUserActiveAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err));
   }
@@ -76,6 +85,10 @@ const AdminHomePage = () => {
 
     getAdminUserCountAPI(token)
       .then((resp) => setUserCount(resp.data))
+      .catch((err) => console.log(err));
+
+    getAdminUserAPI(token)
+      .then((resp) => setUsers(resp.data))
       .catch((err) => console.log(err));
   }, [token, msg]);
 
@@ -189,17 +202,17 @@ const AdminHomePage = () => {
                 <Button
                   variant="primary"
                   onClick={handleShow}
-                  className="button"
+                  className="button my-3"
                 >
                   + Add Meal Package
                 </Button>
               </div>
             </div>
           </Col>
-        </Row>
-        <Row className="mb-5">
-          <Col sm={4}>
-            <h4 className="fw-bold title-caregiver">Active Account Request</h4>
+          <Col>
+            <h4 className="fw-bold title-caregiver text-center">
+              Active Account Request
+            </h4>
             <div className="card">
               <Table striped className="text-white text-center driver mb-3">
                 <thead className="driver-table">
@@ -209,24 +222,35 @@ const AdminHomePage = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody className="text-white">
-                  <tr>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>want to register as member</td>
-                    <td className='text-white'>Active</td>
-                  </tr>
-                </tbody>
+                {users.map((user) => (
+                  <tbody className="text-white">
+                    <tr key={user.id}>
+                      <td className="text-white">{user.name}</td>
+                      <td className="text-white">{user.role}</td>
+                      <td className="text-white">
+                        <DropdownButton
+                          key="start"
+                          id="dropdown-button-drop-start"
+                          drop="start"
+                          title="Action"
+                          variant="light"
+                          size="sm"
+                        >
+                          <Dropdown.Item onClick={() => handleActive(user.id)}>
+                            approve
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-2">
+                            *Delete
+                          </Dropdown.Item>
+                          <Dropdown.Item href="#/action-3">
+                            *Something else
+                          </Dropdown.Item>
+                        </DropdownButton>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
               </Table>
-              <div className="text-center fw-bold py-3">
-                <Link to="/admin/donation-history">
-                  <Button
-                    variant="light"
-                    className="bg-light fw-bold btn-register fw-bold"
-                  >
-                    History
-                  </Button>
-                </Link>
-              </div>
             </div>
           </Col>
         </Row>
