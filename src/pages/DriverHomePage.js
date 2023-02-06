@@ -191,15 +191,10 @@ const DriverHomePage = () => {
           <h3 className='text-white fw-bold text-center py-3'>
             Delivery Schedule
           </h3>
-          {msg && (
-            <span
-              onClick={() => {
-                setMsg("")
-              }}
-            >
-              {msg}
-            </span>
-          )}
+
+          {/* DON'T DELETE THIS COMMENT */}
+          {/* {msg && (<span onClick={() => {setMsg("")}}>{msg}</span>)} */}
+
           <div className='container'>
             <Table striped className='text-white text-center driver mb-3'>
               <thead className='driver-table'>
