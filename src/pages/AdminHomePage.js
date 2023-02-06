@@ -193,13 +193,15 @@ const AdminHomePage = () => {
                 <thead className='driver-table'>
                   <tr>
                     <th>Name</th>
-                    <th>Active?</th>
+                    <th>Role</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody className='text-white'>
                   <tr>
                     <td className='text-white'>John Doe</td>
                     <td className='text-white'>want to register as member</td>
+                    <td className='text-white'>Active</td>
                   </tr>
                 </tbody>
               </Table>

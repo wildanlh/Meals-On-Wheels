@@ -18,10 +18,10 @@ const FormLogin = () => {
   const navigate = useNavigate();
   const [msg, setMsg] = useSearchParams();
 
-    //Modal
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  //Modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleSubmit = async (event) => {
     //setStatus("") // Reset status
@@ -183,7 +183,6 @@ const FormLogin = () => {
             </Button>
           </div>
         </Modal>
-
 
         <div
           className="circle-yellow-lg"
