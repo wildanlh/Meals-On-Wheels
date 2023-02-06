@@ -25,9 +25,9 @@ const FormLogin = () => {
 
   const handleSubmit = async (event) => {
     //setStatus("") // Reset status
-    handleShow();
     event.preventDefault();
     const formData = new FormData();
+    handleShow();
 
     formData.append("email", email);
     formData.append("password", password);
