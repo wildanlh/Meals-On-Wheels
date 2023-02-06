@@ -214,8 +214,6 @@ const AdminHomePage = () => {
                     <td className='text-white'>John Doe</td>
                     <td className='text-white'>want to register as member</td>
                     <td className='text-white'>Active</td>
-                    <td className="text-white">John Doe</td>
-                    <td className="text-white">want to register as member</td>
                   </tr>
                 </tbody>
               </Table>
