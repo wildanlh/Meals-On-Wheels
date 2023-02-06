@@ -14,7 +14,7 @@ import {
   postPartnerOrderCompleteAPI,
   postPartnerOrderCreateAPI,
 } from "../api/partner-api";
-import { getMenu } from "../api/api";
+import { getMenu, addMenu } from "../api/api";
 import {
   carousel1,
   carousel2,
@@ -35,6 +35,36 @@ const CaregiverHomePage = () => {
   const [orderList, setOrderList] = useState([order_type]);
   const [index, setIndex] = useState(0);
   const [menu, setMenu] = useState([menu_type]);
+
+  const [packageName, setPackageName] = useState("");
+  const [mainCourse, setMainCourse] = useState("");
+  const [salad, setSalad] = useState("");
+  const [soup, setSoup] = useState("");
+  const [dessert, setDessert] = useState("");
+  const [drink, setDrink] = useState("");
+  const [frozen, setFrozen] = useState("");
+  const [image, setImage] = useState(null);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (event) => {
+    setStatus(""); // Reset status
+    //event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("packageName", packageName);
+    formData.append("mainCourse", mainCourse);
+    formData.append("salad", salad);
+    formData.append("soup", soup);
+    formData.append("dessert", dessert);
+    formData.append("drink", drink);
+    formData.append("frozen", frozen);
+    formData.append("packageImage", image);
+
+    addMenu(token, formData);
+
+    window.location.reload();
+
+  };
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -123,7 +153,7 @@ const CaregiverHomePage = () => {
             </Carousel>
           </Col>
           <Col sm={4}>
-            <h4 className="text-center fw-bold title-caregiver">
+          <h4 className="text-center fw-bold title-caregiver">
               Meal Package List
             </h4>
             <div className="card">
@@ -133,7 +163,7 @@ const CaregiverHomePage = () => {
                     <th>Meal</th>
                   </tr>
                 </thead>
-                {menu.slice(0, 3).map((data) => (
+                {menu.slice(0, 6).map((data) => (
                   <tbody className="text-white" key={data.id}>
                     <tr>
                       <td className="text-white">{data.packageName}</td>
@@ -306,66 +336,7 @@ const CaregiverHomePage = () => {
           </div>
         </div>
       </Container>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton className="modal-popup">
-          <div className="text-center">
-            <Modal.Title className="text-white fw-bold">
-              Add Package
-            </Modal.Title>
-          </div>
-        </Modal.Header>
-        <Modal.Body className="modal-popup">
-          <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="text-white fw-bold">
-                Main Course
-              </Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ex: Roasted Duck/ Spicy Thai Chicken/ect"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="text-white fw-bold">Salad</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ex: garden salad/Greek salad/chopped Thai salad"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="text-white fw-bold">Soup</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ex: Pumpkin soup/Tuscan/ect"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="text-white fw-bold">Dessert</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ex: Pudding/ fruit tarts/ lemon creme/ ect"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label className="text-white fw-bold">Drink</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect"
-                autoFocus
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <div className="text-center modal-popup p-3">
-          <Button onClick={handleClose} className="button fw-bold w-50">
-            Submit
-          </Button>
-        </div>
-      </Modal>
+
     </Layout>
   );
 };
