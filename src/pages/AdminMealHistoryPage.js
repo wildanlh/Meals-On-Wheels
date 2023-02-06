@@ -55,7 +55,6 @@ const AdminMealHistoryPage = () => {
                   <tr key={x.id}>
                     <td>{i + 1}</td>
                     <td>{x.orderBy.name}</td>
-                    <td>{x.orderBy.name}</td>
                     <td>{x.mealPackage.packageName}</td>
                     <td>{x.orderBy.address}</td>
                     <td>{Date(x.orderOn).slice(0, 10)}</td>
