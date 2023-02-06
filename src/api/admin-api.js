@@ -99,7 +99,7 @@ export const getAdminPartnerAPI = async (token) => {
 }
 
 export const getAdminPartnerActiveAPI = async (token, id) => {
-  return await axios.get(`${BASE_URL}/admin/partner${id}/activate`, {
+  return await axios.get(`${BASE_URL}/admin/partner/${id}/activate`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }

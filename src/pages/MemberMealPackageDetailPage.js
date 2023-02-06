@@ -6,17 +6,18 @@ import { postMemberOrderCreateAPI } from "../api/member-api"
 import { mealdetail } from "../assets"
 import Layout from "../components/layout/Layout"
 import AuthContext from "../context/auth-context"
+import { menu_type } from "../context/context-type"
 
 const MemberMealPackageDetailPage = () => {
   const { menuId } = useParams()
   const { token } = useContext(AuthContext)
-  const [menu, setMenu] = useState({})
+  const [menu, setMenu] = useState(menu_type)
   const [msg, setMsg] = useState("")
 
   //Modal
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   useEffect(() => {
     getMenuById(token, menuId)
@@ -24,10 +25,9 @@ const MemberMealPackageDetailPage = () => {
       .catch((err) => console.log(err))
   }, [menuId, token])
 
-
   //Submit Meal
   function handlePostOrder() {
-    handleShow ()
+    handleShow()
     postMemberOrderCreateAPI(token, menuId)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.warn(err))
@@ -44,7 +44,7 @@ const MemberMealPackageDetailPage = () => {
             </h2>
           </div>
           <div className='w-50'>
-            <img src={mealdetail} alt='' className='w-100 rounded' />
+            <img src={menu.packageImage} alt='' className='w-100 rounded' />
             <div className='text-center my-3 text-white'>
               <p>
                 Tender and juicy duck meat, crispy skin, and glazed with the
@@ -74,17 +74,17 @@ const MemberMealPackageDetailPage = () => {
         </div>
       </Container>
 
-
       {/* Popup Request Msg */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className='modal-popup'>
           <div className='text-center'>
-            <Modal.Title className='text-white fw-bold'>
-            </Modal.Title>
+            <Modal.Title className='text-white fw-bold'></Modal.Title>
           </div>
         </Modal.Header>
         <Modal.Body className='modal-popup'>
-          <h2 className="text-white text-center">{msg && <span>{msg}</span>}</h2>
+          <h2 className='text-white text-center'>
+            {msg && <span>{msg}</span>}
+          </h2>
         </Modal.Body>
         <div className='text-center modal-popup p-3'>
           <Button onClick={handleClose} className='button fw-bold w-50'>
@@ -93,9 +93,6 @@ const MemberMealPackageDetailPage = () => {
         </div>
       </Modal>
     </Layout>
-
-
-
   )
 }
 

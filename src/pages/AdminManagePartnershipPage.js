@@ -21,6 +21,7 @@ const AdminManagePartnershipPage = () => {
   const { token } = useContext(AuthContext)
   const [partner, setPartner] = useState([user_type])
   const [msg, setMsg] = useState("")
+
   function handleAccept(id) {
     getAdminPartnerActiveAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
