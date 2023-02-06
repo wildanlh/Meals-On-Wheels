@@ -74,30 +74,28 @@ const AdminManagePartnershipPage = () => {
           </Tab>
           <Tab eventKey='registered-partner' title='Registered Partner'>
             <div className='card-history my-5'>
-              <h5 className='fw-bold mx-3'>April 20, 2020</h5>
 
               <Table
                 striped
-                className='text-white text-center history-table mb-5'
+                className='text-center history-table mb-5 align-middle'
               >
                 <thead className='history-table text-dark'>
                   <tr>
                     <th>Company Name</th>
+                    <th>Image</th>
                     <th>Address</th>
-                    <th>Amount</th>
-                    <th>Message</th>
+                    <th>Email</th>
                   </tr>
                 </thead>
-                <tbody className='text-white'>
+                <tbody className=''>
                   {partner.map((data) => (
                     <tr key={data.id}>
                       <td>{data.name}</td>
-                      <td>{data.address}</td>
-                      <td>$10 lawak ini darimana?</td>
                       <td>
-                        ini juga dari mana? Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Incidunt, ad?
+                        <img height="100px" src={data.imageUrl}/>
                       </td>
+                      <td>{data.address}</td>
+                      <td>{data.email}</td>
                     </tr>
                   ))}
                 </tbody>
