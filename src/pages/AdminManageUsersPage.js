@@ -52,7 +52,7 @@ const AdminManageUsersPage = () => {
                     <td className="text-white">{user.gender}</td>
                     <td className="text-white">{user.role}</td>
                     <td className="text-white">
-                      <a href={user.fileUrl}>file</a>
+                      <a className="link-light" href={user.fileUrl}>file</a>
                     </td>
                     <td className="text-white">
                       <DropdownButton
