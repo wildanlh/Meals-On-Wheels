@@ -278,7 +278,7 @@ const AdminHomePage = () => {
                   </tr>
                 </thead>
                 <tbody className="text-white">
-                  {orderList.map((order, index) => (
+                  {orderList.slice(0, 10).map((order, index) => (
                     <tr key={order.id}>
                       <td className="text-white">{index + 1}</td>
                       <td className="text-white">
@@ -340,7 +340,7 @@ const AdminHomePage = () => {
                   </tr>
                 </thead>
                 <tbody className="text-white">
-                  {deliverList.map((order, index) => (
+                  {deliverList.slice(0, 10).map((order, index) => (
                     <tr key={order.id}>
                       <td className="text-white">{index + 1}</td>
                       <td className="text-white">
