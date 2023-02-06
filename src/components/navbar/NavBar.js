@@ -88,7 +88,7 @@ const NavBar = () => {
                       }
                       alt='profile_picture'
                       className='rounded-circle me-2 text-white profile-pic'
-                      style={{ width: "45x", height: "45px" }}
+                      style={{ width: "45px", height: "45px" }}
                     />
                     <NavDropdown
                       title={currentUser.name}
