@@ -28,3 +28,10 @@ export const getRiderOrderAllAPI = async (token, id) => {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
+
+// SET STATUS
+export const setStatusAPI = async (token, statusCode) => {
+  return await axios.get(`${BASE_URL}/rider/status/${statusCode}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}

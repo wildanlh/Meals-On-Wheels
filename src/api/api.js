@@ -20,3 +20,13 @@ export const getMenuById = async (token, id) => {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
+
+// ADD MENU
+export const addMenu = async (token, formData) => {
+  return await axios.post(`${BASE_URL}/menu/add`, formData, {
+    headers: { 
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data" },
+     })
+  }
+

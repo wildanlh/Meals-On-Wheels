@@ -171,8 +171,8 @@ const PartnerHomePage = () => {
                           {order.orderBy.name} requested for{" "}
                           {order.mealPackage.packageName}
                         </td>
-                        <td className='text-white'>{order.orderOn}</td>
-                        <td className='text-white'>5:00 PM</td>
+                        <td className='text-white'>{Date(order.orderOn).slice(0, 10)}</td>
+                        <td className='text-white'>{Date(order.orderOn).slice(15, 30)}</td>
                       </tr>
                     ))}
                     {/* <tr>
@@ -260,7 +260,7 @@ const PartnerHomePage = () => {
                           </Button>
                         ) : (
                           <Button onClick={() => handleComplate(order.id)}>
-                            complate
+                            complete
                           </Button>
                         )}
                       </td>

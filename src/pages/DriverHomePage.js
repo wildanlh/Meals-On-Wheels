@@ -13,6 +13,7 @@ import {
   getRiderOrderAPI,
   postRiderOrderCompleteAPI,
   postRiderOrderCreateAPI,
+  setStatusAPI,
 } from "../api/rider-api"
 import {
   car,
@@ -50,6 +51,13 @@ const DriverHomePage = () => {
     postRiderOrderCompleteAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response))
+  }
+
+  function handleStatusUpdate(statusCode) {
+    setStatusAPI(token, statusCode)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.log(err.response))
+      window.location.reload();
   }
 
   useEffect(() => {
@@ -131,29 +139,43 @@ const DriverHomePage = () => {
               <div className='dropdown'>
                 <button className='dropbtn'>Status {currentUser.status}</button>
                 <div className='dropdown-content'>
-                  <a href='#'>
-                    <div className='status text-white d-flex justify-content-center'>
-                      <img src={greencircle} alt='' className='status-icon' />
-                      <span className='fw-bold ms-3'>Available</span>
-                    </div>
-                  </a>
-                  <a href='#'>
-                    <div className='status text-white d-flex justify-content-center'>
-                      <img src={yellowcircle} alt='' className='status-icon' />
-                      <span className='fw-bold ms-3'>Busy</span>
-                    </div>
-                  </a>
-                  <a href='#'>
-                    <div className='status text-white d-flex justify-content-center'>
-                      <img src={redcircle} alt='' className='status-icon' />
-                      <span className='fw-bold ms-3'>Not Available</span>
-                    </div>
-                  </a>
+                <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2 mt-2'>
+                  <Button className="w-100 text-left"
+                        onClick={() => {
+                          handleStatusUpdate(1)
+                        }}
+                      > 
+                    <img src={greencircle} alt='' className='status-icon' />
+                    <span className='fw-bold ms-3'>Available</span>
+                  </Button>
+                </div>
+                <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2'>
+                <Button className="w-100 text-left"
+                      onClick={() => {
+                        handleStatusUpdate(2)
+                      }}
+                    > 
+                  <img src={yellowcircle} alt='' className='status-icon' />
+                  <span className='fw-bold ms-3'>Busy</span>
+                </Button>
+                </div>
+                <div className='status text-white d-flex justify-content-center w-50 m-auto mb-2'>
+                  <Button className="w-100 text-left"
+                        onClick={() => {
+                          handleStatusUpdate(3)
+                        }}
+                      > 
+                    <img src={redcircle} alt='' className='status-icon' />
+                    <span className='fw-bold ms-3'>Not Available</span>
+                  </Button>
+                </div>
+
                 </div>
               </div>
               <div className='status text-white d-flex justify-content-center my-3'>
-                <img src={greencircle} alt='' className='status-icon' />
-                <span className='fw-bold ms-3'>Available</span>
+                {/* <img src={greencircle} alt='' className='status-icon' />
+                <span className='fw-bold ms-3'>Available</span> */}
+                {currentUser.status}
               </div>
             </div>
           </Col>
