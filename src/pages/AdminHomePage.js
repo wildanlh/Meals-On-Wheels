@@ -11,6 +11,7 @@ import {
   Table,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { getMenu } from "../api/api";
 import {
   getAdminOrderPendingAPI,
   getAdminOrderReadyToDeliverAPI,
@@ -90,6 +91,14 @@ const AdminHomePage = () => {
     getAdminUserAPI(token)
       .then((resp) => setUsers(resp.data))
       .catch((err) => console.log(err));
+
+    getMenu(token)
+      .then((resp) => {
+        setMenu(resp.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [token, msg]);
 
   return (
@@ -166,7 +175,7 @@ const AdminHomePage = () => {
                   </tr>
                 </thead>
                 <tbody className="text-white">
-                  {riders.map((rider, index) => (
+                  {riders.slice(0, 6).map((rider, index) => (
                     <tr key={rider.id}>
                       <td className="text-white">{index + 1}</td>
                       <td className="text-white">{rider.name}</td>
@@ -188,14 +197,13 @@ const AdminHomePage = () => {
                     <th>Meal</th>
                   </tr>
                 </thead>
-                <tbody className="text-white">
-                  <tr>
-                    <td className="text-white">1</td>
-                  </tr>
-                  <tr>
-                    <td className="text-white">1</td>
-                  </tr>
-                </tbody>
+                {menu.slice(0, 6).map((data) => (
+                  <tbody className="text-white" key={data.id}>
+                    <tr>
+                      <td className="text-white">{data.packageName}</td>
+                    </tr>
+                  </tbody>
+                ))}
               </Table>
 
               <div className="text-center fw-bold">
