@@ -213,7 +213,7 @@ const AdminHomePage = () => {
             <h4 className="fw-bold title-caregiver text-center">
               Active Account Request
             </h4>
-            <div className="card" style={{ height: "400px" }}>
+            <div className="card">
               <Table striped className="text-white text-center driver mb-3">
                 <thead className="driver-table">
                   <tr>
@@ -222,7 +222,7 @@ const AdminHomePage = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                {users.map((user) => (
+                {users.slice(0, 6).map((user) => (
                   <tbody className="text-white">
                     <tr key={user.id}>
                       <td className="text-white">{user.name}</td>
