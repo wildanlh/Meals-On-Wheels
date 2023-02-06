@@ -62,6 +62,10 @@ function App() {
                 path='/meals-package-detail/:menuId'
                 element={<MemberMealPackageDetailPage />}
               />
+              <Route
+                path='/member/order/history'
+                element={<MemberOrderHistoryPage />}
+              />
             </>
           )}
 

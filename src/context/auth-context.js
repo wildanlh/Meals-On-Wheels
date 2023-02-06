@@ -25,17 +25,6 @@ export function AuthContextProvider(props) {
 
   const userIsLoggedIn = !!token
 
-  // GET USER LOGIN DATA
-  useEffect(() => {
-    //if (!token) return
-    getUserLoginAPI(token)
-      .then((res) => setUser(res.data))
-      .catch((err) => {
-        console.log(err)
-        setUser(user_type)
-      })
-  }, [token])
-
   let contextValue = {
     currentUser: {
       id: user.id,
@@ -52,24 +41,26 @@ export function AuthContextProvider(props) {
     login: loginHandler,
     logout: logoutHandler,
   }
-  function logoutHandler() {
-    setToken(null)
-    localStorage.removeItem("token")
-    contextValue.currentUser = {
-      id: "",
-      name: "",
-      email: "",
-      imageUrl: "",
-      address: "",
-      gander: "",
-      status: "",
-      role: "",
+  // GET USER LOGIN DATA
+  useEffect(() => {
+    if (token === null) {
+      setUser(user_type)
+    } else {
+      getUserLoginAPI(token)
+        .then((res) => setUser(res.data))
+        .catch((err) => console.log(err))
     }
+    return () => {}
+  }, [token])
+
+  function logoutHandler() {
+    localStorage.removeItem("token")
+    setToken(null)
   }
 
   function loginHandler(token) {
-    setToken(token)
     localStorage.setItem("token", token)
+    setToken(token)
   }
 
   return (
