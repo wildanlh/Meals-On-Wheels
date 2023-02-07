@@ -398,7 +398,7 @@ const AdminHomePage = () => {
               <h4 className="text-center fw-bold title-caregiver">
                 Driver Availability
               </h4>
-              <div className="card">
+              <div className="card task-tbl-meal">
                 <Table striped className="text-white text-center driver mb-3">
                   <thead className="driver-table">
                     <tr>
