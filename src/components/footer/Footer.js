@@ -3,7 +3,7 @@ import { fb, ig, tw, yt } from "../../assets";
 import "./Footer.css";
 
 const Footer = () => {
-  const link = "test";
+  const link = "#";
 
   return (
     <footer>
@@ -45,10 +45,10 @@ const Footer = () => {
               <div className="col mb-3" bis_skin_checked="1">
                 <h3>Meals On Wheels</h3>
                 <p>
-                  Lorem ipsum dolor sit amet ex letius nibh sit faucibus. A
-                  vivamus natoque auctor aliquet porta nibh taciti. Sapien
-                  euismod risus efficitur torquent consequat finibus. Habitant
-                  nibh platea porttitor vulputate amet pulvinar.{" "}
+                  Meals on Wheels is a community-based organization dedicated to
+                  improving the health and well-being of seniors, individuals
+                  with disabilities, and others in need by providing nutritious
+                  meals, companionship, and a network of support.
                 </p>
               </div>
 
@@ -59,27 +59,17 @@ const Footer = () => {
                 <ul className="nav flex-column">
                   <li className="nav-item mb-2">
                     <a href={link} className="nav-link p-0 text-white">
-                      Partner#
+                      Unicef
                     </a>
                   </li>
                   <li className="nav-item mb-2">
                     <a href={link} className="nav-link p-0 text-white">
-                      Partner#
+                      World Health Organization
                     </a>
                   </li>
                   <li className="nav-item mb-2">
                     <a href={link} className="nav-link p-0 text-white">
-                      Partner#
-                    </a>
-                  </li>
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
-                      Partner#
-                    </a>
-                  </li>
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
-                      Partner#
+                      United Nations
                     </a>
                   </li>
                 </ul>
@@ -114,14 +104,9 @@ const Footer = () => {
               <div className="col mb-3" bis_skin_checked="1">
                 <h5>Contact</h5>
                 <ul className="nav flex-column">
-                  <Link to="/" className="text-decoration-none">
+                  <Link to="/contact" className="text-decoration-none">
                     <li className="nav-item mb-2 nav-link p-0 text-white">
-                      Home
-                    </li>
-                  </Link>
-                  <Link to="/about" className="text-decoration-none">
-                    <li className="nav-item mb-2 nav-link p-0 text-white">
-                      About
+                      Contact Us
                     </li>
                   </Link>
                 </ul>
