@@ -274,8 +274,44 @@ const AdminHomePage = () => {
           </div>
         </div>
 
+
+      </Col>
+      {/* Card Package Meal */}
+      <Col size={12} md={3}>
+          <h4 className='text-center fw-bold title-caregiver'>
+              Meal Package List
+            </h4>
+            <div className='card'>
+              <Table striped className='text-white text-center driver mb-3'>
+                <thead className='driver-table'>
+                  <tr>
+                    <th>Meal</th>
+                  </tr>
+                </thead>
+                {menu.slice(0, 6).map((data) => (
+                  <tbody className='text-white' key={data.id}>
+                    <tr>
+                      <td className='text-white'>{data.packageName}</td>
+                    </tr>
+                  </tbody>
+                ))}
+              </Table>
+              <div className='text-center fw-bold'>
+                <Button
+                  variant='primary'
+                  onClick={handleShow}
+                  className='button my-3'>
+                  + Add Meal Package
+                </Button>
+              </div>
+            </div>
+          </Col>
+    </Row>
+
+    <Row>
+      <Col size={12} md={9}>
         {/* Table Rider Task */}
-        <div className='task pb-5 my-5'>
+        <div className='task pb-5'>
           <h4 className='fw-bold title-caregiver'>Assign Driver Task</h4>
           {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
           <div className='card'>
@@ -356,38 +392,9 @@ const AdminHomePage = () => {
         </div>
       </Col>
 
-      {/* Card Package Meal */}
       <Col size={12} md={3}>
-          <h4 className='text-center fw-bold title-caregiver'>
-              Meal Package List
-            </h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>Meal</th>
-                  </tr>
-                </thead>
-                {menu.slice(0, 6).map((data) => (
-                  <tbody className='text-white' key={data.id}>
-                    <tr>
-                      <td className='text-white'>{data.packageName}</td>
-                    </tr>
-                  </tbody>
-                ))}
-              </Table>
-              <div className='text-center fw-bold'>
-                <Button
-                  variant='primary'
-                  onClick={handleShow}
-                  className='button my-3'>
-                  + Add Meal Package
-                </Button>
-              </div>
-            </div>
-
           {/* Card Driver Available */}
-          <div className="my-5 pb-5">
+          <div className="pb-5">
               <h4 className='text-center fw-bold title-caregiver'>
                 Driver Availability
               </h4>
@@ -412,7 +419,11 @@ const AdminHomePage = () => {
               </Table>
             </div>
           </div>
+      </Col>
+    </Row>
 
+      <Row>
+        <Col size={12} md={4}>
           {/* Card Active Account  */}
           <div className="pb-5 my-5">
               <h4 className='fw-bold title-caregiver text-center'>
@@ -455,9 +466,9 @@ const AdminHomePage = () => {
               </Table>
             </div>
             </div>
-          </Col>
-        </Row>
-      </Container>
+        </Col>
+      </Row>
+</Container>
 
 
       
