@@ -73,6 +73,7 @@ const AdminHomePage = () => {
     formData.append("packageImage", image);
 
     addMenu(token, formData);
+    setShow(false);
   };
 
   const handleClose = () => setShow(false);
@@ -200,85 +201,91 @@ const AdminHomePage = () => {
 
         {/* Table Assign Partner Task */}
         <Row className="pb-5">
-          <Col size={12} md={9} >
-          <div className='task pb-5'>
-            <h4 className='fw-bold title-caregiver'>Assign Partner Task</h4>
-            {/* Dont Delete This Comment */}
-            {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
-            <div className='card'>
-              <div className='container'>
-              <div className='task-header-div'>
-                <Table striped className='text-white text-center driver my-3 task-header tbl-width col-width'>
-                  <thead className='driver-table'>
-                    <tr>
-                      <th>No</th>
-                      <th>Meals Request List</th>
-                      <th>Status</th>
-                      <th>Assigned Partner</th>
-                      <th>Select Partner</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </div>
-              <div className='task-tbl-div'>
-                <Table striped className='text-white text-center driver my-3 task-tbl tbl-width col-width'>
-                  <tbody className='text-white'>
-                    {orderList.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className='text-white'>{index + 1}</td>
-                        <td className='text-white'>
-                          {order.mealPackage.packageName}
-                        </td>
-                        <td className='text-white'>
-                          <div className='status text-white d-flex justify-content-center'>
-                            <img
-                              src={redcircle}
-                              alt=''
-                              className='status-icon'
-                            />
-                            <span className='fw-bold ms-3'>
-                              {order.orderStatus}
-                            </span>
-                          </div>
-                        </td>
-                        <td className='text-white'>{order.preparedBy?.name}</td>
-                        {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
-                        <td className='text-white'>
-                          <DropdownButton
-                            title='Select'
-                            variant='success'
-                            key='start'
-                            id='dropdown-button-drop-start'
-                            drop='start'
-                            size='sm'
-                          >
-                            {paertners.map((partner) => (
-                              <Dropdown.Item
-                                href='#/action-1'
-                                onClick={() =>
-                                  handlePrepare(order.id, partner.id)
-                                }
-                                key={partner.id}
+          <Col size={12} md={9}>
+            <div className="task pb-5">
+              <h4 className="fw-bold title-caregiver">Assign Partner Task</h4>
+              {/* Dont Delete This Comment */}
+              {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
+              <div className="card">
+                <div className="container">
+                  <div className="task-header-div">
+                    <Table
+                      striped
+                      className="text-white text-center driver my-3 task-header tbl-width col-width"
+                    >
+                      <thead className="driver-table">
+                        <tr>
+                          <th>No</th>
+                          <th>Meals Request List</th>
+                          <th>Status</th>
+                          <th>Assigned Partner</th>
+                          <th>Select Partner</th>
+                        </tr>
+                      </thead>
+                    </Table>
+                  </div>
+                  <div className="task-tbl-div">
+                    <Table
+                      striped
+                      className="text-white text-center driver my-3 task-tbl tbl-width col-width"
+                    >
+                      <tbody className="text-white">
+                        {orderList.map((order, index) => (
+                          <tr key={order.id}>
+                            <td className="text-white">{index + 1}</td>
+                            <td className="text-white">
+                              {order.mealPackage.packageName}
+                            </td>
+                            <td className="text-white">
+                              <div className="status text-white d-flex justify-content-center">
+                                <img
+                                  src={redcircle}
+                                  alt=""
+                                  className="status-icon"
+                                />
+                                <span className="fw-bold ms-3">
+                                  {order.orderStatus}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-white">
+                              {order.preparedBy?.name}
+                            </td>
+                            {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
+                            <td className="text-white">
+                              <DropdownButton
+                                title="Select"
+                                variant="success"
+                                key="start"
+                                id="dropdown-button-drop-start"
+                                drop="start"
+                                size="sm"
                               >
-                                {partner.name} {partner.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                                {paertners.map((partner) => (
+                                  <Dropdown.Item
+                                    href="#/action-1"
+                                    onClick={() =>
+                                      handlePrepare(order.id, partner.id)
+                                    }
+                                    key={partner.id}
+                                  >
+                                    {partner.name} {partner.status}
+                                  </Dropdown.Item>
+                                ))}
+                              </DropdownButton>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-
-      </Col>
-      {/* Card Package Meal */}
-      <Col size={12} md={3}>
-          <h4 className='text-center fw-bold title-caregiver'>
+          </Col>
+          {/* Card Package Meal */}
+          <Col size={12} md={3}>
+            <h4 className="text-center fw-bold title-caregiver">
               Meal Package List
             </h4>
             <div className="card task-tbl-meal">
