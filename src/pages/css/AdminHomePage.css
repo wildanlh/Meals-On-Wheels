@@ -22,7 +22,7 @@ img.icon-user {
 }
 
 .task-tbl-div {
-  height: 300px;
+  height: 325px;
   overflow: auto !important;
   scrollbar-gutter: stable;
 }
