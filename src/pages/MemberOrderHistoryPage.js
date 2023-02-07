@@ -53,7 +53,6 @@ const MemberOrderHistoryPage = () => {
                 <th>Deliver to</th>
                 <th>Deliver by</th>
                 <th>Status</th>
-                <th>action</th>
               </tr>
             </thead>
             <tbody className='text-white'>
@@ -63,19 +62,10 @@ const MemberOrderHistoryPage = () => {
 
                   <td>{x.mealPackage.packageName}</td>
                   <td>{x.preparedBy?.name}</td>
-                  <td>{Date(x.orderOn).slice(0, 10)}</td>
+                  <td>{new Date(x.orderOn).toLocaleString('en-GB', { timeZone: 'Asia/Singapore',hour12:true })}</td>
                   <td>{x.orderBy.address}</td>
                   <td>{x.deliveredBy?.name}</td>
                   <td>{x.orderStatus}</td>
-                  <td>
-                    {x.orderStatus === "DELIVERY_COMPLETE" ? (
-                      <Button onClick={() => handleComplate(x.id)}>
-                        Complate Order
-                      </Button>
-                    ) : (
-                      <Button variant='light'>Driver di Kejar Anjing</Button>
-                    )}
-                  </td>
                 </tr>
               ))}
             </tbody>
