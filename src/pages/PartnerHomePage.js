@@ -135,7 +135,7 @@ const PartnerHomePage = () => {
             >
               <Carousel.Item>
                 <img
-                  className="d-block w-100 carousel-member rounded"
+                  className="d-block w-100 carousel-member-lg rounded"
                   src={carousel1}
                   alt="First slide"
                 />
@@ -153,7 +153,7 @@ const PartnerHomePage = () => {
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100 carousel-member rounded"
+                  className="d-block w-100 carousel-member-lg rounded"
                   src={carousel2}
                   alt="Second slide"
                 />
@@ -173,7 +173,7 @@ const PartnerHomePage = () => {
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100 carousel-member rounded"
+                  className="d-block w-100 carousel-member-lg rounded"
                   src={carousel3}
                   alt="Third slide"
                 />
