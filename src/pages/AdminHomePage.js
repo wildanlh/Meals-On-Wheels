@@ -203,7 +203,8 @@ const AdminHomePage = () => {
           <Col size={12} md={9} >
           <div className='task pb-5'>
             <h4 className='fw-bold title-caregiver'>Assign Partner Task</h4>
-            {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
+            {/* Dont Delete This Comment */}
+            {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
             <div className='card'>
               <div className='container'>
               <div className='task-header-div'>
@@ -214,7 +215,7 @@ const AdminHomePage = () => {
                       <th>Meals Request List</th>
                       <th>Status</th>
                       <th>Assigned Partner</th>
-                      <th>Action</th>
+                      <th>Select Partner</th>
                     </tr>
                   </thead>
                 </Table>
@@ -244,8 +245,8 @@ const AdminHomePage = () => {
                         {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
                         <td className='text-white'>
                           <DropdownButton
-                            title='Prepare'
-                            variant='light'
+                            title='Select'
+                            variant='success'
                             key='start'
                             id='dropdown-button-drop-start'
                             drop='start'
@@ -313,7 +314,8 @@ const AdminHomePage = () => {
             {/* Table Rider Task */}
             <div className="task pb-5">
               <h4 className="fw-bold title-caregiver">Assign Driver Task</h4>
-              {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
+              {/* Dont Delete This Comment */}
+              {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
               <div className="card">
                 <div className="container">
                   <div className="task-header-div">
@@ -327,7 +329,7 @@ const AdminHomePage = () => {
                           <th>Meals Request List</th>
                           <th>Status</th>
                           <th>Assigned Driver</th>
-                          <th>Action</th>
+                          <th>Select Driver</th>
                         </tr>
                       </thead>
                     </Table>
@@ -362,8 +364,8 @@ const AdminHomePage = () => {
                             {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
                             <td className="text-white">
                               <DropdownButton
-                                title="Deliver"
-                                variant="light"
+                                title="Select"
+                                variant="Success"
                                 key="start"
                                 id="dropdown-button-drop-start"
                                 drop="start"
