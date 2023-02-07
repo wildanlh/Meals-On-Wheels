@@ -437,8 +437,7 @@ const AdminHomePage = () => {
                     <th>Role</th>
                     <th>Action</th>
                   </tr>
-                </thead>
-                <div className='task-tbl-div-active-acc'>
+                </thead>     
                 {users.slice(0, 6).map((user) => (
                   <tbody className='text-white'>
                     <tr key={user.id}>
@@ -464,7 +463,6 @@ const AdminHomePage = () => {
                     </tr>
                   </tbody>
                 ))}
-                </div>
               </Table>
             </div>
             </div>
