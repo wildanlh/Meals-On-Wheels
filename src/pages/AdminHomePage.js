@@ -447,7 +447,7 @@ const AdminHomePage = () => {
         </Row>
 
         <Row>
-          <Col size={12} md={4}>
+          <Col size={12} md={6}>
             {/* Card Active Account  */}
             <div className="pb-5 my-5">
               <h4 className="fw-bold title-caregiver text-center">
@@ -472,17 +472,17 @@ const AdminHomePage = () => {
                             key="start"
                             id="dropdown-button-drop-start"
                             drop="start"
-                            title="Action"
-                            variant="light"
+                            title="Select"
+                            variant="primary"
                             size="sm"
                           >
                             <Dropdown.Item
                               onClick={() => handleActive(user.id)}
                             >
-                              approve
+                              Approve
                             </Dropdown.Item>
                             <Dropdown.Item href={user.fileUrl}>
-                              download user file
+                              Download User File
                             </Dropdown.Item>
                           </DropdownButton>
                         </td>
@@ -493,7 +493,9 @@ const AdminHomePage = () => {
               </div>
             </div>
           </Col>
-
+          <Col size={12} md={6}>
+          {/* THIS PLACE FOR ASSIGN ROLE */}
+          </Col>
         </Row>
       </Container>
 

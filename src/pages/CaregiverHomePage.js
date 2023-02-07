@@ -7,6 +7,8 @@ import {
   Dropdown,
   DropdownButton,
   Row,
+  Form,
+  Modal,
   Table,
 } from "react-bootstrap";
 import {
@@ -15,6 +17,9 @@ import {
 import {
   getAdminOrderPendingAPI,
   getAdminOrderReadyToDeliverAPI,
+  getAdminUserActiveAPI,
+  getAdminUserAPI,
+  getAdminUserCountAPI,
   getPartnersAPI,
   getRidersAPI,
   postAdminOrderDeliverAPI,
@@ -31,25 +36,60 @@ import {
 } from "../assets";
 import Layout from "../components/layout/Layout";
 import AuthContext from "../context/auth-context";
-import { order_type, menu_type, user_type } from "../context/context-type";
+import {
+  menu_type,
+  order_type,
+  user_count,
+  user_type,
+} from "../context/context-type";
 
 import "./css/CaregiverHomePage.css";
 
 const CaregiverHomePage = () => {
+  
   const { token, currentUser } = useContext(AuthContext);
-  const [msg, setMsg] = useState("");
+  const [show, setShow] = useState(false);
   const [orderList, setOrderList] = useState([order_type]);
-  const [index, setIndex] = useState(0);
-  const [menu, setMenu] = useState([menu_type]);
-  const [paertners, setPartner] = useState([user_type]);
   const [deliverList, setDeliverList] = useState([order_type]);
+  const [users, setUsers] = useState([user_type]);
+  const [msg, setMsg] = useState("");
   const [riders, setRider] = useState([user_type]);
-
+  const [paertners, setPartner] = useState([user_type]);
+  const [userCount, setUserCount] = useState(user_count);
+  const [menu, setMenu] = useState([menu_type]);
+  const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
 
-  const [show, setShow] = useState(false);
+  const [packageName, setPackageName] = useState("");
+  const [mainCourse, setMainCourse] = useState("");
+  const [salad, setSalad] = useState("");
+  const [soup, setSoup] = useState("");
+  const [dessert, setDessert] = useState("");
+  const [drink, setDrink] = useState("");
+  const [frozen, setFrozen] = useState("");
+  const [image, setImage] = useState(null);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (event) => {
+    setStatus(""); // Reset status
+    //event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("packageName", packageName);
+    formData.append("mainCourse", mainCourse);
+    formData.append("salad", salad);
+    formData.append("soup", soup);
+    formData.append("dessert", dessert);
+    formData.append("drink", drink);
+    formData.append("frozen", frozen);
+    formData.append("packageImage", image);
+
+    addMenu(token, formData);
+    setShow(false);
+  };
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -57,17 +97,16 @@ const CaregiverHomePage = () => {
   function handlePrepare(order, user) {
     postAdminOrderPrepareAPI(token, order, user)
       .then((resp) => setMsg(resp.data.message))
-      .catch((err) => console.log(err.response));
+      .catch((err) => console.log(err));
   }
-
-  function handleComplete(id) {
-    postPartnerOrderCompleteAPI(token, id)
-      .then((resp) => setMsg(resp.data.message))
-      .catch((err) => console.log(err.response));
-  }
-
   function handleDeliver(order, user) {
     postAdminOrderDeliverAPI(token, order, user)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.log(err));
+  }
+
+  function handleActive(id) {
+    getAdminUserActiveAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err));
   }
@@ -89,6 +128,24 @@ const CaregiverHomePage = () => {
       .then((resp) => setRider(resp.data))
       .catch((err) => console.log(err));
 
+    getAdminUserCountAPI(token)
+      .then((resp) => setUserCount(resp.data))
+      .catch((err) => console.log(err));
+
+    getAdminUserAPI(token)
+      .then((resp) => {
+        resp.data = resp.data
+          .filter((item) => {
+            return item.active === false;
+          })
+          .map((item) => {
+            setUsers(item);
+            return item;
+          });
+        setUsers(resp.data);
+      })
+      .catch((err) => console.log(err));
+
     getMenu(token)
       .then((resp) => {
         setMenu(resp.data);
@@ -96,11 +153,8 @@ const CaregiverHomePage = () => {
       .catch((err) => {
         console.log(err);
       });
-
-    getRidersAPI(token)
-      .then((resp) => setRider(resp.data))
-      .catch((err) => console.log(err));
-  }, [token, msg]);
+  },[token, msg]);
+  
   return (
     <Layout>
       <Container>
@@ -402,8 +456,127 @@ const CaregiverHomePage = () => {
             </div>
           </Col>
         </Row>
-
       </Container>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton className="modal-popup">
+          <div className="text-center">
+            <Modal.Title className="text-white fw-bold">
+              Add Package
+            </Modal.Title>
+          </div>
+        </Modal.Header>
+        <Modal.Body className="modal-popup">
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="packageName">
+              <Form.Label className="text-white fw-bold">
+                Package Name
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Package 1/ Frozen Package 2/ect"
+                onChange={(e) => setPackageName(e.target.value)}
+                value={packageName}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="mainCourse">
+              <Form.Label className="text-white fw-bold">
+                Main Course
+              </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Roasted Duck/ Spicy Thai Chicken/ect"
+                onChange={(e) => setMainCourse(e.target.value)}
+                value={mainCourse}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="salad">
+              <Form.Label className="text-white fw-bold">Salad</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: garden salad/Greek salad/chopped Thai salad"
+                onChange={(e) => setSalad(e.target.value)}
+                value={salad}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="soup">
+              <Form.Label className="text-white fw-bold">Soup</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Pumpkin soup/Tuscan/ect"
+                onChange={(e) => setSoup(e.target.value)}
+                value={soup}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="dessert">
+              <Form.Label className="text-white fw-bold">Dessert</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Pudding/ fruit tarts/ lemon creme/ ect"
+                onChange={(e) => setDessert(e.target.value)}
+                value={dessert}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="drink">
+              <Form.Label className="text-white fw-bold">Drink</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ex: Carrot Juice/ Liang Tea/ Teh Poci/ ect"
+                onChange={(e) => setDrink(e.target.value)}
+                value={drink}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3 mx-3" controlId="frozen">
+              <Form.Label>Frozen</Form.Label>
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => {
+                  setFrozen(e.target.value);
+                }}
+                value={frozen}
+                required
+              >
+                <option disabled>Is it frozen</option>
+                <option defaultValue={true} value="1">
+                  Yes
+                </option>
+                <option value="2">No</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3 mx-3" controlId="file">
+              <Form.Label>Image Upload</Form.Label>
+              <Form.Control
+                type="file"
+                onChange={(e) => setImage(e.target.files[0])}
+                required
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <div className="text-center modal-popup p-3">
+          <Button
+            type="submit"
+            onClick={handleSubmit}
+            className="button fw-bold w-50"
+          >
+            Submit
+          </Button>
+        </div>
+      </Modal>
+      <div
+        className="circle-yellow-lg"
+        style={{ bottom: "450px", left: "-100px" }}
+      ></div>
+      <div
+        className="half-circle"
+        style={{ bottom: "50px", right: "-50px" }}
+      ></div>
     </Layout>
   );
 };
