@@ -341,7 +341,7 @@ const AdminHomePage = () => {
         </Row>
 
         <Row>
-          <Col size={12} md={9}>
+          <Col size={12} md={9} >
             {/* Table Rider Task */}
             <div className="task pb-5">
               <h4 className="fw-bold title-caregiver">Assign Driver Task</h4>
@@ -513,7 +513,7 @@ const AdminHomePage = () => {
                     <tr>
                       <th>Name</th>
                       <th>Role</th>
-                      <th>Action</th>
+                      <th>Assign Role</th>
                     </tr>
                   </thead>
                   {volunteers.slice(0, 6).map((user) => (
@@ -526,19 +526,19 @@ const AdminHomePage = () => {
                             key="start"
                             id="dropdown-button-drop-start"
                             drop="start"
-                            title="Action"
-                            variant="light"
+                            title="Select"
+                            variant="primary"
                             size="sm"
                           >
                             <Dropdown.Item
                               onClick={() => handleAssignRole(user.id, 1)}
                             >
-                              assign rider
+                              Assign as Rider
                             </Dropdown.Item>
                             <Dropdown.Item
                               onClick={() => handleAssignRole(user.id, 2)}
                             >
-                              assign caregiver
+                              Assign as Caregiver
                             </Dropdown.Item>
                           </DropdownButton>
                         </td>
