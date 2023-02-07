@@ -42,6 +42,7 @@ const AdminHomePage = () => {
   const [orderList, setOrderList] = useState([order_type]);
   const [deliverList, setDeliverList] = useState([order_type]);
   const [users, setUsers] = useState([user_type]);
+  const [volunteers, setVolunteers] = useState([user_type]);
   const [msg, setMsg] = useState("");
   const [riders, setRider] = useState([user_type]);
   const [paertners, setPartner] = useState([user_type]);
@@ -125,6 +126,20 @@ const AdminHomePage = () => {
           })
           .map((item) => {
             setUsers(item);
+            return item;
+          });
+        setUsers(resp.data);
+      })
+      .catch((err) => console.log(err));
+
+    getAdminUserAPI(token)
+      .then((resp) => {
+        resp.data = resp.data
+          .filter((item) => {
+            return item.role.localeCompare("ROLE_VOLUNTEER");
+          })
+          .map((item) => {
+            setVolunteers(item);
             return item;
           });
         setUsers(resp.data);
@@ -478,6 +493,7 @@ const AdminHomePage = () => {
               </div>
             </div>
           </Col>
+
         </Row>
       </Container>
 
