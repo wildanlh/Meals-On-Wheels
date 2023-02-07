@@ -112,7 +112,7 @@ const CaregiverHomePage = () => {
         <h1 className="py-5 fw-bold">Hello, {currentUser.name}!</h1>
 
         <Row className="mb-5">
-          <Col sm={8}>
+          <Col sm={12}>
             <Carousel activeIndex={index} onSelect={handleSelect}>
               <Carousel.Item>
                 <img
@@ -174,8 +174,15 @@ const CaregiverHomePage = () => {
               </Carousel.Item>
             </Carousel>
           </Col>
+{/*           
           <Col sm={4}>
-            <h4 className="text-center fw-bold title-caregiver">
+
+          </Col> */}
+        </Row>
+
+        <Row>
+          <Col>
+          <h4 className="text-center fw-bold title-caregiver">
               Meal Package List
             </h4>
             <div className="card">
@@ -206,6 +213,7 @@ const CaregiverHomePage = () => {
             </div>
           </Col>
         </Row>
+
 
         <Row className="mb-5">
           <Col>
