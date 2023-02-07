@@ -128,7 +128,11 @@ const PartnerHomePage = () => {
 
         <Row className="mb-5">
           <Col sm={8}>
-            <Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel
+              activeIndex={index}
+              onSelect={handleSelect}
+              style={{ marginTop: "30px" }}
+            >
               <Carousel.Item>
                 <img
                   className="d-block w-100 carousel-member rounded"
@@ -224,7 +228,7 @@ const PartnerHomePage = () => {
 
         <div className="task pb-5">
           <h4 className="fw-bold title-caregiver">Task</h4>
-          {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
+          {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
           <div className="card">
             <div className="container">
               <Table striped className="text-white text-center driver my-3">
