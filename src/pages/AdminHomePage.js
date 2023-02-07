@@ -130,7 +130,7 @@ const AdminHomePage = () => {
       .then((resp) => {
         resp.data = resp.data
           .filter((item) => {
-            return item.active === false;
+            return (item.active === false) && !(item.role.localeCompare("ROLE_VOLUNTEER") === 0);
           })
           .map((item) => {
             setUsers(item);
