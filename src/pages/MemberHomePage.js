@@ -93,7 +93,7 @@ const MemberHomePage = () => {
           </div>
           <Row className="card-meals">
             {menu.map((data) => (
-              <Col key={data.id}>
+              <Col size={12} md={4} key={data.id} className="my-3">
                 <div className="card text-center">
                   <h5 className="p-3 button mb-0">{data.packageName}</h5>
                   <Table striped bordered className="mb-0">
