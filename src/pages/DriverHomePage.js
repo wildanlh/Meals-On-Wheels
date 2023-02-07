@@ -51,6 +51,7 @@ const DriverHomePage = () => {
     postRiderOrderCompleteAPI(token, id)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response));
+    window.location.reload();
   }
 
   function handleStatusUpdate(statusCode) {
