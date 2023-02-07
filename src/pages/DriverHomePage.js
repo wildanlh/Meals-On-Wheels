@@ -153,8 +153,6 @@ const DriverHomePage = () => {
                     <img src={car} alt="" className="icon-car" />
                     <span>Driver</span>
                   </div>
-                  <span>Total Delivery : </span>
-                  <span>100</span>
                 </Col>
               </Row>
               <div className="dropdown">
