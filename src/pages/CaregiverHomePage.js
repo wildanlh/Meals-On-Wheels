@@ -344,7 +344,7 @@ const CaregiverHomePage = () => {
                             <td className="text-white">
                               <DropdownButton
                                 title="Select"
-                                variant="Success"
+                                variant="success"
                                 key="start"
                                 id="dropdown-button-drop-start"
                                 drop="start"
