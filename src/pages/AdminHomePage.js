@@ -432,7 +432,7 @@ const AdminHomePage = () => {
         </Row>
 
         <Row>
-          <Col size={12} md={4}>
+          <Col size={12} md={6}>
             {/* Card Active Account  */}
             <div className="pb-5 my-5">
               <h4 className="fw-bold title-caregiver text-center">
@@ -477,6 +477,9 @@ const AdminHomePage = () => {
                 </Table>
               </div>
             </div>
+          </Col>
+          <Col size={12} md={6}>
+          {/* THIS PLACE FOR ASSIGN ROLE */}
           </Col>
         </Row>
       </Container>
