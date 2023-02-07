@@ -428,11 +428,6 @@ const AdminHomePage = () => {
           </Col>
         </Row>
 
-      <Row>
-        <Col size={12} md={4}>
-          {/* Card Active Account  */}
-          <div className="pb-5">
-              <h4 className='fw-bold title-caregiver text-center'>
         <Row>
           <Col size={12} md={4}>
             {/* Card Active Account  */}
@@ -440,42 +435,6 @@ const AdminHomePage = () => {
               <h4 className="fw-bold title-caregiver text-center">
                 Active Account Request
               </h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>     
-                {users.slice(0, 6).map((user) => (
-                  <tbody className='text-white'>
-                    <tr key={user.id}>
-                      <td className='text-white'>{user.name}</td>
-                      <td className='text-white'>{user.role}</td>
-                      <td className='text-white'>
-                        <DropdownButton
-                          key='start'
-                          id='dropdown-button-drop-start'
-                          drop='start'
-                          title='Action'
-                          variant='light'
-                          size='sm'
-                        >
-                          <Dropdown.Item onClick={() => handleActive(user.id)}>
-                            approve
-                          </Dropdown.Item>
-                          <Dropdown.Item href={user.fileUrl}>
-                            download user file
-                          </Dropdown.Item>
-                        </DropdownButton>
-                      </td>
-                    </tr>
-                  </tbody>
-                ))}
-              </Table>
-            </div>
               <div className="card">
                 <Table striped className="text-white text-center driver mb-3">
                   <thead className="driver-table">
