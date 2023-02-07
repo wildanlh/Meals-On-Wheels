@@ -41,8 +41,8 @@ const Footer = () => {
 
         <div className="footer">
           <div className="container" bis_skin_checked="1">
-            <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 text-white">
-              <div className="col mb-3" bis_skin_checked="1">
+            <footer className="row py-5 text-white">
+              <div className="col-6 me-5" bis_skin_checked="1">
                 <h3>Meals On Wheels</h3>
                 <p>
                   Meals on Wheels is a community-based organization dedicated to
@@ -52,7 +52,7 @@ const Footer = () => {
                 </p>
               </div>
 
-              <div className="col mb-3" bis_skin_checked="1"></div>
+              {/* <div className="col mb-3" bis_skin_checked="1"></div> */}
 
               <div className="col mb-3" bis_skin_checked="1">
                 <h5>Partners</h5>
