@@ -17,23 +17,23 @@ const Footer = () => {
 
           <ul className="nav justify-content-end list-unstyled d-flex mx-3">
             <li>
-              <a href={link}>
+              <a href="#">
                 <img src={fb} alt="facebook" />
               </a>
             </li>
             <li>
-              <a href={link}>
-                <img src={ig} alt="facebook" />
+              <a href="#">
+                <img src={ig} alt="instagram" />
               </a>
             </li>
             <li>
-              <a href={link}>
-                <img src={tw} alt="facebook" />
+              <a href="#">
+                <img src={tw} alt="twitter" />
               </a>
             </li>
             <li>
-              <a href={link}>
-                <img src={yt} alt="facebook" />
+              <a href="#">
+                <img src={yt} alt="youtube" />
               </a>
             </li>
           </ul>
@@ -114,31 +114,16 @@ const Footer = () => {
               <div className="col mb-3" bis_skin_checked="1">
                 <h5>Contact</h5>
                 <ul className="nav flex-column">
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
+                  <Link to="/" className="text-decoration-none">
+                    <li className="nav-item mb-2 nav-link p-0 text-white">
                       Home
-                    </a>
-                  </li>
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
-                      Features
-                    </a>
-                  </li>
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
-                      Pricing
-                    </a>
-                  </li>
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
-                      FAQs
-                    </a>
-                  </li>
-                  <li className="nav-item mb-2">
-                    <a href={link} className="nav-link p-0 text-white">
+                    </li>
+                  </Link>
+                  <Link to="/about" className="text-decoration-none">
+                    <li className="nav-item mb-2 nav-link p-0 text-white">
                       About
-                    </a>
-                  </li>
+                    </li>
+                  </Link>
                 </ul>
               </div>
             </footer>
