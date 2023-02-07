@@ -112,7 +112,7 @@ const CaregiverHomePage = () => {
         <h1 className="py-5 fw-bold">Hello, {currentUser.name}!</h1>
 
         <Row className="mb-5">
-          <Col sm={8}>
+          <Col sm={12}>
             <Carousel activeIndex={index} onSelect={handleSelect}>
               <Carousel.Item>
                 <img
@@ -174,12 +174,99 @@ const CaregiverHomePage = () => {
               </Carousel.Item>
             </Carousel>
           </Col>
-          <Col sm={4}>
+        </Row>
+
+        {/* Table Assign Partner Task */}
+        <Row className="pb-5">
+          <Col size={12} md={9}>
+            <div className="task pb-5">
+              <h4 className="fw-bold title-caregiver">Assign Partner Task</h4>
+              {/* Dont Delete This Comment */}
+              {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
+              <div className="card">
+                <div className="container">
+                  <div className="task-header-div">
+                    <Table
+                      striped
+                      className="text-white text-center driver my-3 task-header tbl-width col-width"
+                    >
+                      <thead className="driver-table">
+                        <tr>
+                          <th>No</th>
+                          <th>Meals Request List</th>
+                          <th>Status</th>
+                          <th>Assigned Partner</th>
+                          <th>Select Partner</th>
+                        </tr>
+                      </thead>
+                    </Table>
+                  </div>
+                  <div className="task-tbl-div">
+                    <Table
+                      striped
+                      className="text-white text-center driver my-3 task-tbl tbl-width col-width"
+                    >
+                      <tbody className="text-white">
+                        {orderList.map((order, index) => (
+                          <tr key={order.id}>
+                            <td className="text-white">{index + 1}</td>
+                            <td className="text-white">
+                              {order.mealPackage.packageName}
+                            </td>
+                            <td className="text-white">
+                              <div className="status text-white d-flex justify-content-center">
+                                <img
+                                  src={redcircle}
+                                  alt=""
+                                  className="status-icon"
+                                />
+                                <span className="fw-bold ms-3">
+                                  {order.orderStatus}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-white">
+                              {order.preparedBy?.name}
+                            </td>
+                            {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
+                            <td className="text-white">
+                              <DropdownButton
+                                title="Select"
+                                variant="success"
+                                key="start"
+                                id="dropdown-button-drop-start"
+                                drop="start"
+                                size="sm"
+                              >
+                                {paertners.map((partner) => (
+                                  <Dropdown.Item
+                                    href="#/action-1"
+                                    onClick={() =>
+                                      handlePrepare(order.id, partner.id)
+                                    }
+                                    key={partner.id}
+                                  >
+                                    {partner.name} {partner.status}
+                                  </Dropdown.Item>
+                                ))}
+                              </DropdownButton>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Col>
+          {/* Card Package Meal */}
+          <Col size={12} md={3}>
             <h4 className="text-center fw-bold title-caregiver">
               Meal Package List
             </h4>
-            <div className="card">
-              <Table striped className="text-white text-center driver mb-3">
+            <div className="card task-tbl-meal">
+              <Table striped className="text-white text-center mb-3 ">
                 <thead className="driver-table">
                   <tr>
                     <th>Meal</th>
@@ -193,7 +280,6 @@ const CaregiverHomePage = () => {
                   </tbody>
                 ))}
               </Table>
-
               <div className="text-center fw-bold">
                 <Button
                   variant="primary"
@@ -207,190 +293,121 @@ const CaregiverHomePage = () => {
           </Col>
         </Row>
 
-        <Row className="mb-5">
-          <Col>
-            <h4 className="text-center fw-bold title-caregiver">
-              Driver Availability
-            </h4>
-            <div className="card">
-              <Table striped className="text-white text-center driver mb-3">
-                <thead className="driver-table">
-                  <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody className="text-white">
-                  {riders.slice(0, 6).map((rider, index) => (
-                    <tr key={rider.id}>
-                      <td className="text-white">{index + 1}</td>
-                      <td className="text-white">{rider.name}</td>
-                      <td className="text-white">{rider.status}</td>
+        <Row>
+          <Col size={12} md={9}>
+            {/* Table Rider Task */}
+            <div className="task pb-5">
+              <h4 className="fw-bold title-caregiver">Assign Driver Task</h4>
+              {/* Dont Delete This Comment */}
+              {/* {msg && <Button onClick={() => setMsg("")}>{msg}</Button>} */}
+              <div className="card">
+                <div className="container">
+                  <div className="task-header-div">
+                    <Table
+                      striped
+                      className="text-white text-center driver my-3 task-header tbl-width col-width"
+                    >
+                      <thead className="driver-table">
+                        <tr>
+                          <th>No</th>
+                          <th>Meals Request List</th>
+                          <th>Status</th>
+                          <th>Assigned Driver</th>
+                          <th>Select Driver</th>
+                        </tr>
+                      </thead>
+                    </Table>
+                  </div>
+                  <div className="task-tbl-div">
+                    <Table
+                      striped
+                      className="text-white text-center driver my-3 task-tbl tbl-width col-width"
+                    >
+                      <tbody className="text-white">
+                        {deliverList.map((order, index) => (
+                          <tr key={order.id}>
+                            <td className="text-white">{index + 1}</td>
+                            <td className="text-white">
+                              {order.mealPackage.packageName}
+                            </td>
+                            <td className="text-white">
+                              <div className="status text-white d-flex justify-content-center">
+                                <img
+                                  src={redcircle}
+                                  alt=""
+                                  className="status-icon"
+                                />
+                                <span className="fw-bold ms-3">
+                                  {order.orderStatus}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="text-white">
+                              {order.deliveredBy?.name}
+                            </td>
+                            {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
+                            <td className="text-white">
+                              <DropdownButton
+                                title="Select"
+                                variant="Success"
+                                key="start"
+                                id="dropdown-button-drop-start"
+                                drop="start"
+                                size="sm"
+                              >
+                                {riders.map((rider) => (
+                                  <Dropdown.Item
+                                    href="#/action-1"
+                                    onClick={() =>
+                                      handleDeliver(order.id, rider.id)
+                                    }
+                                    key={rider.id}
+                                  >
+                                    {rider.name} {rider.status}
+                                  </Dropdown.Item>
+                                ))}
+                              </DropdownButton>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Col>
+
+          <Col size={12} md={3}>
+            {/* Card Driver Available */}
+            <div className="pb-5">
+              <h4 className="text-center fw-bold title-caregiver">
+                Driver Availability
+              </h4>
+              <div className="card task-tbl-meal">
+                <Table striped className="text-white text-center driver mb-3">
+                  <thead className="driver-table">
+                    <tr>
+                      <th>no</th>
+                      <th>Name</th>
+                      <th>status</th>
                     </tr>
-                  ))}
-                </tbody>
-              </Table>
+                  </thead>
+                  <tbody className="text-white">
+                    {riders.slice(0, 6).map((rider, index) => (
+                      <tr key={rider.id}>
+                        <td className="text-white">{index + 1}</td>
+                        <td className="text-white">{rider.name}</td>
+                        <td className="text-white">{rider.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </div>
             </div>
           </Col>
         </Row>
-        <div className="task pb-5">
-          <h4 className="fw-bold title-caregiver">Task</h4>
-          {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
-          <div className="card">
-            <div className="container">
-              <div className="task-header-div">
-                <Table
-                  striped
-                  className="text-white text-center driver my-3 task-header tbl-width col-width"
-                >
-                  <thead className="driver-table">
-                    <tr>
-                      <th>No</th>
-                      <th>Meals Request List</th>
-                      <th>Status</th>
-                      <th>Assigned Partner</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </div>
-              <div className="task-tbl-div">
-                <Table
-                  striped
-                  className="text-white text-center driver my-3 task-tbl tbl-width col-width"
-                >
-                  <tbody className="text-white">
-                    {orderList.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className="text-white">{index + 1}</td>
-                        <td className="text-white">
-                          {order.mealPackage.packageName}
-                        </td>
-                        <td className="text-white">
-                          <div className="status text-white d-flex justify-content-center">
-                            <img
-                              src={redcircle}
-                              alt=""
-                              className="status-icon"
-                            />
-                            <span className="fw-bold ms-3">
-                              {order.orderStatus}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="text-white">{order.preparedBy?.name}</td>
-                        {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
-                        <td className="text-white">
-                          <DropdownButton
-                            title="Prepare"
-                            variant="light"
-                            key="start"
-                            id="dropdown-button-drop-start"
-                            drop="start"
-                            size="sm"
-                          >
-                            {paertners.map((partner) => (
-                              <Dropdown.Item
-                                href="#/action-1"
-                                onClick={() =>
-                                  handlePrepare(order.id, partner.id)
-                                }
-                                key={partner.id}
-                              >
-                                {partner.name} {partner.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="task pb-5">
-          <h4 className="fw-bold title-caregiver">Rider Task</h4>
-          {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
-          <div className="card">
-            <div className="container">
-              <div className="task-header-div">
-                <Table
-                  striped
-                  className="text-white text-center driver my-3 task-header tbl-width col-width"
-                >
-                  <thead className="driver-table">
-                    <tr>
-                      <th>No</th>
-                      <th>Meals Request List</th>
-                      <th>Status</th>
-                      <th>Assigned Driver</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </div>
-              <div className="task-tbl-div">
-                <Table
-                  striped
-                  className="text-white text-center driver my-3 task-tbl tbl-width col-width"
-                >
-                  <tbody className="text-white">
-                    {deliverList.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className="text-white">{index + 1}</td>
-                        <td className="text-white">
-                          {order.mealPackage.packageName}
-                        </td>
-                        <td className="text-white">
-                          <div className="status text-white d-flex justify-content-center">
-                            <img
-                              src={redcircle}
-                              alt=""
-                              className="status-icon"
-                            />
-                            <span className="fw-bold ms-3">
-                              {order.orderStatus}
-                            </span>
-                          </div>
-                        </td>
-                        <td className="text-white">
-                          {order.deliveredBy?.name}
-                        </td>
-                        {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
-                        <td className="text-white">
-                          <DropdownButton
-                            title="Deliver"
-                            variant="light"
-                            key="start"
-                            id="dropdown-button-drop-start"
-                            drop="start"
-                            size="sm"
-                          >
-                            {riders.map((rider) => (
-                              <Dropdown.Item
-                                href="#/action-1"
-                                onClick={() =>
-                                  handleDeliver(order.id, rider.id)
-                                }
-                                key={rider.id}
-                              >
-                                {rider.name} {rider.status}
-                              </Dropdown.Item>
-                            ))}
-                          </DropdownButton>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
-            </div>
-          </div>
-        </div>
       </Container>
     </Layout>
   );
