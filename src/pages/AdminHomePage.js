@@ -425,7 +425,7 @@ const AdminHomePage = () => {
       <Row>
         <Col size={12} md={4}>
           {/* Card Active Account  */}
-          <div className="pb-5 my-5">
+          <div className="pb-5">
               <h4 className='fw-bold title-caregiver text-center'>
                 Active Account Request
               </h4>
@@ -438,6 +438,7 @@ const AdminHomePage = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
+                <div className='task-tbl-div-active-acc'>
                 {users.slice(0, 6).map((user) => (
                   <tbody className='text-white'>
                     <tr key={user.id}>
@@ -463,6 +464,7 @@ const AdminHomePage = () => {
                     </tr>
                   </tbody>
                 ))}
+                </div>
               </Table>
             </div>
             </div>

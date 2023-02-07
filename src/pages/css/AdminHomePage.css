@@ -36,3 +36,8 @@ img.icon-user {
   width: 100%;
   overflow: hidden;
 }
+
+.task-tbl-div-active-acc {
+  height: 170px;
+}
+
