@@ -5,6 +5,13 @@
   filter: brightness(50%);
 }
 
+.carousel-member-lg {
+  width: 100%;
+  height: 384px;
+  object-fit: none;
+  filter: brightness(50%);
+}
+
 .meals-package {
   color: #845ec2;
 }
