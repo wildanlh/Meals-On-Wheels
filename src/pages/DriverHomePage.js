@@ -224,15 +224,15 @@ const DriverHomePage = () => {
                 {orderList.map((order, index) => (
                   <tr key={index}>
                     <td className="text-white">{index + 1}</td>
-                    <td className="text-white">{order.preparedBy.address}</td>
-                    <td className="text-white">{order.orderBy.address}</td>
-                    <td className="text-white">
+                    <td className="text-white w-25">{order.preparedBy.address}</td>
+                    <td className="text-white w-25">{order.orderBy.address}</td>
+                    <td className="text-white w-25">
                       <div className="status text-white d-flex justify-content-center">
                         <img src={greencircle} alt="" className="status-icon" />
                         <span className="ms-3">{order.orderStatus}</span>
                       </div>
                     </td>
-                    <td className="text-white">
+                    <td className="text-white w-25">
                       {order.orderStatus === "READY_TO_DELIVER" ? (
                         <Button
                           size="sm"
