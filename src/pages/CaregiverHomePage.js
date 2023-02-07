@@ -10,20 +10,15 @@ import {
   Table,
 } from "react-bootstrap";
 import {
-  getPartnerOrderAPI,
   postPartnerOrderCompleteAPI,
-  postPartnerOrderCreateAPI,
 } from "../api/partner-api";
 import {
   getAdminOrderPendingAPI,
   getAdminOrderReadyToDeliverAPI,
-  getAdminUserCountAPI,
   getPartnersAPI,
   getRidersAPI,
   postAdminOrderDeliverAPI,
   postAdminOrderPrepareAPI,
-  getAdminUserActiveAPI,
-  getAdminUserAPI,
 } from "../api/admin-api";
 import { getMenu, addMenu } from "../api/api";
 import {
@@ -59,8 +54,8 @@ const CaregiverHomePage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function handlePrepare(id) {
-    postPartnerOrderCreateAPI(token, id)
+  function handlePrepare(order, user) {
+    postAdminOrderPrepareAPI(token, order, user)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err.response));
   }
