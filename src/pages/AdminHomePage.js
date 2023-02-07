@@ -23,6 +23,7 @@ import {
   postAdminOrderPrepareAPI,
   getAdminUserActiveAPI,
   getAdminUserAPI,
+  assignVolunteerAPI,
 } from "../api/admin-api";
 import { greencircle, redcircle, usericon, yellowcircle } from "../assets";
 import Layout from "../components/layout/Layout";
@@ -85,6 +86,7 @@ const AdminHomePage = () => {
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err));
   }
+
   function handleDeliver(order, user) {
     postAdminOrderDeliverAPI(token, order, user)
       .then((resp) => setMsg(resp.data.message))
@@ -93,6 +95,12 @@ const AdminHomePage = () => {
 
   function handleActive(id) {
     getAdminUserActiveAPI(token, id)
+      .then((resp) => setMsg(resp.data.message))
+      .catch((err) => console.log(err));
+  }
+
+  function handleAssignRole(id, rolecode) {
+    assignVolunteerAPI(token, id, rolecode)
       .then((resp) => setMsg(resp.data.message))
       .catch((err) => console.log(err));
   }
@@ -134,15 +142,16 @@ const AdminHomePage = () => {
 
     getAdminUserAPI(token)
       .then((resp) => {
+        
         resp.data = resp.data
           .filter((item) => {
-            return item.role.localeCompare("ROLE_VOLUNTEER");
+            return (item.role.localeCompare("ROLE_VOLUNTEER") === 0 );
           })
           .map((item) => {
             setVolunteers(item);
             return item;
           });
-        setUsers(resp.data);
+        setVolunteers(resp.data);
       })
       .catch((err) => console.log(err));
 
@@ -494,7 +503,51 @@ const AdminHomePage = () => {
             </div>
           </Col>
           <Col size={12} md={6}>
-          {/* THIS PLACE FOR ASSIGN ROLE */}
+            <div className="pb-5 my-5">
+              <h4 className="fw-bold title-caregiver text-center">
+                Assign Volunteer Role
+              </h4>
+              <div className="card">
+                <Table striped className="text-white text-center driver mb-3">
+                  <thead className="driver-table">
+                    <tr>
+                      <th>Name</th>
+                      <th>Role</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  {volunteers.slice(0, 6).map((user) => (
+                    <tbody className="text-white">
+                      <tr key={user.id}>
+                        <td className="text-white">{user.name}</td>
+                        <td className="text-white">{user.role}</td>
+                        <td className="text-white">
+                          <DropdownButton
+                            key="start"
+                            id="dropdown-button-drop-start"
+                            drop="start"
+                            title="Action"
+                            variant="light"
+                            size="sm"
+                          >
+                            <Dropdown.Item
+                              onClick={() => handleAssignRole(user.id, 1)}
+                            >
+                              assign rider
+                            </Dropdown.Item>
+                            <Dropdown.Item
+                              onClick={() => handleAssignRole(user.id, 2)}
+                            >
+                              assign caregiver
+                            </Dropdown.Item>
+                          </DropdownButton>
+                        </td>
+                      </tr>
+                    </tbody>
+                  ))}
+                </Table>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>

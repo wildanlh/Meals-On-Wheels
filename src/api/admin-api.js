@@ -103,13 +103,21 @@ export const getAdminPartnerActiveAPI = async (token, id) => {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
+
 export const getPartnersAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/partner`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
+
 export const getRidersAPI = async (token) => {
   return await axios.get(`${BASE_URL}/admin/rider`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+}
+
+export const assignVolunteerAPI = async (token, id, rolecode) => {
+  return await axios.get(`${BASE_URL}/admin/user/${id}/${rolecode}`, {
     headers: { Authorization: `Bearer ${token}` },
   })
 }
