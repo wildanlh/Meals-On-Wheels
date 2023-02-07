@@ -198,115 +198,17 @@ const AdminHomePage = () => {
           </Col>
         </Row>
 
-        <Row className='pb-5'>
-          <Col>
-            <h4 className='text-center fw-bold title-caregiver'>
-              Driver Availability
-            </h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>no</th>
-                    <th>Name</th>
-                    <th>status</th>
-                  </tr>
-                </thead>
-                <tbody className='text-white'>
-                  {riders.slice(0, 6).map((rider, index) => (
-                    <tr key={rider.id}>
-                      <td className='text-white'>{index + 1}</td>
-                      <td className='text-white'>{rider.name}</td>
-                      <td className='text-white'>{rider.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          </Col>
-          <Col>
-            <h4 className='text-center fw-bold title-caregiver'>
-              Meal Package List
-            </h4>
-            <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>Meal</th>
-                  </tr>
-                </thead>
-                {menu.slice(0, 6).map((data) => (
-                  <tbody className='text-white' key={data.id}>
-                    <tr>
-                      <td className='text-white'>{data.packageName}</td>
-                    </tr>
-                  </tbody>
-                ))}
-              </Table>
 
-              <div className='text-center fw-bold'>
-                <Button
-                  variant='primary'
-                  onClick={handleShow}
-                  className='button my-3'
-                >
-                  + Add Meal Package
-                </Button>
-              </div>
-            </div>
-          </Col>
-          <Col>
-            <h4 className='fw-bold title-caregiver text-center'>
-              Active Account Request
-            </h4>
+        {/* Table Assign Partner Task */}
+        <Row className="pb-5">
+          <Col size={12} md={9} >
+          <div className='task pb-5'>
+            <h4 className='fw-bold title-caregiver'>Assign Partner Task</h4>
+            {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
             <div className='card'>
-              <Table striped className='text-white text-center driver mb-3'>
-                <thead className='driver-table'>
-                  <tr>
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                {users.slice(0, 6).map((user) => (
-                  <tbody className='text-white'>
-                    <tr key={user.id}>
-                      <td className='text-white'>{user.name}</td>
-                      <td className='text-white'>{user.role}</td>
-                      <td className='text-white'>
-                        <DropdownButton
-                          key='start'
-                          id='dropdown-button-drop-start'
-                          drop='start'
-                          title='Action'
-                          variant='light'
-                          size='sm'
-                        >
-                          <Dropdown.Item onClick={() => handleActive(user.id)}>
-                            approve
-                          </Dropdown.Item>
-                          <Dropdown.Item href={user.fileUrl}>
-                            download user file
-                          </Dropdown.Item>
-                        </DropdownButton>
-                      </td>
-                    </tr>
-                  </tbody>
-                ))}
-              </Table>
-            </div>
-          </Col>
-        </Row>
-        <div className='task pb-5'>
-          <h4 className='fw-bold title-caregiver'>Task</h4>
-          {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
-          <div className='card'>
-            <div className='container'>
+              <div className='container'>
               <div className='task-header-div'>
-                <Table
-                  striped
-                  className='text-white text-center driver my-3 task-header tbl-width col-width'
-                >
+                <Table striped className='text-white text-center driver my-3 task-header tbl-width col-width'>
                   <thead className='driver-table'>
                     <tr>
                       <th>No</th>
@@ -319,10 +221,7 @@ const AdminHomePage = () => {
                 </Table>
               </div>
               <div className='task-tbl-div'>
-                <Table
-                  striped
-                  className='text-white text-center driver my-3 task-tbl tbl-width col-width'
-                >
+                <Table striped className='text-white text-center driver my-3 task-tbl tbl-width col-width'>
                   <tbody className='text-white'>
                     {orderList.map((order, index) => (
                       <tr key={order.id}>
@@ -375,8 +274,9 @@ const AdminHomePage = () => {
           </div>
         </div>
 
-        <div className='task pb-5'>
-          <h4 className='fw-bold title-caregiver'>Rider Task</h4>
+        {/* Table Rider Task */}
+        <div className='task pb-5 my-5'>
+          <h4 className='fw-bold title-caregiver'>Assign Driver Task</h4>
           {msg && <Button onClick={() => setMsg("")}>{msg}</Button>}
           <div className='card'>
             <div className='container'>
@@ -454,7 +354,113 @@ const AdminHomePage = () => {
             </div>
           </div>
         </div>
+      </Col>
+
+      {/* Card Package Meal */}
+      <Col size={12} md={3}>
+          <h4 className='text-center fw-bold title-caregiver'>
+              Meal Package List
+            </h4>
+            <div className='card'>
+              <Table striped className='text-white text-center driver mb-3'>
+                <thead className='driver-table'>
+                  <tr>
+                    <th>Meal</th>
+                  </tr>
+                </thead>
+                {menu.slice(0, 6).map((data) => (
+                  <tbody className='text-white' key={data.id}>
+                    <tr>
+                      <td className='text-white'>{data.packageName}</td>
+                    </tr>
+                  </tbody>
+                ))}
+              </Table>
+              <div className='text-center fw-bold'>
+                <Button
+                  variant='primary'
+                  onClick={handleShow}
+                  className='button my-3'>
+                  + Add Meal Package
+                </Button>
+              </div>
+            </div>
+
+          {/* Card Driver Available */}
+          <div className="my-5 pb-5">
+              <h4 className='text-center fw-bold title-caregiver'>
+                Driver Availability
+              </h4>
+            <div className='card'>
+              <Table striped className='text-white text-center driver mb-3'>
+                <thead className='driver-table'>
+                  <tr>
+                    <th>no</th>
+                    <th>Name</th>
+                    <th>status</th>
+                  </tr>
+                </thead>
+                <tbody className='text-white'>
+                  {riders.slice(0, 6).map((rider, index) => (
+                    <tr key={rider.id}>
+                      <td className='text-white'>{index + 1}</td>
+                      <td className='text-white'>{rider.name}</td>
+                      <td className='text-white'>{rider.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          </div>
+
+          {/* Card Active Account  */}
+          <div className="pb-5 my-5">
+              <h4 className='fw-bold title-caregiver text-center'>
+                Active Account Request
+              </h4>
+            <div className='card'>
+              <Table striped className='text-white text-center driver mb-3'>
+                <thead className='driver-table'>
+                  <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                {users.slice(0, 6).map((user) => (
+                  <tbody className='text-white'>
+                    <tr key={user.id}>
+                      <td className='text-white'>{user.name}</td>
+                      <td className='text-white'>{user.role}</td>
+                      <td className='text-white'>
+                        <DropdownButton
+                          key='start'
+                          id='dropdown-button-drop-start'
+                          drop='start'
+                          title='Action'
+                          variant='light'
+                          size='sm'
+                        >
+                          <Dropdown.Item onClick={() => handleActive(user.id)}>
+                            approve
+                          </Dropdown.Item>
+                          <Dropdown.Item href={user.fileUrl}>
+                            download user file
+                          </Dropdown.Item>
+                        </DropdownButton>
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
+              </Table>
+            </div>
+            </div>
+          </Col>
+        </Row>
       </Container>
+
+
+      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className='modal-popup'>
           <div className='text-center'>
@@ -566,41 +572,13 @@ const AdminHomePage = () => {
           </Button>
         </div>
       </Modal>
-      {/* <tr>
-                    <td className='text-white'>1</td>
-                    <td className='text-white'>Meal Package 1</td>
-                    <td className='text-white'>
-                      <div className='status text-white d-flex justify-content-center'>
-                        <img
-                          src={yellowcircle}
-                          alt=''
-                          className='status-icon'
-                        />
-                        <span className='fw-bold ms-3'>On the Way</span>
-                      </div>
-                    </td>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>Submit</td>
-                  </tr>
-                  <tr>
-                    <td className='text-white'>1</td>
-                    <td className='text-white'>Meal Package 1</td>
-                    <td className='text-white'>
-                      <div className='status text-white d-flex justify-content-center'>
-                        <img src={greencircle} alt='' className='status-icon' />
-                        <span className='fw-bold ms-3'>Completed</span>
-                      </div>
-                    </td>
-                    <td className='text-white'>John Doe</td>
-                    <td className='text-white'>Submit</td>
-                  </tr> */}
       <div
         className='circle-yellow-lg'
-        style={{ bottom: "-100px", left: "-100px" }}
+        style={{ bottom: "450px", left: "-100px" }}
       ></div>
       <div
         className='half-circle'
-        style={{ bottom: "-300px", right: "-50px" }}
+        style={{ bottom: "50px", right: "-50px" }}
       ></div>
     </Layout>
   )
