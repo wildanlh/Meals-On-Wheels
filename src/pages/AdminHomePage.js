@@ -457,17 +457,17 @@ const AdminHomePage = () => {
                             key="start"
                             id="dropdown-button-drop-start"
                             drop="start"
-                            title="Action"
-                            variant="light"
+                            title="Select"
+                            variant="primary"
                             size="sm"
                           >
                             <Dropdown.Item
                               onClick={() => handleActive(user.id)}
                             >
-                              approve
+                              Approve
                             </Dropdown.Item>
                             <Dropdown.Item href={user.fileUrl}>
-                              download user file
+                              Download User File
                             </Dropdown.Item>
                           </DropdownButton>
                         </td>
