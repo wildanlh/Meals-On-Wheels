@@ -48,9 +48,9 @@ const MemberOrderHistoryPage = () => {
               <tr>
                 <th>No</th>
                 <th>Meal Package</th>
-                <th>Prepare by</th>
-                <th>Order on</th>
-                <th>Deliver to</th>
+                <th>Prepared by</th>
+                <th>Ordered on</th>
+                <th>Delivery Address</th>
                 <th>Deliver by</th>
                 <th>Status</th>
               </tr>
@@ -59,7 +59,6 @@ const MemberOrderHistoryPage = () => {
               {order.map((x, i) => (
                 <tr key={x.id}>
                   <td>{i + 1}</td>
-
                   <td>{x.mealPackage.packageName}</td>
                   <td>{x.preparedBy?.name}</td>
                   <td>{new Date(x.orderOn).toLocaleString('en-GB', { timeZone: 'Asia/Singapore',hour12:true })}</td>

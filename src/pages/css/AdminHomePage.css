@@ -18,11 +18,11 @@ img.icon-user {
 
 .task-tbl {
   margin-top: 0 !important;
-  height: 150px; 
+  height: 150px;
 }
 
 .task-tbl-div {
-  height: 150px; 
+  height: 325px;
   overflow: auto !important;
   scrollbar-gutter: stable;
 }
@@ -35,4 +35,13 @@ img.icon-user {
 .col-width {
   width: 100%;
   overflow: hidden;
+}
+
+.task-tbl-div-active-acc {
+  height: 170px;
+}
+
+.task-tbl-meal {
+  height: 384px;
+  overflow: auto !important;
 }
