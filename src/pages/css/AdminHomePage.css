@@ -18,11 +18,11 @@ img.icon-user {
 
 .task-tbl {
   margin-top: 0 !important;
-  height: 150px; 
+  height: 150px;
 }
 
 .task-tbl-div {
-  height: 150px; 
+  height: 350px;
   overflow: auto !important;
   scrollbar-gutter: stable;
 }
