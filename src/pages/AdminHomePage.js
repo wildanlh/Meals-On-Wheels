@@ -245,8 +245,8 @@ const AdminHomePage = () => {
                         {/* <td className='text-white'>{order.deliveredBy?.name}</td> */}
                         <td className='text-white'>
                           <DropdownButton
-                            title='Prepare'
-                            variant='light'
+                            title='Assign'
+                            variant='success'
                             key='start'
                             id='dropdown-button-drop-start'
                             drop='start'
@@ -260,7 +260,7 @@ const AdminHomePage = () => {
                                 }
                                 key={partner.id}
                               >
-                                {partner.name} {partner.status}
+                                {partner.name}<br></br> {partner.status}
                               </Dropdown.Item>
                             ))}
                           </DropdownButton>
