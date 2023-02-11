@@ -70,7 +70,6 @@ const AdminManagePartnershipPage = () => {
           fill
         >
           <Tab eventKey='partnership-request' title='Partnership Request'>
-            <Form.Control type='text' placeholder='Search' className='my-3' />
             {msg}
             <div className='card-charity'>
               <Row>
