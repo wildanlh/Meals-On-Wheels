@@ -25,12 +25,14 @@ import ThankYouPage from "./pages/ThankYouPage"
 import MemberOrderHistoryPage from "./pages/MemberOrderHistoryPage"
 import PartnerHomePage from "./pages/PartnerHomePage"
 import AdminMealHistoryPage from "./pages/AdminMealHistoryPage"
+import ErrorPage from "./pages/ErrorPage"
 
 function App() {
   const { isLoggedIn, currentUser } = useContext(AuthContext)
 
   return (
     <Routes>
+      <Route path='*' element={<ErrorPage />} />
       <Route path='/' element={<HomePage />} />
       <Route path='/about' element={<AboutPage />} />
       <Route path='/contact' element={<ContactPage />} />
