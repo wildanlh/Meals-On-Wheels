@@ -68,10 +68,6 @@ const AdminManageUsersPage = () => {
                         <Dropdown.Item onClick={() => handleActive(user.id)}>
                           approve
                         </Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">*Delete</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">
-                          *Something else
-                        </Dropdown.Item>
                       </DropdownButton>
                     </td>
                   </tr>
