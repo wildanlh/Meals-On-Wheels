@@ -23,7 +23,7 @@ const MemberOrderHistoryPage = () => {
 
   useEffect(() => {
     getMemberOrderAllAPI(token)
-      .then((resp) => setOrder(resp.data.sort((a, b) => a.id - b.id)))
+      .then((resp) => setOrder(resp.data))
       .catch((err) => console.log(err))
 
     return () => {}
@@ -48,7 +48,7 @@ const MemberOrderHistoryPage = () => {
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody className='text-white'>
+            <tbody className='text-dark'>
               {order.map((x, i) => (
                 <tr key={x.id}>
                   <td>{i + 1}</td>
