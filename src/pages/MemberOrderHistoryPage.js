@@ -48,7 +48,7 @@ const MemberOrderHistoryPage = () => {
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody className="text-dark">
+            <tbody className="text-white">
               {order.map((x, i) => (
                 <tr key={x.id}>
                   <td>{i + 1}</td>
