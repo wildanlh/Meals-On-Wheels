@@ -31,8 +31,18 @@ const AdminManagePartnershipPage = () => {
 
   useEffect(() => {
     getAdminPartnerAPI(token)
-      .then((resp) => setPartner(resp.data))
-      .catch((err) => console.table(err))
+      .then((resp) => {
+        resp.data = resp.data
+          .filter((item) => {
+            return item.active === true
+          })
+          .map((item) => {
+            setPartner(item)
+            return item
+          })
+          setPartner(resp.data)
+      })
+      .catch((err) => console.log(err))
 
     getAdminPartnerAPI(token)
       .then((resp) => {
@@ -64,26 +74,39 @@ const AdminManagePartnershipPage = () => {
             {msg}
             <div className='card-charity'>
               <Row>
-                {inactivePartner.map((data) => (
-                  <Fragment key={data.id}>
-                    <Col sm={9}>
-                      <div className='d-flex'>
-                        <img src={data.imageUrl} alt='' />
-                        <h3>{data.name}</h3>
-                      </div>
-                    </Col>
-                    <Col sm={3}>
-                      <div className='text-center p-3'>
+              <Table
+                striped
+                className='text-center history-table mb-5 align-middle'
+              >
+                <thead className='history-table text-dark'>
+                  <tr>
+                    <th>Company Name</th>
+                    <th>Image</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody className=''>
+                  {inactivePartner.map((data) => (
+                    <tr key={data.id}>
+                      <td>{data.name}</td>
+                      <td>
+                        <img height="100px" src={data.imageUrl}/>
+                      </td>
+                      <td>{data.address}</td>
+                      <td>{data.email}</td>
+                      <td>              
                         <Button
                           className='button fw-bold'
                           onClick={() => handleAccept(data.id)}
                         >
                           Accept Partnership
-                        </Button>
-                      </div>
-                    </Col>
-                  </Fragment>
-                ))}
+                        </Button></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
               </Row>
             </div>
           </Tab>
