@@ -20,7 +20,6 @@ const FormRegister = () => {
   const [status, setStatus] = useState("");
   const navigate = useNavigate();
 
-
   const handleSubmit = async (event) => {
     setStatus(""); // Reset status
     event.preventDefault();
@@ -68,60 +67,26 @@ const FormRegister = () => {
   return (
     <div className="container d-flex justify-content-center">
       <div className="col-xxl-8 px-4 py-5">
-        <div
-          className="card row flex-lg-row-reverse  py-5"
-          bis_skin_checked="1"
-        >
-          <div
-            className="circle-yellow-lg"
-            style={{ top: "-70px", right: "-50px" }}
-          ></div>
-          <h3 className="contact-title mx-3 text-white text-center">
-            REGISTER
-          </h3>
+        <div className="card row flex-lg-row-reverse  py-5" bis_skin_checked="1">
+          <div className="circle-yellow-lg" style={{ top: "-70px", right: "-50px" }}></div>
+          <h3 className="contact-title mx-3 text-white text-center">REGISTER</h3>
           <hr className="text-white" />
-          <div
-            className="col-10 col-sm-8 col-lg-6 img-center"
-            bis_skin_checked="1"
-          >
-            <img
-              src={bannerportairt1}
-              className="rounded img-register mb-3 pe-3"
-              alt="Bootstrap Themes"
-              loading="lazy"
-            />
+          <div className="col-10 col-sm-8 col-lg-6 img-center" bis_skin_checked="1">
+            <img src={bannerportairt1} className="rounded img-register mb-3 pe-3" alt="Bootstrap Themes" loading="lazy" />
           </div>
           <div className="col-lg-6 text-center" bis_skin_checked="1">
-            <Form
-              className="p-3 text-white text-center"
-              onSubmit={handleSubmit}
-            >
+            <Form className="p-3 text-white text-center" onSubmit={handleSubmit}>
               <Form.Group className="mb-3 mx-3" controlId="name">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                  required
-                />
+                <Form.Control type="text" onChange={(e) => setName(e.target.value)} value={name} required />
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="address">
                 <Form.Label>Address</Form.Label>
-                <Form.Control
-                  type="text"
-                  onChange={(e) => setAddress(e.target.value)}
-                  value={address}
-                  required
-                />
+                <Form.Control type="text" onChange={(e) => setAddress(e.target.value)} value={address} required />
               </Form.Group>
               <Form.Group className="mb-3 mx-3 text" controlId="gender">
                 <Form.Label>Gender</Form.Label>
-                <Form.Select
-                  aria-label="Default select example"
-                  onChange={(e) => setGender(e.target.value)}
-                  value={gender}
-                  required
-                >
+                <Form.Select aria-label="Default select example" onChange={(e) => setGender(e.target.value)} value={gender} required>
                   <option disabled>Choose a gender</option>
                   <option defaultValue={true} value="MALE">
                     Male
@@ -151,41 +116,20 @@ const FormRegister = () => {
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder=""
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  required
-                />
+                <Form.Control type="email" placeholder="" onChange={(e) => setEmail(e.target.value)} value={email} required />
                 <p className="text-warning">{status}</p>
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control
-                  minLength={6}
-                  type="password"
-                  placeholder=""
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  required
-                />
+                <Form.Control minLength={6} type="password" placeholder="" onChange={(e) => setPassword(e.target.value)} value={password} required />
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="file">
                 <Form.Label>Qualification File Upload</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  required
-                />
+                <Form.Control type="file" onChange={(e) => setFile(e.target.files[0])} required />
               </Form.Group>
               <Form.Group className="mb-3 mx-3" controlId="file">
                 <Form.Label>Image Upload</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(e) => setImage(e.target.files[0])}
-                  required
-                />
+                <Form.Control type="file" onChange={(e) => setImage(e.target.files[0])} required />
               </Form.Group>
 
               <div className="text-center mb-2 d-grid mx-3 pt-3">
@@ -202,10 +146,7 @@ const FormRegister = () => {
               </div>
             </Form>
           </div>
-          <div
-            className="circle-yellow-lg"
-            style={{ bottom: "-70px", left: "-50px" }}
-          ></div>
+          <div className="circle-yellow-lg" style={{ bottom: "-70px", left: "-50px" }}></div>
         </div>
       </div>
     </div>
